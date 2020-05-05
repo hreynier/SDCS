@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<head>
+	<title>Final Project: Trees in Camden</title>
+	<link rel='stylesheet' id='font-css'  href='http://fonts.googleapis.com/css?family=Roboto:400,300,100' type='text/css' media='all' />
+	<link rel='stylesheet' id='font-css'  href='./css/style.css' type='text/css' media='all' />
+</head>
+<body>
+<div id='wrapper'>
+     <div id='map-canvas'></div>
+     <div id="titleHeader">
+     	 <h1>SDC: Trees in Camden</h1>
+     </div>
+     <div id="displayInfo">
+     		<div><h1>Info</h1> 
+     		<p>This dataset contains locations of Council owned trees on highways and in parks and open spaces in the borough. The data is collected during cyclical tree inspections by Camden tree officers. Each point contains tree species, height, spread, diameter at breast height (DBH), and maturity. Tree sequence number attached to each tree is site specific.</p></div>
+     </div>
+     <div id="displayWrapper">
+     		<div><span id="treeNum">0</span> Tress returned</div>
+     </div>
+</div>
+
+<!-- The Javascript from external websites gets Loaded Here -->
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"> </script>
+<script type='text/javascript' src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
+<script type='text/javascript' src='./js/mapStyle.js'></script>
+
+<!-- The Javascript gets loaded here -->
+<script type="text/javascript">
+    $.getJSON('https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0',function(data){
+    console.log(data)});
+	var map;
+	var markerArray = [];
+	var dataArray = [];
+	var infowindow = new google.maps.InfoWindow({maxWidth: 300});
+
+	var port = 8870;
+
+	$(document).ready(function() {
+
+		function initialize() {
+			var mapOptions = {
+				center: new google.maps.LatLng(51.554756, -0.164345),
+				zoom: 12,
+			 	styles: darkMap
+			};
+			
+			map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+			google.maps.event.addListener(map, 'dragend', function() {
+				var bounds = map.getBounds();
+				console.log("SW: " + bounds.getSouthWest() + " NE: " + bounds.getNorthEast());
+				console.log("Center: " + map.getCenter().lat() + ", " +  map.getCenter().lng());
+				getData(map.getCenter().lat(), map.getCenter().lng());
+			});
+
+			getData(map.getCenter().lat(), map.getCenter().lng());
+		}
+
+		function getData(lat, lng){
+			var lat = lat.toFixed(2); 
+			var lng = lng.toFixed(3);
+
+			console.log("Getting Data: " + lat + ", " + lng );
+
+			setAllMap(null);
+			markerArray = [];
+
+			console.log("https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0");
+
+			$.getJSON( "https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0", function( data ) {
+               
+				$.each(data, function(k,v){
+					
+					var latLng = new google.maps.LatLng(v.latitude, v.longitude);
+					
+					dataArray.push(latLng);
+					
+					var marker = new google.maps.Marker({
+      					position: latLng, 
+      					icon: "./img/icon.png",
+      					customInfo: v.common_name		
+      				});
+
+					google.maps.event.addListener(marker, 'click', function(content) {
+						return function(){
+							infowindow.setContent("");
+							
+							map.setCenter(new google.maps.LatLng(v.latitude, v.longitude));
+							$.getJSON("https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0", function( data ) {
+								var content = "<b>Name: </b>"+v.common_name+"<br/><b>Inspection date: </b> "+v.inspection_date+"<br/><b>Location:</b> "+ v.latitude + ", " + v.longitude ;
+						    	infowindow.setContent(content);
+						    });
+			
+						    infowindow.open(map,this);
+						}
+					}(""));
+
+					markerArray.push(marker);
+
+      			}); console.log(markerArray)
+
+      			$("#treeNum").html(data.length);
+      			
+      			setAllMap(map);
+			});
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+	});
+
+	//  ******************* FUNCTIONS TO USE FOR THE MAP YOU DON"T NEED TO EDIT ANYTHING BELOW THIS LINE **************************************************
+	
+	function createMarkers(){
+		var marker = new google.maps.Marker({
+  			position: latLng 				
+  		});
+	}
+
+	function setAllMap(map) {
+		for (var i = 0; i < markerArray.length; i++) {
+			markerArray[i].setMap(map);
+		}
+	}
+
+	function clearMarkers() {
+		setAllMarkers(null);
+	}
+
+	String.prototype.replaceAll = function(str1, str2, ignore) {
+    	return decodeURIComponent( this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2) );
+	} 
+
+
+</script>
+</body>
+</html>
