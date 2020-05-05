@@ -1,0 +1,56 @@
+html, body, #wrapper{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+#header{
+    height: 100px;  //or whatever. Note px not %.
+    width: 100%;
+}
+
+#footer{
+    height: 100px;  //or whatever. Note px not %.
+    width: 100%;
+}
+
+#map-canvas{
+    height: 100%;
+    width: 100%;
+}
+
+#displayWrapper{
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(255,255,255,0.1);
+    padding: 10px;
+    font-size: 30px;
+    bottom: 50px;
+    right: 10px;
+    color: #ffffff;
+}
+
+#displayInfo{
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(255,255,255,0.1);
+    padding: 10px;
+    font-size: 15px;
+    bottom: 50px;
+    left: 10px;
+    color: #ffffff;
+    width: 300px; 
+}
+
+#titleHeader{
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    font-size: 15px;
+    top: 0px;
+    width: 600px;
+    left: 30%;
+    color: #ffffff;
+    text-align: center;
+
+}

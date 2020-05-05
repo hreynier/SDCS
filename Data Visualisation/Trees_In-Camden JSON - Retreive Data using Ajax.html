@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+   <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $.ajax({
+    url: "https://opendata.camden.gov.uk/resource/csqp-kdss.json",
+    type: "GET",
+    data: {
+      "$limit" : 25000,
+      "$$app_token" : "5YbHlvnsIgblrrY3kSuIU9WZ0"
+    }
+}).done(function(data) {
+  alert("Retrieved " + data.length + " records from the dataset!");
+  console.log(data);
+});
+</script>
+</body>
+</html>
