@@ -6,11 +6,19 @@
 //This API assumes that the following functions are defined on MySQL,
 //      Distance, XXX etc.
 
+//And the following packages are installed on the server:
+//              moment,     mysql,      node,       jsdom,
+//              jquery,     express
+
 var moment = require('moment');
 
 var portNumber = 8703;
 
 var mysql = require('mysql');
+
+//const fastcsv = require('fast-csv');
+
+//const fs = require('fs');
 
 const { JSDOM } = require( "jsdom" );
 const { window } = new JSDOM( "" );
@@ -27,7 +35,8 @@ var connection = mysql.createConnection({
 connection.connect(function(err){
     if (err) console.log(err);
     console.log("Connected to MySQL Database");
-    var sql = `CREATE TABLE IF NOT EXISTS camden_tree(
+    //Not sure if needed as now importing manually.
+    /*var sql = `CREATE TABLE IF NOT EXISTS camden_tree(
         id INT AUTO_INCREMENT PRIMARY KEY,
         number_of_trees INT,
         sequence INT,
@@ -69,7 +78,7 @@ connection.connect(function(err){
     connection.query(sql, function(err, result) {
         if (err) console.log(err);
         console.log("Table Created.")
-    })
+    })*/
 });
 
 //  Setup the Express Server
@@ -87,32 +96,9 @@ app.get('/', function(req, res) {
     return res.render('index');
 })
 
-// JQuery fetch the data from the camden API
-// Key Secret:  1mgcsed2w54949ao09urc92ce8tpizcxawsel92gxc170d26ur
-// Key ID:      6lmy062j9slxtssj2u0vz427s
-// Key Name:    treeMap 
-// App TokenL   m9eU1BjvY0BO1CO4yLhpjPS26
-$.ajax({
-    url: "https://opendata.camden.gov.uk/resource/csqp-kdss.csv",
-    type: "GET",
-    data: {
-      "$limit"      : 50000,
-      "$$app_token" : "m9eU1BjvY0BO1CO4yLhpjPS26"
-    }
-}).done(function(data) {
-  console.log("Retrieved " + data.length + " records from the dataset!");
-  console.log("jQuery data: Fetched");
-  var camdenData = data;
-  if (camdenData != undefined){
-    console.log("Tree Data stored as variable.")
-    console.log(camdenData);
-  }
-  /*var sql = "INSERT INTO camden_tree VALUES ?"
-  connection.query(sql, [camdenData], function(err, result){
-    if (err) console.log("Data Import Error:" + err);
-    console.log(result.affectedRows + " rows imported.");
-  })*/
-});
+
+
+
 
 
 
