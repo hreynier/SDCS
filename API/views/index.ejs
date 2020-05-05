@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Camden Tree Map API Information</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<script src="./jquery.min.js"></script>
+<div id="container">
+	<h1>
+		Camden Tree Map API
+	</h1>
+	
+	<h2>
+	 Data Endpoints
+	</h2>
+
+	<p>
+		http://dev.spatialdatacapture.org:8703/data/:lat/:lon/:radius - <a href="http://dev.spatialdatacapture.org:8703/data/51.5390/-0.1426/10" target="_BLANK">Example: Returns all trees within 10m of camden town.</a><br/>
+		<b>Returns all tree spatial data from our database within a given radius (in meters) for a given lat/lng point.</b>
+	</p>	
+	
+	<p>
+		http://dev.spatialdatacapture.org:8703/data/treeDescription/:id - <a href="http://dev.spatialdatacapture.org:8703/data/treeDescription/9" target="_BLANK">Example: Tree #9</a> <br/>
+		<b>Returns a single tree's metadata inside our database for a given tree ID.</b>
+ 	
+	</p>
+
+	<p>
+		http://dev.spatialdatacapture.org:8703/data/tree/:commonname - <a href = "http://dev.spatialdatacapture.org:8703/data/tree/ash" target = "_BLANK">Example: Returns all 'Ash' trees.</a><br/>
+		<b>Returns all trees from our database for a given common name.</b>
+	</p>
+</div>
+</body>
+</html>

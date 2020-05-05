@@ -96,10 +96,126 @@ app.get('/', function(req, res) {
     return res.render('index');
 })
 
+//  API EndPoint to get spatial data for all trees in camden. Latitude/Longitude : 51.5390/0.1426 Radius : 30.
+app.get('/data/:lat/:lon/:radius', function (req, res) {
+
+    // Allows data to be downloaded from the server with security concerns
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
+    // If all the variables are provided connect to the database
+    if(req.params.lat != "" && req.params.lon != "" && req.params.radius != ""){
+             
+              // Parse the values from the URL into numbers for the query
+              var lat = parseFloat(req.params.lat);
+              var lon = parseFloat(req.params.lon);
+              var radius = parseFloat(req.params.radius);
 
 
+              // SQL Statement to run
+              var sql = "SELECT * FROM tree_locations WHERE DISTANCE(coords, POINT("+lon+","+lat+") ) <= " + radius;
+              
+              // Log it on the screen for debugging
+              console.log(sql);
+
+              // Run the SQL Query
+              connection.query(sql, function(err, rows, fields) {
+                      if (err) console.log("Err:" + err);
+                      if(rows != undefined){
+                              // If we have data that comes bag send it to the user.
+                              res.send(rows);
+                      }else{
+                              res.send("");
+                      }
+              });
+      }else{
+              // If all the URL variables are not passed send an empty string to the user
+              res.send("");
+      }
+});
+
+//  API Endpoint to get descriptional data on a specific tree. i.e. height, species etc..
+app.get('/data/treeDescription/:id', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
+    if(req.params.id != ""){
+              var id = parseInt(req.params.id);
+          
+              var sql = "SELECT * FROM tree_data where id = " + id; 
+
+              console.log(sql);
+              connection.query(sql, function(err, rows, fields) {
+                      if (err) console.log("Err:" + err);
+                      if(rows != undefined){
+                              res.send(rows);
+                      }else{
+                              res.send("");
+                      }
+              });
+      }else{
+              res.send("");
+      }
+});
+
+//  API Endpoint to get all the trees of one species/common name.
+app.get('/data/tree/:commonname', function (req, res){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
+    if(req.params.commonname != ""){
+        //Parse the variables from url, making sure to precent SQL injection.
+        var name = mysql_real_escape_string(req.params.commonname);
+
+        //SQL statement
+        var sql = "SELECT * FROM tree_data WHERE name_common like '%"+name+"%'";
+        //Debuggin
+        console.log(sql);
+
+        //Run the query
+        connection.query(sql, function(err, rows, fields) {
+            if (err) console.log("Err:" + err);
+            if (rows != undefined){
+                res.send(rows);
+            }else{
+                res.send("");
+            }
+        })
+    }else{
+        res.send("");
+    }
+});
+
+// Setup the server and print a string to the screen when server is ready
+var server = app.listen(portNumber, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('App listening at http://%s:%s', host, port);
+})
 
 
+//  Function to prevent SQL injection on string API requests.
+function mysql_real_escape_string (str) {
+    return str.replace(/[\0\x08\x09\x1a\n\r"'\\\%]/g, function (char) {
+        switch (char) {
+            case "\0":
+                return "\\0";
+            case "\x08":
+                return "\\b";
+            case "\x09":
+                return "\\t";
+            case "\x1a":
+                return "\\z";
+            case "\n":
+                return "\\n";
+            case "\r":
+                return "\\r";
+            case "\"":
+            case "'":
+            case "\\":
+            case "%":
+                return "\\"+char; // prepends a backslash to backslash, percent,
+                                  // and double/single quotes
+        }
+    });
+}
 
 
 
