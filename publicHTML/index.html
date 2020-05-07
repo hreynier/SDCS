@@ -9,6 +9,9 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"> </script>
+  <script type='text/javascript' src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
+  <script type='text/javascript' src='./js/JS.js'></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script type='text/javascript' src='./JS/HC.js'></script>
 <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -39,32 +42,35 @@
 
 <div id="section44 "></div>
 
-<div class="container">
-  <img src="https://cdn.shopify.com/s/files/1/0004/0635/5987/products/05Camden_detail_1024x1024@2x.jpg?v=1537532332" class=" img-fluid rounded mx-auto d-block" alt="Cinque Terre" >
-</div>
 
-<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
-
-<script type="text/javascript">
-$(function () {
-$('#container').highcharts({
-chart:{
-  type: 'line'
-},
-title: {
-text: 'Monthly Average Temperature',
-x: -20 center },
-subtitle: {
-text: 'Source: WorldClimate.com', x: -20
-}, legend: {
-layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0
-}, series: [{
-name: 'London',
-data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6] }]
-});
-});
 </script>
 </div>
+<div id="map"></div>
+<script>
+// Initialize and add the map
+function initMap() {
+// The location of camden
+var camden_cds = {lat: 51.554756, lng: -0.164345};
+// The map, centered at camden
+var map = new google.maps.Map(
+  document.getElementById('map'), {
+    zoom: 12,
+    center: camden_cds,
+    styles: retroMap
+});
+// The marker, positioned at camden
+var marker = new google.maps.Marker({position: camden_cds, map: map});
+}
+</script>
+<!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4&callback=initMap">
+</script>
+
 
 <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
 
@@ -104,13 +110,16 @@ data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6] }]
         }, {
             name: 'Ward 3',
             data: [43, 44, 42, 22, 51]
-        }]
+        }, {
+            name: 'Ward 4',
+            data: [75, 42, 49, 28, 31]
+        }
+      ]
     });
 });
 
 	</script>
-	</div>
-
+	
 
 </body>
 </html>
