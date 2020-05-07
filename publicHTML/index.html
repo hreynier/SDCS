@@ -1,125 +1,145 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link rel="stylesheet" href="./CSS/styles.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<title>Treeconomic Output</title>
+  <title>SDCSA - Camden Tree Analysis</title>
+  <link rel="stylesheet" href="./CSS/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Treeconomic Output</title>
 </head>
+
 <body>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"> </script>
-  <script type='text/javascript' src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <h1><b>Tree Maput</b></h1>
+    </a>
+
+    <!--alows the links to shrink into a menu on small screens -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./group.html">Group</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+
+  <div id="section44 "></div>
+
+  </script>
+  </div>
+  <div id="map"></div>
+  <!-- Load jQuery, Google Maps, Highcharts, and map styles here -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"> </script>
+  <script type='text/javascript'
+    src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
   <script type='text/javascript' src='./js/JS.js'></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script type='text/javascript' src='./JS/HC.js'></script>
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a class="navbar-brand" href="#"><h1><b>Tree Maput</b></h1></a>
 
-<!--alows the links to shrink into a menu on small screens -->
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./about.html">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./group.html">Group</a>
-      </li>
-    </ul>
-
-  </div>
-</nav>
-
-
-
-<div id="section44 "></div>
-
-
-</script>
-</div>
-<div id="map"></div>
-<script>
-// Initialize and add the map
-function initMap() {
-// The location of camden
-var camden_cds = {lat: 51.554756, lng: -0.164345};
-// The map, centered at camden
-var map = new google.maps.Map(
-  document.getElementById('map'), {
-    zoom: 12,
-    center: camden_cds,
-    styles: retroMap
-});
-// The marker, positioned at camden
-var marker = new google.maps.Marker({position: camden_cds, map: map});
-}
-</script>
-<!--Load the API from the specified URL
+  <!-- Google Map JS gets loaded below here! -->
+  <script type="text/javascript">
+    // Initialize and add the map
+    function initMap() {
+      // The location of camden
+      var camden_cds = { lat: 51.554756, lng: -0.164345 };
+      // The map, centered at camden
+      var map = new google.maps.Map(
+        document.getElementById('map'), {
+        zoom: 12,
+        center: camden_cds,
+        styles: retroMap
+      });
+      // The marker, positioned at camden
+      var marker = new google.maps.Marker({ position: camden_cds, map: map });
+    }
+  </script>
+  <!--Load the API from the specified URL
 * The async attribute allows the browser to render the page while the API loads
 * The key parameter will contain your own API key (which is not needed for this tutorial)
 * The callback parameter executes the initMap() function
 -->
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4&callback=initMap">
-</script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4&callback=initMap">
+    </script>
 
+  <!-- High Charts-->
+  <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
 
-<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+    <script type="text/javascript">
 
-	<script type="text/javascript">
-
-	$(function () {
-    $('#container').highcharts({
-        chart: {
+      $(function () {
+        $('#container').highcharts({
+          chart: {
             type: 'bar'
-        },
-        title: {
+          },
+          title: {
             text: 'Tree Types'
-        },
-        xAxis: {
+          },
+          xAxis: {
             categories: ['Maple', 'Birch', 'Oak', 'Pine', 'Cedar']
-        },
-        yAxis: {
+          },
+          yAxis: {
             min: 0,
             title: {
-                text: 'Total Trees by Type'
+              text: 'Total Trees by Type'
             }
-        },
-        legend: {
+          },
+          legend: {
             reversed: true
-        },
-        plotOptions: {
+          },
+          plotOptions: {
             series: {
-                stacking: 'normal'
+              stacking: 'normal'
             }
-        },
-        series: [{
+          },
+          series: [{
             name: 'Ward 1',
             data: [52, 31, 46, 72, 21]
-        }, {
+          }, {
             name: 'Ward 2',
             data: [22, 23, 36, 23, 12]
-        }, {
+          }, {
             name: 'Ward 3',
             data: [43, 44, 42, 22, 51]
-        }, {
+          }, {
             name: 'Ward 4',
             data: [75, 42, 49, 28, 31]
-        }
-      ]
-    });
-});
+          }
+          ]
+        });
+      });
 
-	</script>
-	
+    </script>
+  </div>
 
 </body>
+
 </html>
