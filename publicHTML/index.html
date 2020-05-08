@@ -48,6 +48,8 @@
   <!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
   <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
+  <!-- XDate For Date formatting-->
+  <script type='text/javascript' src='http://dev.spatialdatacapture.org/xdate/xdate.js'></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
   crossorigin="anonymous"></script>
@@ -197,13 +199,13 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
           console.log("Declared latitude,longitude variables.");
           //Loops through each row, extracts coordinates, and generates marker on map.
           $.each(data, function (key, value) {
-            latitude = value["lat"];
-            longitude = value["lon"];
-            //console.log("lat: " + latitude + ", lon: " + longitude);
-            //console.log(typeof(latitude));
+            latitude = value["Lat"];
+            longitude = value["Lon"];
+            console.log("lat: " + latitude + ", lon: " + longitude);
+            
             var latlng = new google.maps.LatLng(latitude, longitude);
-            //console.log(typeof(latlng));
-            console.log(latlng);
+            
+            
 
             dataArray.push(latlng);
             //Make new marker on map.
@@ -221,11 +223,15 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
 
                 map.setCenter(new google.maps.LatLng(value.coords.y, value.coords.x)); //Moves map to marker center.
                 $.getJSON("http://dev.spatialdatacapture.org:8703/data/treeDescription/" + this.customInfo, function (data) { //Adds custom info to marker based on API Endpoint.
-                  var content = "<b> Tree ID: </b>" + value.id + "<br/> <br/><b> Common Name:</b>" + data[0].name_common +
-                    " <br/> <br/><b>Height (m): </b>" + data[0].height + " <br/> <br/><b>Spread (m): </b>" + data[0].spread +
-                    "<br/> <br/><b> Diameter (cm): </b>" + data[0].diameter + " <br/> <br/><b>Maturity: </b>" + data[0].maturity +
-                    "<br/> <br/><b> Health: </b>" + data[0].health + "<br/> <br><b> Location: </b>" + value.coords.y + ", " + value.coords.x;
-                  infowindow.setContent(content)
+                  var dateInspected = new XDate((data[0].Date)).toString("MMM d, yyyy HH:mm:ss");
+                  var dateUploaded = new XDate((data[0].Uploaded)).toString("MMM d, yyyy HH:mm:ss");
+                  var content = "<b> Tree ID: </b>" + value.id + "<br/> <br/><b> Common Name:</b>" + data[0].Com_Name +
+                    " <br/> <br/><b>Height (m): </b>" + data[0].Height_M + " <br/> <br/><b>Spread (m): </b>" + data[0].Spread_M +
+                    "<br/> <br/><b> Diameter (cm): </b>" + data[0].Diameter_CM + " <br/> <br/><b>Maturity: </b>" + data[0].Maturity +
+                    "<br/> <br/><b> Health: </b>" + data[0].Condition + "<br/> <br><b> Location: </b>" + value.coords.y + ", " + value.coords.x +
+                    "<br/> <br><b> Date Inspected: </b>" +dateInspected+"<br/> <br><b> Date Uploaded: </b>"+dateUploaded;
+                    
+                    infowindow.setContent(content)
                 })
 
                 infowindow.open(map, this);
