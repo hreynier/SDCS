@@ -4,11 +4,11 @@
 // and format the data to be presented on a map.
 
 //This API assumes that the following functions are defined on MySQL,
-//      Distance, XXX etc.
+//      Distance etc.
 
 //And the following packages are installed on the server:
 //              moment,     mysql,      node,       jsdom,
-//              jquery,     express
+//              jquery,     express,    forever (to run sever forever.)
 
 var moment = require('moment');
 
@@ -106,13 +106,13 @@ app.get('/data/:lat/:lon/:radius', function (req, res) {
     if(req.params.lat != "" && req.params.lon != "" && req.params.radius != ""){
              
               // Parse the values from the URL into numbers for the query
-              var lat = parseFloat(req.params.lat);
-              var lon = parseFloat(req.params.lon);
+              var Lat = parseFloat(req.params.lat);
+              var Lon = parseFloat(req.params.lon);
               var radius = parseFloat(req.params.radius);
 
 
               // SQL Statement to run
-              var sql = "SELECT * FROM tree_locations WHERE DISTANCE(coords, POINT("+lon+","+lat+") ) <= " + radius;
+              var sql = "SELECT * FROM tree_locations WHERE DISTANCE(coords, POINT("+Lon+","+Lat+") ) <= " + radius;
               
               // Log it on the screen for debugging
               console.log(sql);
