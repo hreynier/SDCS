@@ -40,13 +40,13 @@
 
 
 
-  <div id="section44 "></div>
+
 
   </script>
   </div>
   <div id="map"></div>
   <!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
-  <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script> 
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
   integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -60,27 +60,46 @@
   <script type='text/javascript' src='./js/JS.js'></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script type='text/javascript' src='./JS/HC.js'></script>
-  
+
   <!-- High Charts-->
-  <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+  <div id="container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto">
 
     <script type="text/javascript">
 
-      $(function () {
+      $(function ()
+      {
         $('#container').highcharts({
           chart: {
             type: 'bar'
           },
+colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
           title: {
             text: 'Tree Types'
           },
           xAxis: {
-            categories: ['Maple', 'Birch', 'Oak', 'Pine', 'Cedar']
+            categories: [" Belsize " ,
+" Bloomsbury " ,
+" Camden Town with Primrose Hill " ,
+" Cantelowes " ,
+" Fortune Green " ,
+" Frognal and Fitzjohns " ,
+" Gospel Oak " ,
+" Hampstead Town " ,
+" Haverstock " ,
+" Highgate " ,
+" Holborn and Covent Garden " ,
+" Kentish Town " ,
+" Kilburn " ,
+" King's Cross " ,
+" Regent's Park " ,
+" St Pancras and Somers Town " ,
+" Swiss Cottage " ,
+" West Hampstead " ,]
           },
           yAxis: {
             min: 0,
             title: {
-              text: 'Total Trees by Type'
+              text: 'Trees by Height'
             }
           },
           legend: {
@@ -92,18 +111,23 @@
             }
           },
           series: [{
-            name: 'Ward 1',
-            data: [52, 31, 46, 72, 21]
+            name: '0-10',
+            data: [310,476,576,666,778,580,856,698,721,1314,556,1045,773,386,449,922,463,550,148]
           }, {
-            name: 'Ward 2',
-            data: [22, 23, 36, 23, 12]
+            name: '10-20',
+            data: [309,248,295,478,455,562,500,572,602,1071,385,390,681,319,390,642,415,278,48]
           }, {
-            name: 'Ward 3',
-            data: [43, 44, 42, 22, 51]
+            name: '20-30',
+            data: [56,240,51,81,37,150,125,59,95,280,340,34,79,83,124,214,100,9,9]
           }, {
-            name: 'Ward 4',
-            data: [75, 42, 49, 28, 31]
+            name: '30-40',
+            data: [2,42,0,1,0,0,0,1,0,4,8,0,1,30,15,8,1,0,0]
           }
+          , {
+            name: '40+',
+            data: [1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+          }
+
           ]
         });
       });
@@ -209,7 +233,7 @@
             }(""));
 
             markerArray.push(marker);
-           
+
           });
           console.log(markerArray.length);
           console.log(markerArray[1]);
@@ -219,7 +243,7 @@
       }
       //Start map with initialise function.
       google.maps.event.addDomListener(window, 'load', initialise);
-    });  
+    });
 
     // Functions that are used by map.
     function createMarkers() {
@@ -240,7 +264,8 @@
 
     String.prototype.replaceAll = function (str1, str2, ignore) {
       return decodeURIComponent(this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2));
-    } 
+    }
+
   </script>
 </body>
 
