@@ -154,7 +154,7 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
         // Map Options
         var mapOptions = {
           center: camden_cds,
-          zoom: 14,
+          zoom: 18,
           minZoom: 12,
           styles: retroMap
         };
@@ -166,11 +166,12 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
 
         //  Add Listener event that checks when the map boundaries change,
         //  So that data can be loaded.
-        google.maps.event.addListener(map, 'bounds-changed', function () {
+        map.addListener('bounds_changed', function () {
+          console.log("Bounds-Changed")
           var bounds = map.getBounds();
           console.log("SW: " + bounds.getSouthWest() + " NE: " + bounds.getNorthEast());
           console.log("Center: " + map.getCenter().lat() + ", " + map.getCenter().lng());
-          getData(map.getCenter().lat(), map.getCenter.lng());
+          getData(map.getCenter().lat(), map.getCenter().lng());
         })
         //  The marker, positioned at camden
         var marker = new google.maps.Marker({position: camden_cds, map: map });
@@ -242,7 +243,6 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
 
           });
           console.log(markerArray.length);
-          console.log(markerArray[1]);
           setAllMap(map);
         });
 
