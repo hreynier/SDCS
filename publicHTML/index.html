@@ -42,9 +42,13 @@
 
 
 
-  </script>
+ 
   </div>
   <div id="map"></div>
+  <div class="widget">
+    <button id = "btn-click">Heatmap!</button>
+  </div>
+
   <!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
   <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
@@ -166,8 +170,8 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
 
         //  Add Listener event that checks when the map boundaries change,
         //  So that data can be loaded.
-        map.addListener('bounds_changed', function () {
-          console.log("Bounds-Changed")
+        map.addListener('zoom_changed', function () {
+          console.log("Zoom_changed.")
           var bounds = map.getBounds();
           console.log("SW: " + bounds.getSouthWest() + " NE: " + bounds.getNorthEast());
           console.log("Center: " + map.getCenter().lat() + ", " + map.getCenter().lng());
@@ -249,6 +253,21 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
       }
       //Start map with initialise function.
       google.maps.event.addDomListener(window, 'load', initialise);
+      
+      //  ~~~Heatmap~~~
+      function heatmapOn(){
+        console.log("Starting heatmap")
+        //Create Heatmap Array
+        var heatArray = [];
+        //Get data.
+        getHeatmap();
+      }
+      $("#btn-click").click(heatmapOn);
+      
+      
+
+
+     
     });
 
     // Functions that are used by map.
@@ -267,6 +286,44 @@ colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
     function clearMarkers() {
       setAllMarkers(null);
     }
+
+    //Heatmap function, gets data for heatmap.
+    function getHeatmap() {
+      //Need to add input that depends on user button press.
+      //Store input variable.
+      var wgt = "Carbon_Sequest_YR";
+      console.log("Getting weighted location data: "+wgt);
+
+      setAllMap(null);  //Clears map.
+      heatArray = [];   //Clears heatmap data array.
+
+      //    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8703/" for more.
+      var url = "http://dev.spatialdatacapture.org:8703/data/sust/"+wgt;
+      console.log("API Endpoint: "+ url);
+
+      //    jQuery to grab data through endpoint
+      $.getJSON(url, function(data){
+        var latitude;
+        var longitude;
+        var weight;
+        $.each(data, function(key, value){
+          latitude  = value["Lat"];
+          longitude = value["Lon"];
+          weight    = value[wgt];
+          console.log("lat:" + latitude+", lon: "+ longitude + ", " + wgt + ": " + weight);
+
+          var loc = new google.maps.LatLng(latitude, longitude);
+          var object = {location: loc, weight: weight};
+          heatArray.push(object);
+        })
+        console.log("heatmap array length: " + heatArray.length);
+        var heatmap = new google.maps.visualization.HeatmapLayer({
+          data: heatArray
+        });
+        heatmap.setMap(map)
+      })
+    }
+    
 
     String.prototype.replaceAll = function (str1, str2, ignore) {
       return decodeURIComponent(this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2));
