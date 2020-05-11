@@ -50,7 +50,11 @@ p {
 .nav-link active{
   color:#65AD07;
 }
-
+.map-control-widget {
+  position: relative;
+  left : 25%;
+  bottom: 50%;
+}
 .container {
   padding-top: 100px;
  width: 900px;

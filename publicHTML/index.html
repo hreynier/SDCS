@@ -2,334 +2,337 @@
 <html>
 
 <head>
-  <title>SDCSA - Camden Tree Analysis</title>
-  <link rel="stylesheet" href="./CSS/styles.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>Treeconomic Output</title>
+	<title>SDCSA - Camden Tree Analysis</title>
+	<link rel="stylesheet" href="./CSS/styles.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>Treeconomic Output</title>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <h1><b>Tree Maput</b></h1>
-    </a>
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<a class="navbar-brand" href="#">
+			<h1><b>Tree Maput</b></h1>
+		</a>
 
-    <!--alows the links to shrink into a menu on small screens -->
+		<!--alows the links to shrink into a menu on small screens -->
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./group.html">Group</a>
-        </li>
-      </ul>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./about.html">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./group.html">Group</a>
+				</li>
+			</ul>
 
-    </div>
-  </nav>
+		</div>
+	</nav>
 
+	<div id="map">
+		<!--Move buttons + Info boxes here.-->
+	</div>
+	<div class="map-control-widget">
+		<button id="btn-heatmap">Heatmap!</button>
+		<button id="btn-markers">Markers!</button>
+		<button id="btn-geojson">GeoJSON!</button>
+	</div>
 
+	<!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
+	<!-- XDate For Date formatting-->
+	<script type='text/javascript' src='http://dev.spatialdatacapture.org/xdate/xdate.js'></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" <script type='text/javascript'
+		src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
+	<script type='text/javascript' src='./js/JS.js'></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script type='text/javascript' src='./JS/HC.js'></script>
 
+	<!-- High Charts-->
+	<div id="container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto">
 
+		<script type="text/javascript">
 
- 
-  </div>
-  <div id="map"></div>
-  <div class="widget">
-    <button id = "btn-click">Heatmap!</button>
-  </div>
+			$(function () {
+				$('#container').highcharts({
+					chart: {
+						type: 'bar'
+					},
+					colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
+					title: {
+						text: 'Tree Types'
+					},
+					xAxis: {
+						categories: [" Belsize ",
+							" Bloomsbury ",
+							" Camden Town with Primrose Hill ",
+							" Cantelowes ",
+							" Fortune Green ",
+							" Frognal and Fitzjohns ",
+							" Gospel Oak ",
+							" Hampstead Town ",
+							" Haverstock ",
+							" Highgate ",
+							" Holborn and Covent Garden ",
+							" Kentish Town ",
+							" Kilburn ",
+							" King's Cross ",
+							" Regent's Park ",
+							" St Pancras and Somers Town ",
+							" Swiss Cottage ",
+							" West Hampstead ",]
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							text: 'Trees by Height'
+						}
+					},
+					legend: {
+						reversed: true
+					},
+					plotOptions: {
+						series: {
+							stacking: 'normal'
+						}
+					},
+					series: [{
+						name: '0-10',
+						data: [310, 476, 576, 666, 778, 580, 856, 698, 721, 1314, 556, 1045, 773, 386, 449, 922, 463, 550, 148]
+					}, {
+						name: '10-20',
+						data: [309, 248, 295, 478, 455, 562, 500, 572, 602, 1071, 385, 390, 681, 319, 390, 642, 415, 278, 48]
+					}, {
+						name: '20-30',
+						data: [56, 240, 51, 81, 37, 150, 125, 59, 95, 280, 340, 34, 79, 83, 124, 214, 100, 9, 9]
+					}, {
+						name: '30-40',
+						data: [2, 42, 0, 1, 0, 0, 0, 1, 0, 4, 8, 0, 1, 30, 15, 8, 1, 0, 0]
+					}
+						, {
+						name: '40+',
+						data: [1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+					}
 
-  <!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
-  <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
-  <!-- XDate For Date formatting-->
-  <script type='text/javascript' src='http://dev.spatialdatacapture.org/xdate/xdate.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"></script>
-  <script type="text/javascript"
-  <script type='text/javascript'
-  src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
-  <script type='text/javascript' src='./js/JS.js'></script>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script type='text/javascript' src='./JS/HC.js'></script>
+					]
+				});
+			});
+		</script>
+	</div>
 
-  <!-- High Charts-->
-  <div id="container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto">
+	<!-- Google Map JS gets loaded below here! -->
+	<script type="text/javascript">
 
-    <script type="text/javascript">
+		var map;       	//	Declare empty variables for use later.
+		var markerArray = [];
+		var dataArray 	= [];
+		var heatArray	= [];
+		var heatmap 		;
+		var count			;
+		var infowindow 	= new google.maps.InfoWindow({ maxWidth: 300 });
 
-      $(function ()
-      {
-        $('#container').highcharts({
-          chart: {
-            type: 'bar'
-          },
-colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
-          title: {
-            text: 'Tree Types'
-          },
-          xAxis: {
-            categories: [" Belsize " ,
-" Bloomsbury " ,
-" Camden Town with Primrose Hill " ,
-" Cantelowes " ,
-" Fortune Green " ,
-" Frognal and Fitzjohns " ,
-" Gospel Oak " ,
-" Hampstead Town " ,
-" Haverstock " ,
-" Highgate " ,
-" Holborn and Covent Garden " ,
-" Kentish Town " ,
-" Kilburn " ,
-" King's Cross " ,
-" Regent's Park " ,
-" St Pancras and Somers Town " ,
-" Swiss Cottage " ,
-" West Hampstead " ,]
-          },
-          yAxis: {
-            min: 0,
-            title: {
-              text: 'Trees by Height'
-            }
-          },
-          legend: {
-            reversed: true
-          },
-          plotOptions: {
-            series: {
-              stacking: 'normal'
-            }
-          },
-          series: [{
-            name: '0-10',
-            data: [310,476,576,666,778,580,856,698,721,1314,556,1045,773,386,449,922,463,550,148]
-          }, {
-            name: '10-20',
-            data: [309,248,295,478,455,562,500,572,602,1071,385,390,681,319,390,642,415,278,48]
-          }, {
-            name: '20-30',
-            data: [56,240,51,81,37,150,125,59,95,280,340,34,79,83,124,214,100,9,9]
-          }, {
-            name: '30-40',
-            data: [2,42,0,1,0,0,0,1,0,4,8,0,1,30,15,8,1,0,0]
-          }
-          , {
-            name: '40+',
-            data: [1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-          }
+		//jQuery initialises and runs after body loads.
+		$(document).ready(function() {
 
-          ]
-        });
-      });
-    </script>
-  </div>
+			// Initialize map.
+			function initialise() {
+				// The location of Camden.
+				var camden_cds = { lat: 51.554756, lng: -0.164345 };
+				// Map Options
+				var mapOptions = {
+					center: camden_cds,
+					zoom: 14,
+					minZoom: 12,
+					styles: retroMap,
+					disableDefaultUI: true,
+					zoomControl: true
+				};
+				// The map, centered at camden
+				map = new google.maps.Map(document.getElementById('map'), mapOptions);
+				//	Init heatmap.
+				heatmap = new google.maps.visualization.HeatmapLayer({
+					data: getHeatmap()
+				});
+				
+				//  Gets Data on map load.
+				getData(map.getCenter().lat(), map.getCenter().lng());
+				//  The marker, positioned at camden
+				//var marker = new google.maps.Marker({ position: camden_cds, map: map });
+			}
 
-  <!-- Google Map JS gets loaded below here! -->
-  <script type="text/javascript">
+			//    Create function that gets the tree data to be shown on map from API.
+			function getData(lat, lng) {
+				var lat = lat.toFixed(2); //Changes to 2 decimal places.
+				var lng = lng.toFixed(3);
 
-    var map;            //Declare empty variables for use later.
-    var markerArray = [];
-    var dataArray = [];
-    var infowindow = new google.maps.InfoWindow({maxWidth: 300});
+				console.log("Getting Data: " + lat + ", " + lng);
 
-    //jQuery initialise.
-    $(document).ready(function() {
+				setAllMap(null);
+				markerArray = [];
+				var radius = 2000; //Radius of 2km.
 
-      // Initialize and add the map
-      function initialise() {
-        // The location of camden
-        var camden_cds = { lat: 51.554756, lng: -0.164345 };
-        // Map Options
-        var mapOptions = {
-          center: camden_cds,
-          zoom: 18,
-          minZoom: 12,
-          styles: retroMap
-        };
-        // The map, centered at camden
-        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+				//  URL = API Endpoint that gets the data. Check "http://dev.spatialdatacapture.org:8703/" for more info.
+				var url = "http://dev.spatialdatacapture.org:8703/data/" + lat + "/" + lng + "/" + radius;
+				console.log("API Endpoint :" + url);
 
-        //  Gets Data on map load.
-        getData(map.getCenter().lat(), map.getCenter().lng());
+				//  jQuery gets data through API Endpoint
+				$.getJSON(url, function (data) {
+					//  Declare variables
+					var latitude;
+					var longitude;
+					console.log("Declared latitude,longitude variables.");
+					//Loops through each row, extracts coordinates, and generates marker on map.
+					$.each(data, function (key, value) {
+						latitude = value["Lat"];
+						longitude = value["Lon"];
+						console.log("lat: " + latitude + ", lon: " + longitude);
 
-        //  Add Listener event that checks when the map boundaries change,
-        //  So that data can be loaded.
-        map.addListener('zoom_changed', function () {
-          console.log("Zoom_changed.")
-          var bounds = map.getBounds();
-          console.log("SW: " + bounds.getSouthWest() + " NE: " + bounds.getNorthEast());
-          console.log("Center: " + map.getCenter().lat() + ", " + map.getCenter().lng());
-          getData(map.getCenter().lat(), map.getCenter().lng());
-        })
-        //  The marker, positioned at camden
-        var marker = new google.maps.Marker({position: camden_cds, map: map });
-      }
-
-      //    Create function that gets the tree data to be shown on map from API.
-      function getData(lat, lng) {
-        var lat = lat.toFixed(2); //Changes to 2 decimal places.
-        var lng = lng.toFixed(3);
-
-        console.log("Getting Data: " + lat + ", " + lng);
-
-        setAllMap(null);
-        markerArray = [];
-        var radius = 2000; //Radius of 2km.
-
-        //  URL = API Endpoint that gets the data. Check "http://dev.spatialdatacapture.org:8703/" for more info.
-        var url = "http://dev.spatialdatacapture.org:8703/data/" + lat + "/" + lng + "/" + radius;
-        console.log("API Endpoint :" + url);
-
-        //  jQuery gets data through API Endpoint
-        $.getJSON(url, function (data) {
-          //  Declare variables
-          var latitude;
-          var longitude;
-          console.log("Declared latitude,longitude variables.");
-          //Loops through each row, extracts coordinates, and generates marker on map.
-          $.each(data, function (key, value) {
-            latitude = value["Lat"];
-            longitude = value["Lon"];
-            console.log("lat: " + latitude + ", lon: " + longitude);
-            
-            var latlng = new google.maps.LatLng(latitude, longitude);
-            
-            
-
-            dataArray.push(latlng);
-            //Make new marker on map.
-            var marker = new google.maps.Marker({
-              position: latlng,
-              customInfo: value.id,
-              icon: "./img/icon.png",
-              map: map
-            });
-
-            //When you click on tree display some information from API Endpoint.
-            google.maps.event.addListener(marker, 'click', function (content) {
-              return function () {
-                infowindow.setContent("");
-
-                map.setCenter(new google.maps.LatLng(value.coords.y, value.coords.x)); //Moves map to marker center.
-                $.getJSON("http://dev.spatialdatacapture.org:8703/data/treeDescription/" + this.customInfo, function (data) { //Adds custom info to marker based on API Endpoint.
-                  var dateInspected = new XDate((data[0].Date)).toString("MMM d, yyyy HH:mm:ss");
-                  var dateUploaded = new XDate((data[0].Uploaded)).toString("MMM d, yyyy HH:mm:ss");
-                  var content = "<b> Tree ID: </b>" + value.id + "<br/> <br/><b> Common Name:</b>" + data[0].Com_Name +
-                    " <br/> <br/><b>Height (m): </b>" + data[0].Height_M + " <br/> <br/><b>Spread (m): </b>" + data[0].Spread_M +
-                    "<br/> <br/><b> Diameter (cm): </b>" + data[0].Diameter_CM + " <br/> <br/><b>Maturity: </b>" + data[0].Maturity +
-                    "<br/> <br/><b> Health: </b>" + data[0].Condition + "<br/> <br><b> Location: </b>" + value.coords.y + ", " + value.coords.x +
-                    "<br/> <br><b> Date Inspected: </b>" +dateInspected+"<br/> <br><b> Date Uploaded: </b>"+dateUploaded;
-                    
-                    infowindow.setContent(content)
-                })
-
-                infowindow.open(map, this);
-              }
-            }(""));
-
-            markerArray.push(marker);
-
-          });
-          console.log(markerArray.length);
-          setAllMap(map);
-        });
-
-      }
-      //Start map with initialise function.
-      google.maps.event.addDomListener(window, 'load', initialise);
-      
-      //  ~~~Heatmap~~~
-      function heatmapOn(){
-        console.log("Starting heatmap")
-        //Create Heatmap Array
-        var heatArray = [];
-        //Get data.
-        getHeatmap();
-      }
-      $("#btn-click").click(heatmapOn);
-      
-      
+						var latlng = new google.maps.LatLng(latitude, longitude);
 
 
-     
-    });
 
-    // Functions that are used by map.
-    function createMarkers() {
-      var marker = new google.maps.Marker({
-        position: latlng
-      });
-    }
+						dataArray.push(latlng);
+						//Make new marker on map.
+						var marker = new google.maps.Marker({
+							position: latlng,
+							customInfo: value.id,
+							icon: "./img/icon.png",
+							map: map
+						});
 
-    function setAllMap(map) {
-      for (var i = 0; i < markerArray.length; i++) {
-        markerArray[i].setMap(map);
-      }
-    }
+						//When you click on tree display some information from API Endpoint.
+						google.maps.event.addListener(marker, 'click', function (content) {
+							return function () {
+								infowindow.setContent("");
 
-    function clearMarkers() {
-      setAllMarkers(null);
-    }
+								map.setCenter(new google.maps.LatLng(value.coords.y, value.coords.x)); //Moves map to marker center.
+								$.getJSON("http://dev.spatialdatacapture.org:8703/data/treeDescription/" + this.customInfo, function (data) { //Adds custom info to marker based on API Endpoint.
+									var dateInspected = new XDate((data[0].Date)).toString("MMM d, yyyy HH:mm:ss");
+									var dateUploaded = new XDate((data[0].Uploaded)).toString("MMM d, yyyy HH:mm:ss");
+									var content = "<b> Tree ID: </b>" + value.id + "<br/> <br/><b> Common Name:</b>" + data[0].Com_Name +
+										" <br/> <br/><b>Height (m): </b>" + data[0].Height_M + " <br/> <br/><b>Spread (m): </b>" + data[0].Spread_M +
+										"<br/> <br/><b> Diameter (cm): </b>" + data[0].Diameter_CM + " <br/> <br/><b>Maturity: </b>" + data[0].Maturity +
+										"<br/> <br/><b> Health: </b>" + data[0].Condition + "<br/> <br><b> Location: </b>" + value.coords.y + ", " + value.coords.x +
+										"<br/> <br><b> Date Inspected: </b>" + dateInspected + "<br/> <br><b> Date Uploaded: </b>" + dateUploaded;
 
-    //Heatmap function, gets data for heatmap.
-    function getHeatmap() {
-      //Need to add input that depends on user button press.
-      //Store input variable.
-      var wgt = "Carbon_Sequest_YR";
-      console.log("Getting weighted location data: "+wgt);
+									infowindow.setContent(content)
+								})
 
-      setAllMap(null);  //Clears map.
-      heatArray = [];   //Clears heatmap data array.
+								infowindow.open(map, this);
+							}
+						}(""));
 
-      //    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8703/" for more.
-      var url = "http://dev.spatialdatacapture.org:8703/data/sust/"+wgt;
-      console.log("API Endpoint: "+ url);
+						markerArray.push(marker);
 
-      //    jQuery to grab data through endpoint
-      $.getJSON(url, function(data){
-        var latitude;
-        var longitude;
-        var weight;
-        $.each(data, function(key, value){
-          latitude  = value["Lat"];
-          longitude = value["Lon"];
-          weight    = value[wgt];
-          console.log("lat:" + latitude+", lon: "+ longitude + ", " + wgt + ": " + weight);
+					});
+					console.log(markerArray.length);
+					count = 0;
+				});
 
-          var loc = new google.maps.LatLng(latitude, longitude);
-          var object = {location: loc, weight: weight};
-          heatArray.push(object);
-        })
-        console.log("heatmap array length: " + heatArray.length);
-        var heatmap = new google.maps.visualization.HeatmapLayer({
-          data: heatArray
-        });
-        heatmap.setMap(map)
-      })
-    }
-    
+			}
+			//Heatmap function, gets data for heatmap.
+			function getHeatmap() {
+				//Need to add input that depends on user button press.
+				//Store input variable.
+				var wgt = "Carbon_Sequest_YR";
+				console.log("Getting weighted location data: " + wgt);
 
-    String.prototype.replaceAll = function (str1, str2, ignore) {
-      return decodeURIComponent(this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2));
-    }
+				//setAllMap(null);  //Clears map of markers.
+				heatArray = [];   //Clears heatmap data array.
 
-  </script>
+				//    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8703/" for more.
+				var url = "http://dev.spatialdatacapture.org:8703/data/sust/" + wgt;
+				console.log("API Endpoint: " + url);
+
+				//    jQuery to grab data through endpoint
+				$.getJSON(url, function (data) {
+					var latitude;
+					var longitude;
+					var weight;
+					$.each(data, function (key, value) {
+						latitude = value["Lat"];
+					longitude = value["Lon"];
+						weight = value[wgt];
+						console.log("lat:" + latitude + ", lon: " + longitude + ", " + wgt + ": " + weight);
+
+						var loc = new google.maps.LatLng(latitude, longitude);
+						var object = { location: loc, weight: weight };
+						heatArray.push(object);
+					})
+					console.log("heatmap array length: " + heatArray.length);
+				})
+				return heatArray;
+			}
+			
+			//	Functions for Map toggles.
+			function toggleMarkers(){
+				heatmap.setMap(null);
+				if(count == 0){
+					clearMarkers();
+					count = 1;
+				}else{
+					setAllMap(map);
+					count = 0;
+				}
+			}
+
+			function toggleHeatmap() {
+				console.log("Clearing Map...")
+				clearMarkers();
+				count = 1;
+				console.log("Starting Heatmap...")
+				heatmap.setMap(heatmap.getMap() ? null : map);
+			}
+
+			//	Button-jQuery
+			$("#btn-heatmap").click(toggleHeatmap);
+
+			$("#btn-markers").click(toggleMarkers);
+
+			//	Start map with initialise function, loads map with markers.
+			google.maps.event.addDomListener(window, 'load', initialise);
+		});
+
+		// Functions that are used by map toggles.
+		function createMarkers() {
+			var marker = new google.maps.Marker({
+				position: latlng
+			});
+		}
+
+		function setAllMap(map) {
+			for (var i = 0; i < markerArray.length; i++) {
+				markerArray[i].setMap(map);
+			}
+		}
+
+		function clearMarkers() {
+			setAllMap(null);
+		}
+
+
+		String.prototype.replaceAll = function (str1, str2, ignore) {
+			return decodeURIComponent(this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2));
+		}
+
+	</script>
 </body>
 
 </html>
