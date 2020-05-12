@@ -16,6 +16,8 @@ var portNumber = 8703;
 
 var mysql = require('mysql');
 
+var path = require('path');
+
 //const fastcsv = require('fast-csv');
 
 //const fs = require('fs');
@@ -90,6 +92,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/js'))
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/images'));
+app.use(express.static(__dirname + '/data'));
 
 //Default API Endpoint - returns the index.ejs landing / docu page.
 app.get('/', function(req, res) {
@@ -183,13 +186,6 @@ app.get('/data/tree/:commonname', function (req, res){
     }
 });
 
-// Setup the server and print a string to the screen when server is ready
-var server = app.listen(portNumber, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log('App listening at http://%s:%s', host, port);
-})
-
 //  API EndPoint to get spatial & sustainability (carbon, pollution etc) data for all trees in camden.
 app.get('/data/sust/:weight', function (req, res) {
 
@@ -227,8 +223,33 @@ app.get('/data/sust/:weight', function (req, res) {
       }
 });
 
+//  API Endpoint to get the Camden Ward Boundary Spatial GeoJSON from the server.
+app.get('/data/boundary', function (req, res) {
+
+    //  Allows data to be downloaded from the server with security concerns.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
+    
+    var options = {
+        root: path.join(__dirname, '/data')
+    };
+    console.log("/data/boundary . . . Sending data.")
+    res.sendFile('Camden_Ward_Boundary.geojson', options ,function (err){
+        if (err)    {
+            console.log(err);
+        }   else    {
+            console.log("Sent: Camden Ward Boundaries");
+        }
+    });
+})
 
 
+// Setup the server and print a string to the screen when server is ready
+var server = app.listen(portNumber, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('App listening at http://%s:%s', host, port);
+})
 
 //  Function to prevent SQL injection on string API requests.
 function mysql_real_escape_string (str) {
