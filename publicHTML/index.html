@@ -42,9 +42,18 @@
 		<!--Move buttons + Info boxes here.-->
 	</div>
 	<div class="map-control-widget">
-		<button id="btn-heatmap">Heatmap!</button>
-		<button id="btn-markers">Markers!</button>
-		<button id="btn-geojson">GeoJSON!</button>
+		<button id="btn-heatmap"class=button1 onclick="myFunctionz('Heatinfo')">Heatmap</button>
+	  <button id="btn-markers"class=button1 onclick="myFunctionz('Markersinfo')">Markers</button>
+	  <button id="btn-geojson"class=button1 onclick="myFunctionz('geoinfo')">GeoJSON</button>
+	</div>
+	<div id="Heatinfo">
+	This layer displays a heatmap of pollution removed in the form of carbon absorbed or carbon stored due to trees.
+	</div>
+	<div id="Markersinfo">
+	This layer displays indvidual trees. Click on each marker for more information like tree height or type.
+	</div>
+	<div id="geoinfo">
+	This is my DIV element3.
 	</div>
 
 	<!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
@@ -66,7 +75,7 @@
 	<script type='text/javascript' src='./JS/HC.js'></script>
 
 	<!-- High Charts-->
-	<div id="container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto">
+	<div id="container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
 
 		<script type="text/javascript">
 
@@ -170,7 +179,7 @@
 				heatmap = new google.maps.visualization.HeatmapLayer({
 					data: getHeatmap()
 				});
-				
+
 				//  Gets Data on map load.
 				getData(map.getCenter().lat(), map.getCenter().lng());
 				//  The marker, positioned at camden
@@ -280,7 +289,7 @@
 				})
 				return heatArray;
 			}
-			
+
 			//	Functions for Map toggles.
 			function toggleMarkers(){
 				heatmap.setMap(null);
@@ -333,6 +342,22 @@
 		}
 
 	</script>
+	<script>
+//script for changing text when buttons are clicked
+	function myFunctionz(bro) {
+	  document.getElementById('Heatinfo').style.display = "none";
+	  document.getElementById('Markersinfo').style.display = "none";
+	  document.getElementById('geoinfo').style.display = "none";
+	  console.log("plz give us a first");
+	  var x = document.getElementById(bro);
+
+	  if (x.style.display === "block") {
+	    x.style.display = "none";
+	  } else {
+	    x.style.display = "block";
+	  }
+	};
+</script>
 </body>
 
 </html>

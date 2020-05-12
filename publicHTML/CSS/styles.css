@@ -1,6 +1,6 @@
 
 body {
-  background-color: #ffddc9;
+  background-color: white;
 }
 h1 {
   font-size: 30px;
@@ -11,8 +11,8 @@ h1 {
 
 }
 h3 {
-  font-size: 16px;
-  font-family: Palatino, 'Palatino Linotype', sans-serif;
+  font-size: 12px;
+  font-family: veranda  , sans-serif;
   color:grey;
 }
 p {
@@ -51,10 +51,42 @@ p {
   color:#65AD07;
 }
 .map-control-widget {
-  position: relative;
-  left : 25%;
-  bottom: 50%;
+  margin: auto;
+  padding-top: 35px;
+  width:375px;
+  padding-bottom: 5px;
 }
+
+
+
+
+
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 1px solid #797D62;
+  border-radius: 0px;
+  font-size: 20px;
+  font-family: veranda  , sans-serif;
+  color:#797D62;
+  margin:10px;
+ pading: 5px;
+}
+
+.button1:hover {
+  background-color: #797D62;
+  color: white;
+}
+
+.button1:active {
+    background-color: #797D62;
+    color: white;
+}
+
+
+
+
 .container {
   padding-top: 100px;
  width: 900px;
@@ -106,3 +138,43 @@ p {
   height: 700px;  /* The height is 400 pixels */
   width: 100%;  /* The width is the width of the web page */
  }
+
+#Heatinfo {
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 20px;
+  font-family: optima  , sans-serif;
+  color: #4c4f3e;
+  background-color: #cfcfa7;
+}
+#Markersinfo {
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 20px;
+  font-family: optima  , sans-serif;
+  color: #4c4f3e;
+  background-color: #cfcfa7;
+}
+#geoinfo{
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 20px;
+  font-family: optima  , sans-serif;
+  color: #4c4f3e;
+  background-color: #cfcfa7;
+}
