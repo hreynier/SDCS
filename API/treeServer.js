@@ -243,6 +243,29 @@ app.get('/data/boundary', function (req, res) {
     });
 })
 
+//  API Endpoint to get clustering data results.
+app.get('/data/clusters/', function (req, res){
+
+    //  Allows data to be dwnloaded from the server with security concerns.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Acces-Control-Allow-Headers", "X-Requested-WithD");
+
+    //  SQL statement.
+    var sql = "SELECT ward_name, Amenity_Gi, Pollution_Gi FROM clusters ORDER BY ward_name;"
+    //  Log it.
+    console.log("SQL: " + sql);
+
+    //  Run the query.
+    connection.query(sql, function(err, rows){
+        if (err) console.log("Err: " + err);
+        if (rows != undefined){
+            res.send(rows);
+        }   else    {
+            res.send("");
+        }
+    })
+})
+
 
 // Setup the server and print a string to the screen when server is ready
 var server = app.listen(portNumber, function () {
