@@ -342,8 +342,8 @@
 			}
 
 			function styleFeature(feature) {
-				var low 	= 	[5,56,107]; //Colours of min and max datum.
-				var high 	=	[252,68,69];
+				var low 	= 	[210,91,22]; //Colours of min and max datum in hsl.
+				var high 	=	[360,97,60];
 
 				//	Delta represents ratio of where the data value sits between min and max.
 				var delta = (feature.getProperty('data') - coeffMin) / (coeffMax - coeffMin);
