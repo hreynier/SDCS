@@ -1,7 +1,12 @@
 
 body {
   background-color: white;
+  /*overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none; --- Hide scrollbars*/
 }
+/*body::-webkit-scrollbar {
+  width: 0 !important
+}*/   /*---Hides Scrollbars---*/
 h1 {
   font-size: 30px;
   font-family: veranda  , sans-serif;
@@ -43,6 +48,81 @@ p {
 #subheading{
   padding-top: -50px;
 }
+
+/*--- CONTROL + LEGEND BOX FOR CLUSTER MAP */
+#data-control-widget{
+  position:relative;
+  top: 0px;
+  z-index: 5;
+  display: none;
+}
+.nicebox {
+  position: absolute;
+  text-align: center;
+  
+  font-family: sans-serif; /*Not sure what font family to use here... @Ahmad can you change to what you think is suitable. */
+  font-size: 13px;
+  z-index: 6;
+  box-shadow: 0 4px 6px -4px #333;
+  padding: 5px 10px;
+  background: rgb(255,255,255);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(245, 245,245, 1) 100%);
+  border: rgb(229, 229, 229) 1px solid;
+}
+
+#cluster-controls {
+  top: 10px;
+  left: 110px;
+  width: 360px;
+  height: 45px;
+}
+#data-box {
+  top: 10px;
+  left: 500px;
+  height: 45px;
+  line-height: 45px;
+  display: none;
+}
+#legend {
+  display: flex;
+  display: -webkit-box;
+  padding-top: 7px;
+}
+.colour-legend{
+  background: linear-gradient(to right,
+  hsl(210, 91%, 22%) 0%,        /*Colour of minimum data.*/
+  hsl(248, 93%, 32%) 25%,
+  hsl(285, 94%, 41%) 50%,
+  hsl(323, 96%, 51%) 75%,
+  hsl(360, 97%, 60%) 100%       /*Colour of max data.*/
+  );
+  flex: 1;
+  -webkit-box-flex: 1;
+  margin: 0 5px;
+  text-align: left;
+  font-size: 1.0em;
+  line-height: 1.0em;
+}
+#data-value{
+  font-size: 2.0em;
+  font-weight: bold;
+}
+#data-label{
+  font-size: 2.0em;
+  font-weight: normal;
+  padding-right: 10px;
+}
+#data-label:after {
+  content: ':'
+}
+#data-point{
+  margin-left: -5px;
+  display: none;
+  font-size: 14px;
+  width: 14px;
+}
+
+
 .navbar navbar-expand-lg navbar-light bg-light {
   padding-right: 23px;
   box-shadow: 0px 5px 10px #cccccc;
@@ -71,7 +151,7 @@ p {
   font-family: veranda  , sans-serif;
   color:#797D62;
   margin:10px;
- pading: 5px;
+  padding: 5px;
 }
 
 .button1:hover {
@@ -139,7 +219,7 @@ p {
   width: 100%;  /* The width is the width of the web page */
  }
 
-#Heatinfo {
+#heatInfo {
   width: 100%;
   padding: 20px 0;
   padding-left: 15%;
@@ -152,7 +232,7 @@ p {
   color: #4c4f3e;
   background-color: #cfcfa7;
 }
-#Markersinfo {
+#markerInfo {
   width: 100%;
   padding: 20px 0;
   padding-left: 15%;
@@ -165,7 +245,7 @@ p {
   color: #4c4f3e;
   background-color: #cfcfa7;
 }
-#geoinfo{
+#geoInfo{
   width: 100%;
   padding: 20px 0;
   padding-left: 15%;

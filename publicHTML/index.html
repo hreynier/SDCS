@@ -37,23 +37,35 @@
 
 		</div>
 	</nav>
-
+	<div id = "data-control-widget">
+		<div id = "cluster-controls" class = "nicebox">
+			<div id = "legend">
+				<div id = "data-min">min</div>
+				<div class = "colour-legend"><span id = "data-point">&#x25c7;</span></div>
+				<div id = "data-max">max</div>
+			</div>
+		</div>
+		<div id = "data-box" class = "nicebox">
+			<label id = "data-label" for "data-value"></label>
+			<span id = "data-value"></span>
+		</div>
+	</div>
 	<div id="map">
 		<!--Move buttons + Info boxes here.-->
 	</div>
 	<div class="map-control-widget">
-		<button id="btn-heatmap"class=button1 onclick="myFunctionz('Heatinfo')">Heatmap</button>
-	  <button id="btn-markers"class=button1 onclick="myFunctionz('Markersinfo')">Markers</button>
-	  <button id="btn-data"class=button1 onclick="myFunctionz('geoinfo')">GeoJSON</button>
+		<button id="btn-heatmap"class=button1 onclick="toggleBox('heatInfo')">Heatmap</button>
+	  <button id="btn-markers"class=button1 onclick="toggleBox('markerInfo')">Markers</button>
+	  <button id="btn-data"class=button1 onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">GeoJSON</button>
 	</div>
-	<div id="Heatinfo">
+	<div id="heatInfo">
 	This layer displays a heatmap of pollution removed in the form of carbon absorbed or carbon stored due to trees.
 	</div>
-	<div id="Markersinfo">
+	<div id="markerInfo">
 	This layer displays indvidual trees. Click on each marker for more information like tree height or type.
 	</div>
-	<div id="geoinfo">
-	This is my DIV element3.
+	<div id="geoInfo">
+	This layer displays the clustering. . .  EXPAND idk what to write.
 	</div>
 
 	<!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
@@ -171,7 +183,7 @@
 				// Map Options
 				var mapOptions = {
 					center: camden_cds,
-					zoom: 14,
+					zoom: 13,
 					minZoom: 12,
 					styles: retroMap,
 					disableDefaultUI: true,
@@ -336,8 +348,11 @@
 						}
 					});
 					console.log("coeff Min: " + coeffMin + ", coeff Max: " + coeffMax);
-					//	Add min-max update legend (getElementById . . .)
-					
+					//	Updates legend with the min/max data.
+					document.getElementById('data-min').textContent = 
+						coeffMin.toLocaleString();
+					document.getElementById('data-max').textContent =
+						coeffMax.toLocaleString();
 				});
 			}
 
@@ -384,7 +399,20 @@
 				//	Set hover state so that styleFeature func can change border styles.
 				e.feature.setProperty('state', 'hover');
 
-				//	Add percent calculator and update the legend.
+				//	Calculate percentage - where the data value is within distribution of all data values.
+				var percent = (e.feature.getProperty('data') - coeffMin)/
+					(coeffMax - coeffMin) * 100;
+				
+				//	Update the legend with the data of the ward.
+
+				document.getElementById('data-label').textContent 	=
+					e.feature.getProperty('name');
+				document.getElementById('data-value').textContent 	= 
+					e.feature.getProperty('data').toLocaleString();
+				//	Update legend and moves data point along it.
+				document.getElementById('data-box').style.display 	= 'block';
+				document.getElementById('data-point').style.display = 'block';
+				document.getElementById('data-point').style.paddingLeft = percent + '%';
 			}
 
 			function mouseOutWard(e) {
@@ -485,10 +513,11 @@
 	</script>
 	<script>
 //script for changing text when buttons are clicked.
-	function myFunctionz(bro) {
-	  document.getElementById('Heatinfo').style.display = "none";
-	  document.getElementById('Markersinfo').style.display = "none";
-	  document.getElementById('geoinfo').style.display = "none";
+	function toggleBox(bro) {
+	  document.getElementById('heatInfo').style.display = "none";
+	  document.getElementById('markerInfo').style.display = "none";
+	  document.getElementById('geoInfo').style.display = "none";
+	  document.getElementById('data-control-widget').style.display = "none";
 	  console.log("plz give us a first");
 	  var x = document.getElementById(bro);
 
