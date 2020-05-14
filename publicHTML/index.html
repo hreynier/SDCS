@@ -157,6 +157,8 @@
 		var dataMap			;
 		var count			;
 		var dCount 		= 0	;
+		var coeffMin 	= Number.MAX_VALUE;
+		var coeffMax 	= Number.MIN_VALUE;
 		var infowindow 	= new google.maps.InfoWindow({ maxWidth: 300 });
 
 		//jQuery initialises and runs after body loads.
@@ -177,13 +179,16 @@
 				};
 				// The map, centered at camden
 				map = new google.maps.Map(document.getElementById('map'), mapOptions);
+				
+				//	Init geoJSON retrieval for data layer
+				dataMap = new google.maps.Data();
+				dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8703/data/boundary', {idPropertyName : 'name'});
+				
 				//	Init heatmap.
 				heatmap = new google.maps.visualization.HeatmapLayer({
 					data: getHeatmap()
 				});
-				//	Init Data Layer for GeoJSONs.
-				dataMap = new google.maps.Data();
-
+				
 				//  Gets Data on map load.
 				getData(map.getCenter().lat(), map.getCenter().lng());
 				//  The marker, positioned at camden
@@ -281,7 +286,7 @@
 					var weight;
 					$.each(data, function (key, value) {
 						latitude = value["Lat"];
-					longitude = value["Lon"];
+						longitude = value["Lon"];
 						weight = value[wgt];
 						console.log("lat:" + latitude + ", lon: " + longitude + ", " + wgt + ": " + weight);
 
@@ -295,7 +300,98 @@
 			}
 
 			//	Functions for GeoJSON.
-			
+			function clusterData(measure){
+				//Something about measure.
+
+				//	URL = API Endpoint to get JSON data for wards on data layer.
+				var url = "http://dev.spatialdatacapture.org:8703/data/clusters";
+				console.log("API Endpoint: " + url);
+
+				//	jQuery to grab data through endpoint.
+				$.getJSON(url, function(data){
+					var ward_name;
+					var result;
+					//	Loops through each row of the retrieved JSON.
+					$.each(data, function (key, value){
+						ward_name 	= value["ward_name"];
+						//	coeff = the clustering coefficient value assigned to that ward.
+						coeff 		= parseFloat(value[measure]);
+						console.log("Ward: " + ward_name + ", Value: " + coeff);
+						//	Get feature/ward of GeoJSON by ward_name and assign to variable.
+						var feat = dataMap.getFeatureById(ward_name)
+						if (feat != undefined) {
+							console.log("Feature exists!");
+							feat.setProperty('data', coeff);	//	Set property of ward to be value.
+							console.log("Property set");
+							console.log(feat);
+						}
+						//	Tracking min and max values of coeff for legend.
+						if (coeff < coeffMin){
+							coeffMin = coeff;
+							console.log("New Min: " + coeffMin);
+						}
+						if (coeff > coeffMax){
+							coeffMax = coeff;
+							console.log("New Max: " + coeffMax);
+						}
+					});
+					console.log("coeff Min: " + coeffMin + ", coeff Max: " + coeffMax);
+					//	Add min-max update legend (getElementById . . .)
+					
+				});
+			}
+
+			function styleFeature(feature) {
+				var low 	= 	[5,56,107]; //Colours of min and max datum.
+				var high 	=	[252,68,69];
+
+				//	Delta represents ratio of where the data value sits between min and max.
+				var delta = (feature.getProperty('data') - coeffMin) / (coeffMax - coeffMin);
+				console.log("delta: " + delta);
+				console.log("data: " + feature.getProperty('data'));
+
+				//	Assign colour to feature using math :P.
+				var colour = [];
+				for ( var i = 0; i < 3; i++ ) {
+					colour[i] = (high[i] - low[i]) * delta + low[i];
+				}
+
+				//	Determine whether to show this feature style or not.
+				var showRow = true;
+				if ( feature.getProperty('data') == null  || isNaN(feature.getProperty('data'))) {
+					showRow = false;
+				}
+				console.log("show: " + showRow);
+
+				//	Declare line weights/z index and amplify when mouseover.
+				var outlineWeight = 2, zIndex = 1;
+				if ( feature.getProperty('state') === 'hover') {
+					outlineWeight 	= 4;
+					zIndex 			= 2;					
+				}
+				
+				return {
+					strokeWeight: outlineWeight,
+					strokeColor: '#ebe5d5',
+					zIndex: zIndex,
+					fillColor: 'hsl(' + colour[0] + ',' + colour[1] + '%,' + colour[2] + '%)', 
+					fillOpacity: 0.75,
+					visible: showRow
+				};
+			}
+
+			function mouseInWard(e) {
+				//	Set hover state so that styleFeature func can change border styles.
+				e.feature.setProperty('state', 'hover');
+
+				//	Add percent calculator and update the legend.
+			}
+
+			function mouseOutWard(e) {
+				//	Reset hover state.
+				e.feature.setProperty('state', 'normal');
+			}
+
 			//	Loads the ward boundary polygon from geoJSON source.
 			//	Functions for Map toggles.
 			function toggleMarkers(){
@@ -328,13 +424,29 @@
 				heatmap.setMap(null);
 				console.log("Grabbing Polygons...")
 				if (dCount == 0){
-					dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8703/data/boundary', { idPropertyName : 'name'});
+					console.log(dataMap.getFeatureById('Belsize'));
+					clusterData('Amenity_Gi')
+					//dataMap.setMap(map);
+					console.log(dataMap.getFeatureById('Belsize'));
+					dataMap.setStyle(styleFeature);
+					dataMap.addListener('mouseover', mouseInWard);
+					dataMap.addListener('mouseout', mouseOutWard);
+					
 					dataMap.setMap(map);
 					dCount = 1;
 				}	else	{
 					dataMap.setMap(null);
 					dCount = 0;
 				}
+			}
+
+			function iterFeature(){
+				dataMap.forEach(function(feature){
+  						console.log("Id from Google's feature: " + feature.getId());
+						var testX = feature.getId();
+						console.log(dataMap.getFeatureById(testX));
+						console.log(typeof(testX));
+  					});
 			}
 
 			//	Button-jQuery
@@ -372,7 +484,7 @@
 
 	</script>
 	<script>
-//script for changing text when buttons are clicked
+//script for changing text when buttons are clicked.
 	function myFunctionz(bro) {
 	  document.getElementById('Heatinfo').style.display = "none";
 	  document.getElementById('Markersinfo').style.display = "none";
