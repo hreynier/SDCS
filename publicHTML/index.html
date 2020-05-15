@@ -45,7 +45,7 @@
 				<div id = "data-max">max</div>
 			</div>
 		</div>
-		<div id = "data-box" class = "nicebox">
+		<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
 			<label id = "data-label" for "data-value"></label>
 			<span id = "data-value"></span>
 		</div>
@@ -56,7 +56,7 @@
 	<div class="map-control-widget">
 		<button id="btn-heatmap"class=button1 onclick="toggleBox('heatInfo')">Heatmap</button>
 	  <button id="btn-markers"class=button1 onclick="toggleBox('markerInfo')">Markers</button>
-	  <button id="btn-data"class=button1 onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">GeoJSON</button>
+	  <button id="btn-data"class=button1 onclick="toggleBox('geoInfo') ; toggleBox('data-control-widget')">GeoJSON</button>
 	</div>
 	<div id="heatInfo">
 	This layer displays a heatmap of pollution removed in the form of carbon absorbed or carbon stored due to trees.
@@ -191,16 +191,16 @@
 				};
 				// The map, centered at camden
 				map = new google.maps.Map(document.getElementById('map'), mapOptions);
-				
+
 				//	Init geoJSON retrieval for data layer
 				dataMap = new google.maps.Data();
 				dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8703/data/boundary', {idPropertyName : 'name'});
-				
+
 				//	Init heatmap.
 				heatmap = new google.maps.visualization.HeatmapLayer({
 					data: getHeatmap()
 				});
-				
+
 				//  Gets Data on map load.
 				getData(map.getCenter().lat(), map.getCenter().lng());
 				//  The marker, positioned at camden
@@ -349,7 +349,7 @@
 					});
 					console.log("coeff Min: " + coeffMin + ", coeff Max: " + coeffMax);
 					//	Updates legend with the min/max data.
-					document.getElementById('data-min').textContent = 
+					document.getElementById('data-min').textContent =
 						coeffMin.toLocaleString();
 					document.getElementById('data-max').textContent =
 						coeffMax.toLocaleString();
@@ -357,8 +357,8 @@
 			}
 
 			function styleFeature(feature) {
-				var low 	= 	[210,91,22]; //Colours of min and max datum in hsl.
-				var high 	=	[360,97,60];
+				var low 	= 	[49,70,54]; //Colours of min and max datum in hsl.
+				var high 	=	[118,41,51];
 
 				//	Delta represents ratio of where the data value sits between min and max.
 				var delta = (feature.getProperty('data') - coeffMin) / (coeffMax - coeffMin);
@@ -382,14 +382,14 @@
 				var outlineWeight = 2, zIndex = 1;
 				if ( feature.getProperty('state') === 'hover') {
 					outlineWeight 	= 4;
-					zIndex 			= 2;					
+					zIndex 			= 2;
 				}
-				
+
 				return {
 					strokeWeight: outlineWeight,
 					strokeColor: '#ebe5d5',
 					zIndex: zIndex,
-					fillColor: 'hsl(' + colour[0] + ',' + colour[1] + '%,' + colour[2] + '%)', 
+					fillColor: 'hsl(' + colour[0] + ',' + colour[1] + '%,' + colour[2] + '%)',
 					fillOpacity: 0.75,
 					visible: showRow
 				};
@@ -402,12 +402,12 @@
 				//	Calculate percentage - where the data value is within distribution of all data values.
 				var percent = (e.feature.getProperty('data') - coeffMin)/
 					(coeffMax - coeffMin) * 100;
-				
+
 				//	Update the legend with the data of the ward.
 
 				document.getElementById('data-label').textContent 	=
 					e.feature.getProperty('name');
-				document.getElementById('data-value').textContent 	= 
+				document.getElementById('data-value').textContent 	=
 					e.feature.getProperty('data').toLocaleString();
 				//	Update legend and moves data point along it.
 				document.getElementById('data-box').style.display 	= 'block';
@@ -459,7 +459,7 @@
 					dataMap.setStyle(styleFeature);
 					dataMap.addListener('mouseover', mouseInWard);
 					dataMap.addListener('mouseout', mouseOutWard);
-					
+
 					dataMap.setMap(map);
 					dCount = 1;
 				}	else	{
@@ -514,12 +514,14 @@
 	<script>
 //script for changing text when buttons are clicked.
 	function toggleBox(bro) {
-	  document.getElementById('heatInfo').style.display = "none";
+		var x = document.getElementById(bro);
+		if(bro=='geoInfo' || bro=='data-control-widget') {document.getElementById('heatInfo').style.display = "none";
 	  document.getElementById('markerInfo').style.display = "none";
-	  document.getElementById('geoInfo').style.display = "none";
-	  document.getElementById('data-control-widget').style.display = "none";
-	  console.log("plz give us a first");
-	  var x = document.getElementById(bro);
+	} else {document.getElementById('heatInfo').style.display = "none";
+	document.getElementById('markerInfo').style.display = "none";
+	document.getElementById('geoInfo').style.display = "none";
+	document.getElementById('data-control-widget').style.display = "none";
+	console.log("plz give us a first");}
 
 	  if (x.style.display === "block") {
 	    x.style.display = "none";
