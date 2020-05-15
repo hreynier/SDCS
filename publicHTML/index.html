@@ -167,7 +167,7 @@
 		var heatArray	= [];
 		var heatmap 		;
 		var dataMap			;
-		var count			;
+		var count		= 1	;
 		var dCount 		= 0	;
 		var coeffMin 	= Number.MAX_VALUE;
 		var coeffMax 	= Number.MIN_VALUE;
@@ -271,9 +271,9 @@
 
 						markerArray.push(marker);
 
+
 					});
-					console.log(markerArray.length);
-					count = 0;
+					clearMarkers();
 				});
 
 			}
