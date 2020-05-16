@@ -16,7 +16,7 @@ var portNumber = 8703;
 
 var mysql = require('mysql');
 
-var path = require('path');     //      For easier directory mapping.
+var path = require('path');
 
 //const fastcsv = require('fast-csv');
 
