@@ -18,6 +18,8 @@ var mysql = require('mysql');
 
 var path = require('path');
 
+const util = require('util');   //  For promisify to deal with call-back errors.
+
 //const fastcsv = require('fast-csv');
 
 //const fs = require('fs');
@@ -261,6 +263,79 @@ app.get('/data/clusters/', function (req, res){
         if (rows != undefined){
             res.send(rows);
         }   else    {
+            res.send("");
+        }
+    })
+})
+
+//  API Endpoint to get counts of tree types for pie chart.
+app.get('/data/tree-types', function (req, res) {
+
+    //  Allows data to be dwnld from the server with security concerns to bypass CORS policy.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
+
+    //  Drop tables if exist.
+
+    var sql = "DROP TABLE IF EXISTS temp_bot, temp_top;"
+    connection.query(sql, function(err){
+        if (err) console.log("Err: " + err);
+        else console.log("Dropping temporary tables...")
+    })
+
+    //  SQL Statement - Create temporary table that gets the top 10 most common trees and bottom X (n-10) common trees.
+    var sql = "CREATE TEMPORARY TABLE temp_bot SELECT Com_Name, count(Com_Name) AS count FROM tree_data GROUP BY Com_Name ORDER BY count limit 285;"
+
+    //  Log.
+    console.log("Creating temporary table...");
+    console.log(sql);
+
+    //  Run the query.
+    connection.query(sql, function(err){
+        if (err) console.log("Error: " + err);
+        else console.log("Successfully created temporary table 1.")
+    })
+
+  
+    //  Top 10.
+    var sql = "CREATE TEMPORARY TABLE temp_top SELECT Com_Name, count(Com_Name) AS count FROM tree_data GROUP BY Com_Name Order BY count DESC limit 10;"
+
+    //  Log
+    console.log("Creating temporary table...");
+    console.log(sql);
+
+    connection.query(sql, function(err){
+        if (err) console.log("Error: " + err);
+        else console.log("Successfully create temporary table 2.")
+    })
+
+    //  Calc sum of bottom 285 trees.
+    var sql = "INSERT INTO temp_top (Com_Name, count) VALUES ('Other', (SELECT SUM(count) FROM temp_bot));"
+
+    // Log.
+    console.log("Merging tables...");
+    console.log(sql);
+
+    //Query
+    connection.query(sql,function(err){
+        if (err) console.log("Error: " + err);
+        else console.log("Successfully merged temp tables.")     
+    })
+
+    //  Get the final data.
+    var sql = "SELECT * FROM temp_top;"
+
+    //  Log.
+    console.log("Getting Data: " + sql);
+
+    //  Query
+    connection.query(sql, function(err, rows){
+        if (err) console.log("Error: " + err);
+        if (rows != undefined){
+            res.send(rows);
+            console.log("Successfully delivered data.")
+        }   else   {
+            console.log("rows undefined.")
             res.send("");
         }
     })
