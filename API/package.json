@@ -1,0 +1,34 @@
+{
+  "name": "app_server",
+  "version": "1.0.0",
+  "description": "Backend node server for the camden tree app. This is a npm init file to aid in collaboration.",
+  "main": "treeServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarveyReynier/SDCS.git"
+  },
+  "keywords": [
+    "Camden",
+    "Tree",
+    "WebApp"
+  ],
+  "author": "Harvey Reynier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HarveyReynier/SDCS/issues"
+  },
+  "homepage": "https://github.com/HarveyReynier/SDCS#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "forever": "^2.0.0",
+    "jquery": "^3.5.1",
+    "jsdom": "^16.2.2",
+    "moment": "^2.25.3",
+    "mysql": "^2.18.1",
+    "node": "^14.2.0",
+    "path": "^0.12.7"
+  }
+}

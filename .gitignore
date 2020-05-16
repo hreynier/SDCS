@@ -1,0 +1,4 @@
+#  Git Ignore File --- ignores files and folders that aren't necessary for the remote repository.
+#  Ex: .DS_store files, Log files, node_module folders etc etec.
+.DS_Store
+node_modules/
