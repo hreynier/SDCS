@@ -50,9 +50,9 @@
 			<span id = "data-value"></span>
 		</div>
 	</div>
-	<div id="map">
-		<!--Move buttons + Info boxes here.-->
-	</div>
+
+	<div id="map"></div>
+	
 	<div class="map-control-widget">
 		<button id="btn-heatmap"class=button1 onclick="toggleBox('heatInfo')">Heatmap</button>
 	  <button id="btn-markers"class=button1 onclick="toggleBox('markerInfo')">Markers</button>
@@ -67,6 +67,13 @@
 	<div id="geoInfo">
 	This layer displays the clustering. . .  EXPAND idk what to write.
 	</div>
+
+	<!--Chart.js pie chart showing tree types-->
+	<div class = "chartjs-wrapper">
+		<canvas id = "treePie" ></canvas>
+	</div>
+
+	<!--JAVASCRIPT GOES BELOW THESE SOURCES.-->
 
 	<!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
 	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
@@ -85,6 +92,69 @@
 	<script type='text/javascript' src='./js/JS.js'></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script type='text/javascript' src='./JS/HC.js'></script>
+	<script src = "node_modules/chart.js/dist/Chart.js"></script>
+
+	<!--	CHART.JS	-->
+	<script>
+
+		//		jQuery init and load after body.
+		$(document).ready(function() {
+
+			//		Get chart element for chart.js
+			var ctx 	= document.getElementById('treePie');
+			var pieDataAr 	= [];
+			var pieLabelAr  = [];
+			var pieData			;
+
+			//	Declare styling options.
+			var opt = {
+				title: {
+					display: true,
+					text: "Most Common Tree Species in Camden"
+				},
+				cutoutPercentage: 20
+			};
+
+
+			//		API Endpoint.
+			var url 	= "http://dev.spatialdatacapture.org:8703/data/tree-types";
+
+			//		jQuery get data through API.
+			$.getJSON(url, function(data){
+
+				//	Declare variables.
+				var ttCount;
+				var ttName;
+
+				//	Loop through JSON, assign to variables, push to array.
+				$.each(data, function (key, value){
+					ttCount 	= parseInt(value["count"]);
+					ttName 	= value["Com_Name"];
+
+					pieDataAr.push(ttCount);
+					pieLabelAr.push(ttName);
+				})
+				console.log("Sucessfully fetched chart.js data.")
+				console.log(pieDataAr);
+				console.log(pieLabelAr);
+
+				pieData = {
+					datasets: [{
+						label: "Population",
+						data: pieDataAr,
+						backgroundColor: ["#05668D", "#04738F", "#028090", "#019493", "#00A896", "#01B698" , "#02C39A" , "#79DBAC", "#B5E7B5", "#F0F3BD", "#2F4858"]
+					}],
+					labels: pieLabelAr
+				};
+				var treePieChart = new Chart(ctx, {
+					type: 'pie',
+					data: pieData,
+					options: opt
+				})
+			})
+			
+		});
+	</script>
 
 	<!-- High Charts-->
 	<div id="container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
@@ -232,7 +302,7 @@
 					$.each(data, function (key, value) {
 						latitude = value["Lat"];
 						longitude = value["Lon"];
-						console.log("lat: " + latitude + ", lon: " + longitude);
+						//console.log("lat: " + latitude + ", lon: " + longitude); //For testing purposes.
 
 						var latlng = new google.maps.LatLng(latitude, longitude);
 
@@ -282,7 +352,7 @@
 				//Need to add input that depends on user button press.
 				//Store input variable.
 				var wgt = "Carbon_Sequest_YR";
-				console.log("Getting weighted location data: " + wgt);
+				//console.log("Getting weighted location data: " + wgt); //	Testing.
 
 				//setAllMap(null);  //Clears map of markers.
 				heatArray = [];   //Clears heatmap data array.
@@ -300,13 +370,13 @@
 						latitude = value["Lat"];
 						longitude = value["Lon"];
 						weight = value[wgt];
-						console.log("lat:" + latitude + ", lon: " + longitude + ", " + wgt + ": " + weight);
+						//console.log("lat:" + latitude + ", lon: " + longitude + ", " + wgt + ": " + weight); //	Testing.
 
 						var loc = new google.maps.LatLng(latitude, longitude);
 						var object = { location: loc, weight: weight };
 						heatArray.push(object);
 					})
-					console.log("heatmap array length: " + heatArray.length);
+					//console.log("heatmap array length: " + heatArray.length);
 				})
 				return heatArray;
 			}
@@ -512,24 +582,24 @@
 
 	</script>
 	<script>
-//script for changing text when buttons are clicked.
-	function toggleBox(bro) {
-		var x = document.getElementById(bro);
-		if(bro=='geoInfo' || bro=='data-control-widget') {document.getElementById('heatInfo').style.display = "none";
-	  document.getElementById('markerInfo').style.display = "none";
-	} else {document.getElementById('heatInfo').style.display = "none";
-	document.getElementById('markerInfo').style.display = "none";
-	document.getElementById('geoInfo').style.display = "none";
-	document.getElementById('data-control-widget').style.display = "none";
-	console.log("plz give us a first");}
+		//		script for changing text when buttons are clicked.
+		function toggleBox(bro) {
+			var x = document.getElementById(bro);
+			if(bro=='geoInfo' || bro=='data-control-widget') {document.getElementById('heatInfo').style.display = "none";
+		document.getElementById('markerInfo').style.display = "none";
+		} else {document.getElementById('heatInfo').style.display = "none";
+		document.getElementById('markerInfo').style.display = "none";
+		document.getElementById('geoInfo').style.display = "none";
+		document.getElementById('data-control-widget').style.display = "none";
+		console.log("plz give us a first");}
 
-	  if (x.style.display === "block") {
-	    x.style.display = "none";
-	  } else {
-	    x.style.display = "block";
-	  }
-	};
-</script>
+		if (x.style.display === "block") {
+			x.style.display = "none";
+		} else {
+			x.style.display = "block";
+		}
+		};
+	</script>
 </body>
 
 </html>
