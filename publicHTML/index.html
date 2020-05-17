@@ -92,7 +92,12 @@
 	<script type='text/javascript' src='./js/JS.js'></script>
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script type='text/javascript' src='./JS/HC.js'></script>
+
+	<!--	Chart.JS	-->
 	<script src = "node_modules/chart.js/dist/Chart.js"></script>
+	<!--	Chart.js Plugins	-->
+	<!--	Deferred - Defers animation		-->
+	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
 
 	<!--	CHART.JS	-->
 	<script>
@@ -110,9 +115,30 @@
 			var opt = {
 				title: {
 					display: true,
-					text: "Most Common Tree Species in Camden"
+					text: "Most Common Tree Species in Camden",
+					fontSize: 18,
+					fontFamily: "'verdana', 'sans-serif'",
+					fontColor: "#797D62",
+					position: 'top',
+					padding: 10
 				},
-				cutoutPercentage: 20
+				animation: {
+					easing: 'easeInOutQuint',
+					duration: 2000
+				},
+				legend: {
+					display: true,
+					position: 'left',
+					align:	'start' 
+				},
+				cutoutPercentage: 30,
+				plugins: {
+					deferred : {
+						xOffset: '100%',	//	defer animation until 100% of the chart width is in the viewport.
+						yOffset: '80%',		//	defer animation until 80% of the chart height is in the viewport.
+						delay: 200			//	delay of 250ms after canvas is considered in the viewport.
+					}
+				}
 			};
 
 
@@ -585,19 +611,24 @@
 		//		script for changing text when buttons are clicked.
 		function toggleBox(bro) {
 			var x = document.getElementById(bro);
-			if(bro=='geoInfo' || bro=='data-control-widget') {document.getElementById('heatInfo').style.display = "none";
-		document.getElementById('markerInfo').style.display = "none";
-		} else {document.getElementById('heatInfo').style.display = "none";
-		document.getElementById('markerInfo').style.display = "none";
-		document.getElementById('geoInfo').style.display = "none";
-		document.getElementById('data-control-widget').style.display = "none";
-		console.log("plz give us a first");}
+			if(bro=='geoInfo' || bro=='data-control-widget') {
+				document.getElementById('heatInfo').style.display = "none";
+				document.getElementById('markerInfo').style.display = "none";
+			} else {
+				document.getElementById('heatInfo').style.display = "none";
+				document.getElementById('markerInfo').style.display = "none";
+				document.getElementById('geoInfo').style.display = "none";
+				document.getElementById('data-control-widget').style.display = "none";
+				console.log("plz give us a first")
+			;}
 
-		if (x.style.display === "block") {
-			x.style.display = "none";
-		} else {
-			x.style.display = "block";
-		}
+			if (x.style.display === "block") {
+				console.log("block.")
+				x.style.display = "none";
+			} else {
+				console.log("none.")
+				x.style.display = "block";
+			}
 		};
 	</script>
 </body>

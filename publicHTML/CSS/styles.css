@@ -1,6 +1,6 @@
 
 body {
-  background-color: white;
+  background-color: red;
   /*overflow: -moz-scrollbars-none;
   -ms-overflow-style: none; --- Hide scrollbars*/
 }
@@ -9,7 +9,7 @@ body {
 }*/   /*---Hides Scrollbars---*/
 h1 {
   font-size: 30px;
-  font-family: veranda  , sans-serif;
+  font-family: verdana  , sans-serif;
   color: #797D62;
 
   font-weight:800;
@@ -17,7 +17,7 @@ h1 {
 }
 h3 {
   font-size: 12px;
-  font-family: veranda  , sans-serif;
+  font-family: verdana  , sans-serif;
   color:grey;
 }
 p {
@@ -129,7 +129,7 @@ p {
   margin: auto;
   padding-top: 30px;
   padding-bottom: 10px;
-  width: 45%;
+  width: 55%;
   margin-left: 5%;
 }
 
@@ -160,7 +160,7 @@ p {
   border: 1px solid #797D62;
   border-radius: 12px;
   font-size: 20px;
-  font-family: veranda  , sans-serif;
+  font-family: verdana  , sans-serif;
   color:#797D62;
   margin:10px;
   padding: 5px;
