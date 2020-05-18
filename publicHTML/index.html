@@ -4,6 +4,7 @@
 <head>
 	<title>SDCSA - Camden Tree Analysis</title>
 	<link rel="stylesheet" href="./CSS/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Mono">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<title>Treeconomic Output</title>
@@ -54,18 +55,18 @@
 		<!--Move buttons + Info boxes here.-->
 	</div>
 	<div class="map-control-widget">
-		<button id="btn-heatmap"class=button1 onclick="toggleBox('heatInfo')">Heatmap</button>
-	  <button id="btn-markers"class=button1 onclick="toggleBox('markerInfo')">Markers</button>
-	  <button id="btn-data"class=button1 onclick="toggleBox('geoInfo') ; toggleBox('data-control-widget')">GeoJSON</button>
-	</div>
-	<div id="heatInfo">
-	This layer displays a heatmap of pollution removed in the form of carbon absorbed or carbon stored due to trees.
+		<button id="btn-markers"class=button1 onclick="toggleBox('markerInfo')">Trees Location</button>
+		<button id="btn-heatmap"class=button1 onclick="toggleBox('heatInfo')">Pollution Removal Heatmap</button>
+	  <button id="btn-data"class=button1 onclick="toggleBox('geoInfo') ; toggleBox('data-control-widget')">Ward Similarities</button>
 	</div>
 	<div id="markerInfo">
 	This layer displays indvidual trees. Click on each marker for more information like tree height or type.
 	</div>
+	<div id="heatInfo">
+	This layer displays a heatmap of pollution removed by trees in the form of absorbed or stored carbon.
+	</div>
 	<div id="geoInfo">
-	This layer displays the clustering. . .  EXPAND idk what to write.
+	This layer displays the level of similarity in pollution removal among wards, calculated based on the Moran's I.
 	</div>
 
 	<!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
@@ -467,7 +468,7 @@
 					dCount = 0;
 				}
 			}
-			
+
 			function iterFeature(){
 				dataMap.forEach(function(feature){
   						console.log("Id from Google's feature: " + feature.getId());
