@@ -1,6 +1,6 @@
 
 body {
-  background-color: red;
+  background-color: #F5F5F5 !important; /* Overide bootstrap.*/
   /*overflow: -moz-scrollbars-none;
   -ms-overflow-style: none; --- Hide scrollbars*/
 }
@@ -9,8 +9,8 @@ body {
 }*/   /*---Hides Scrollbars---*/
 h1 {
   font-size: 30px;
-  font-family: verdana  , sans-serif;
-  color: #797D62;
+  font-family: 'Taviraj', verdana  , sans-serif;
+  color: #4d4d4d;
 
   font-weight:800;
 
@@ -18,11 +18,9 @@ h1 {
 h3 {
   font-size: 12px;
   font-family: verdana  , sans-serif;
-  color:grey;
+  color: #4d4d4d;
 }
-p {
-  color: red;
-}
+
 #heading { 
   width:100%;
 }
@@ -62,7 +60,8 @@ p {
   border-radius:12px;
 
   font-size: 18px;
-  font-family: optima  , sans-serif;
+  font-family: 'Lato'  , sans-serif;
+  font-weight: 700;
   z-index: 6;
   box-shadow: 0 4px 6px -4px #333;
   padding: 5px 10px;
@@ -160,7 +159,8 @@ p {
   border: 1px solid #797D62;
   border-radius: 12px;
   font-size: 20px;
-  font-family: verdana  , sans-serif;
+  font-family: 'Lato', verdana  , sans-serif;
+  font-weight: 700;
   color:#797D62;
   margin:10px;
   padding: 5px;
@@ -187,7 +187,7 @@ p {
 .TitleDiv {
     display: inline-block;
     color: #4a4a4a;
-    font-family: Butler;
+    font-family: 'Taviraj';
     font-size: 22px;
     letter-spacing: 1.04px;
 }
@@ -199,7 +199,8 @@ p {
 }
 
 .highcharts-data-table table {
-	font-family: Verdana, sans-serif;
+  font-family: 'Lato',Verdana, sans-serif;
+  font-weight: 300;
 	border-collapse: collapse;
 	border: 1px solid #EBEBEB;
 	margin: 10px auto;
@@ -240,7 +241,8 @@ p {
   margin-top: 20px;
   display : none;
   font-size: 20px;
-  font-family: optima  , sans-serif;
+  font-family: 'Lato', optima  , sans-serif;
+  font-weight: 300;
   color: #4c4f3e;
   background-color: #cfcfa7;
 }
@@ -253,7 +255,8 @@ p {
   margin-top: 20px;
   display : none;
   font-size: 20px;
-  font-family: optima  , sans-serif;
+  font-family: 'Lato', optima, sans-serif;
+  font-weight: 300;
   color: #4c4f3e;
   background-color: #cfcfa7;
 }
@@ -266,7 +269,8 @@ p {
   margin-top: 20px;
   display : none;
   font-size: 20px;
-  font-family: optima  , sans-serif;
+  font-family: 'Lato', optima  , sans-serif;
+  font-weight: 300;
   color: #4c4f3e;
   background-color: #cfcfa7;
 }
