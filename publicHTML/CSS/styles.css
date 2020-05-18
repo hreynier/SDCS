@@ -1,52 +1,172 @@
-
+/* --------- 1. GLOBAL STYLES --------- */
 body {
   background-color: #F5F5F5 !important; /* Overide bootstrap.*/
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  line-height: 1.8em;
+  height: 100%;
   /*overflow: -moz-scrollbars-none;
   -ms-overflow-style: none; --- Hide scrollbars*/
 }
 /*body::-webkit-scrollbar {
   width: 0 !important
 }*/   /*---Hides Scrollbars---*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: normal;
+    font-weight: 700;
+	font-family: 'Taviraj', sans-serif;
+	color: #4d4d4d;
+}
 h1 {
-  font-size: 30px;
+  font-size: 20px;
   font-family: 'Taviraj', verdana  , sans-serif;
   color: #4d4d4d;
-
   font-weight:800;
 
 }
-h3 {
-  font-size: 12px;
-  font-family: verdana  , sans-serif;
-  color: #4d4d4d;
+
+
+
+/* --------- 2. HOME PAGE --------- */
+/* --------  2.1 NAV BAR  -------- */
+.navbar {
+  padding-right: 23px;
+  /*box-shadow: 0px 5px 10px #cccccc;*/
+  padding-top: 5px !important;
+  padding-bottom: 0 !important;
+}
+.nav-link{
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: #4d4d4d !important; 
+}
+.nav-link active{
+  color:#65AD07;
+}
+.navbar-brand h1{
+  font-size: 30px;
 }
 
-#heading { 
-  width:100%;
+/* --------  2.2 LANDING PAGE STYLES  -------- */
+.jumbotron jumbotron-fluid{
+  background-color: #F5F5F5;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh !important;
+  width: 100vw;
 }
-
-#sideleft {
-  width: 13%;
-  height: 900px;
-  float: left;
-  background-color: white;
+.h-100{
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#topsideh {
+.container {
   width: 100%;
-  height: 1px;
-  box-shadow: 0px 5px 10px #cccccc;
-  background-color: blue;
+  margin-right: auto;
+  margin-left: auto;
 }
-#section44{
-  width: 100%;
-  height: 30px;
-  background-color: #47ad07;
-  box-shadow: 0px 5px 10px #cccccc;
+.main-text{
+  text-align: center;
 }
-#subheading{
-  padding-top: -50px;
+.main-text h1 {
+  font-size: 6em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 11px;
+}
+.main-text p {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  line-height: 1.6;
+  word-spacing: 5px;
+  text-transform: uppercase;
 }
 
+/* --------  2.3 MAP STYLES  -------- */
+#map {
+  height: 500px;  /* The height is 500 pixels */
+  width: 100%;  /* The width is the width of the web page */
+}
+/* ----  Buttons + Info boxes  ---- */
+.map-control-widget {
+  margin: auto;
+  padding-top: 35px;
+  width:375px;
+  padding-bottom: 5px;
+  text-align: center !important;
+}
+.mapBtn {
+  background-color: #A5AA93;
+  border: 1px solid #A5AA93;
+  border-radius: 12px;
+  font-size: 18px;
+  font-family: 'Lato', verdana  , sans-serif;
+  font-weight: 700;
+  color: white;
+  margin:10px;
+  padding: 5px;
+}
+
+.mapBtn:hover {
+  background-color: #A5AA93;
+  color: white;
+}
+
+.mapBtn:active {
+    background-color: #A5AA93;
+    color: white;
+}
+#heatInfo {
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 20px;
+  font-family: 'Lato', optima  , sans-serif;
+  font-weight: 300;
+  color: #4c4f3e;
+  background-color: #cfcfa7;
+}
+#markerInfo {
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 20px;
+  font-family: 'Lato', optima, sans-serif;
+  font-weight: 300;
+  color: #4c4f3e;
+  background-color: #cfcfa7;
+}
+#geoInfo{
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 20px;
+  font-family: 'Lato', optima  , sans-serif;
+  font-weight: 300;
+  color: #4c4f3e;
+  background-color: #cfcfa7;
+}
 /*--- CONTROL + LEGEND BOX FOR CLUSTER MAP */
 #data-control-widget{
   position:relative;
@@ -122,8 +242,8 @@ h3 {
   width: 14px;
 }
 
-/*---ChartJS Section---*/
-/*--Pie Chart showing the proportion of tree types--*/
+/* --------  2.4 DATA EXPLORATION SECTION  -------- */
+/* ------- Chart js Piechart ------ */
 .chartjs-wrapper{
   margin: auto;
   padding-top: 30px;
@@ -133,52 +253,14 @@ h3 {
 }
 
 
-/* --- Nav Bar --- */
-.navbar navbar-expand-lg navbar-light bg-light {
-  padding-right: 23px;
-  box-shadow: 0px 5px 10px #cccccc;
-}
-.nav-link active{
-  color:#65AD07;
-}
-.map-control-widget {
-  margin: auto;
-  padding-top: 35px;
-  width:375px;
-  padding-bottom: 5px;
-}
 
 
 
 
 
 
-.button1 {
-  background-color: white;
-  color: black;
-  border: 1px solid #797D62;
-  border-radius: 12px;
-  font-size: 20px;
-  font-family: 'Lato', verdana  , sans-serif;
-  font-weight: 700;
-  color:#797D62;
-  margin:10px;
-  padding: 5px;
-}
 
-.button1:hover {
-  background-color: #797D62;
-  color: white;
-}
-
-.button1:active {
-    background-color: #797D62;
-    color: white;
-}
-
-
-
-/* ---  High Charts  --- */
+/* ----  High Charts  ---- */
 .hc-container {
   padding-top: 100px;
  width: 900px;
@@ -227,50 +309,33 @@ h3 {
     background: #f1f7ff;
 }
 
-#map {
-  height: 500px;  /* The height is 500 pixels */
-  width: 100%;  /* The width is the width of the web page */
- }
 
-#heatInfo {
-  width: 100%;
-  padding: 20px 0;
-  padding-left: 15%;
-  padding-right:15%;
-  text-align: center;
-  margin-top: 20px;
-  display : none;
-  font-size: 20px;
-  font-family: 'Lato', optima  , sans-serif;
-  font-weight: 300;
-  color: #4c4f3e;
-  background-color: #cfcfa7;
+
+
+/* Not sure what these are used for?
+#heading { 
+  width:100%;
 }
-#markerInfo {
-  width: 100%;
-  padding: 20px 0;
-  padding-left: 15%;
-  padding-right:15%;
-  text-align: center;
-  margin-top: 20px;
-  display : none;
-  font-size: 20px;
-  font-family: 'Lato', optima, sans-serif;
-  font-weight: 300;
-  color: #4c4f3e;
-  background-color: #cfcfa7;
+
+#sideleft {
+  width: 13%;
+  height: 900px;
+  float: left;
+  background-color: white;
 }
-#geoInfo{
+#topsideh {
   width: 100%;
-  padding: 20px 0;
-  padding-left: 15%;
-  padding-right:15%;
-  text-align: center;
-  margin-top: 20px;
-  display : none;
-  font-size: 20px;
-  font-family: 'Lato', optima  , sans-serif;
-  font-weight: 300;
-  color: #4c4f3e;
-  background-color: #cfcfa7;
+  height: 1px;
+  box-shadow: 0px 5px 10px #cccccc;
+  background-color: blue;
 }
+#section44{
+  width: 100%;
+  height: 30px;
+  background-color: #47ad07;
+  box-shadow: 0px 5px 10px #cccccc;
+}
+#subheading{
+  padding-top: -50px;
+}
+*/

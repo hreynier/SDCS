@@ -17,32 +17,56 @@
 </head>
 
 <body>
-	<!-- Header nav bar -->
-	<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
-		<a class="navbar-brand" href="#">
-			<h1><b>Treecon🌲</b></h1>
-		</a>
-		<!--allows the links to shrink into a menu on small screens -->
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./about.html">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./group.html">Group</a>
-				</li>
-			</ul>
+	<header id = "home" class = "h-100">
+		<!-- Header nav bar -->
+		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
+			<a class="navbar-brand py-0" href="#">
+				<h1><b>Treecon🌲</b></h1>
+			</a>
+			<!--allows the links to shrink into a menu on small screens -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link py-0" href="./index.html">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link py-0" href="./about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link py-0" href="./group.html">Group</a>
+					</li>
+				</ul>
 
-		</div>
-	</nav>
+			</div>
+		</nav>
+		<!-- <div class = "jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">Fluid jumbo heading</h1>
+				<p class="lead">Jumbo helper text</p>
+				<hr class="my-2">
+				<p>More info</p>
+				<p class="lead">
+					<a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+				</p>
+			</div>
+		</div> -->
 	
+		<div class = "container">
+			<div class = "main-text">
+				<br><br><br><br>
+				<h1>Welcome to the website.</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue ipsum, venenatis eu orci nec, semper rhoncus eros. Aenean eu ligula lacinia, maximus erat a, dignissim purus. Nulla pellentesque ex sit amet tellus dapibus accumsan. Nullam tincidunt quis lacus ut facilisis. Integer aliquam enim sit amet mi aliquet congue. Suspendisse condimentum dolor id iaculis placerat. Fusce elementum vel risus eu luctus. Aenean vitae turpis imperdiet, posuere enim vel, congue erat. Ut vel imperdiet libero. Nam massa velit, auctor in libero ut, feugiat rutrum magna. Aliquam hendrerit varius magna, ac fringilla augue. Quisque quis cursus diam, id gravida risus. Etiam ac libero vitae nisi varius hendrerit quis in ex.</p>
+				<br><br>
+				<span id = "down">&#x21e3;</span>
+			</div>
+		</div>
+	</header>
+
+
 	<div id = "data-control-widget">
 		<div id = "cluster-controls" class = "nicebox">
 			<div id = "legend">
@@ -60,9 +84,9 @@
 	<div id="map"></div>
 	
 	<div class="map-control-widget">
-		<button id="btn-heatmap"class=button1 onclick="toggleBox('heatInfo')">Heatmap</button>
-	  <button id="btn-markers"class=button1 onclick="toggleBox('markerInfo')">Markers</button>
-	  <button id="btn-data"class=button1 onclick="toggleBox('geoInfo') ; toggleBox('data-control-widget')">GeoJSON</button>
+	  <button id = "btn-heatmap"  class = mapBtn onclick="toggleBox('heatInfo')">Heatmap</button>
+	  <button id = "btn-markers"  class = mapBtn onclick="toggleBox('markerInfo')">Markers</button>
+	  <button id = "btn-data"     class = mapBtn onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">GeoJSON</button>
 	</div>
 	<div id="heatInfo">
 	This layer displays a heatmap of pollution removed in the form of carbon absorbed or carbon stored due to trees.
