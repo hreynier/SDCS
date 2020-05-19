@@ -104,20 +104,20 @@
 	
 	<!-- 3 Button Widget -->
 	<div class="map-control-widget">
-	  <button id = "btn-heatmap"  class = mapBtn onclick="toggleBox('heatInfo')">Heatmap</button>
-	  <button id = "btn-markers"  class = mapBtn onclick="toggleBox('markerInfo')">Markers</button>
-	  <button id = "btn-data"     class = mapBtn onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">GeoJSON</button>
+		<button id = "btn-markers"  class = mapBtn onclick="toggleBox('markerInfo')">Tree Location</button>
+	  	<button id = "btn-heatmap"  class = mapBtn onclick="toggleBox('heatInfo')">Pollution Removal</button>
+	  	<button id = "btn-data"     class = mapBtn onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">Ward Clustering</button>
 	</div>
 
 	<!-- Information Boxes -->
-	<div id="heatInfo">
-	This layer displays a heatmap of pollution removed in the form of carbon absorbed or carbon stored due to trees.
-	</div>
 	<div id="markerInfo">
-	This layer displays indvidual trees. Click on each marker for more information like tree height or type.
+		This layer displays the individual trees within the Borough of Camden. Click on the markers for more information.
+	</div>
+	<div id="heatInfo">
+		This layer displays a heatmap of pollution removed per year in grams, in the form of carbon absorbed or carbon stored due to trees.
 	</div>
 	<div id="geoInfo">
-	This layer displays the clustering. . .  EXPAND idk what to write.
+		This layer displays the level of similarity in pollution removal among wards, calculated based on the Moran's I.
 	</div>
 
 	<!--Chart.js pie chart showing tree types-->
