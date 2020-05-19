@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<!-- LOADING ANIMATION -->
+	<!------  0. LOADING ANIMATION  ------>
 	<div class="first-block"></div>
     <div class="second-block"></div>
     <div class="loader">
@@ -32,9 +32,12 @@
 		</ul>
 	</div>
 	<div class="third-block"></div>
-	<!-- 	landing page + nav bar -->
+
+
+	<!------  1. LANDING PAGE + NAV BAR  ------>
 	<header id = "home" class = "h-100">
-		<!-- Header nav bar -->
+		
+		<!--	NAV BAR		-->
 		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
 			<a class="navbar-brand py-0" href="#">
 				<span class="w-100 d-lg-none d-block"></span>
@@ -60,7 +63,8 @@
 
 			</div>
 		</nav>
-		<!-- Landing Page main content -->
+
+		<!-- LANDING PAGE MAIN CONTENT -->
 		<div class = "container">
 			<div class = "row">
 				<div class = "main-text col-4">
@@ -76,7 +80,11 @@
 		<span id = "down">&#x21e3</span>
 	</header>
 
+	<!------ 2. ABOUT SECTION  ------>
 
+	<!------ 3. BUTTON MAP SECTION 	------>
+
+	<!-- 	Clustering Coefficient Legend + Data box -->
 	<div id = "data-control-widget">
 		<div id = "cluster-controls" class = "nicebox">
 			<div id = "legend">
@@ -91,13 +99,17 @@
 		</div>
 	</div>
 
+	<!-- 	MAP 	-->
 	<div id="map"></div>
 	
+	<!-- 3 Button Widget -->
 	<div class="map-control-widget">
 	  <button id = "btn-heatmap"  class = mapBtn onclick="toggleBox('heatInfo')">Heatmap</button>
 	  <button id = "btn-markers"  class = mapBtn onclick="toggleBox('markerInfo')">Markers</button>
 	  <button id = "btn-data"     class = mapBtn onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">GeoJSON</button>
 	</div>
+
+	<!-- Information Boxes -->
 	<div id="heatInfo">
 	This layer displays a heatmap of pollution removed in the form of carbon absorbed or carbon stored due to trees.
 	</div>
@@ -113,646 +125,48 @@
 		<canvas id = "treePie" ></canvas>
 	</div>
 
-	<!--JAVASCRIPT GOES BELOW THESE SOURCES.-->
-
-	<!-- Javascript from external sources (Google, jQuery, etc.) gets loaded here -->
-	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
-	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
-	<!-- XDate For Date formatting-->
-	<script type='text/javascript' src='http://dev.spatialdatacapture.org/xdate/xdate.js'></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-
-	<script type="text/javascript" <script type='text/javascript'
-		src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
-	<script type='text/javascript' src='./js/JS.js'></script>
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script type='text/javascript' src='./JS/HC.js'></script>
-
-	<!--	Chart.JS	-->
-	<script src = "node_modules/chart.js/dist/Chart.js"></script>
-	<!--	Chart.js Plugins	-->
-	<!--	Deferred - Defers animation		-->
-	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
-
-	<!--	CHART.JS	-->
-	<script>
-
-		//		jQuery init and load after body.
-		$(document).ready(function() {
-
-			//		Get chart element for chart.js
-			var ctx 	= document.getElementById('treePie');
-			var pieDataAr 	= [];
-			var pieLabelAr  = [];
-			var pieData			;
-
-			//	Declare styling options.
-			var opt = {
-				title: {
-					display: true,
-					text: "Most Common Tree Species in Camden",
-					fontSize: 18,
-					fontFamily: "'Taviraj', 'sans-serif'",
-					fontColor: "#4d4d4d",
-					position: 'top',
-					padding: 10
-				},
-				animation: {
-					easing: 'easeInOutQuint',
-					duration: 2000
-				},
-				legend: {
-					display: true,
-					position: 'left',
-					align:	'start' 
-				},
-				cutoutPercentage: 30,
-				plugins: {
-					deferred : {
-						xOffset: '100%',	//	defer animation until 100% of the chart width is in the viewport.
-						yOffset: '80%',		//	defer animation until 80% of the chart height is in the viewport.
-						delay: 200			//	delay of 250ms after canvas is considered in the viewport.
-					}
-				}
-			};
-
-
-			//		API Endpoint.
-			var url 	= "http://dev.spatialdatacapture.org:8703/data/tree-types";
-
-			//		jQuery get data through API.
-			$.getJSON(url, function(data){
-
-				//	Declare variables.
-				var ttCount;
-				var ttName;
-
-				//	Loop through JSON, assign to variables, push to array.
-				$.each(data, function (key, value){
-					ttCount 	= parseInt(value["count"]);
-					ttName 	= value["Com_Name"];
-
-					pieDataAr.push(ttCount);
-					pieLabelAr.push(ttName);
-				})
-				console.log("Sucessfully fetched chart.js data.")
-				console.log(pieDataAr);
-				console.log(pieLabelAr);
-
-				pieData = {
-					datasets: [{
-						label: "Population",
-						data: pieDataAr,
-						backgroundColor: ["#05668D", "#04738F", "#028090", "#019493", "#00A896", "#01B698" , "#02C39A" , "#79DBAC", "#B5E7B5", "#F0F3BD", "#2F4858"]
-					}],
-					labels: pieLabelAr
-				};
-				var treePieChart = new Chart(ctx, {
-					type: 'pie',
-					data: pieData,
-					options: opt
-				})
-			})
-			
-		});
-	</script>
 
 	<!-- High Charts-->
 	<div id="hc-container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
-
-		<script type="text/javascript">
-
-			$(function () {
-				$('#hc-container').highcharts({
-					chart: {
-						type: 'bar'
-					},
-					colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7', 'D08C60', 'ae9e90'],
-					title: {
-						text: 'Tree Types'
-					},
-					xAxis: {
-						categories: [" Belsize ",
-							" Bloomsbury ",
-							" Camden Town with Primrose Hill ",
-							" Cantelowes ",
-							" Fortune Green ",
-							" Frognal and Fitzjohns ",
-							" Gospel Oak ",
-							" Hampstead Town ",
-							" Haverstock ",
-							" Highgate ",
-							" Holborn and Covent Garden ",
-							" Kentish Town ",
-							" Kilburn ",
-							" King's Cross ",
-							" Regent's Park ",
-							" St Pancras and Somers Town ",
-							" Swiss Cottage ",
-							" West Hampstead ",]
-					},
-					yAxis: {
-						min: 0,
-						title: {
-							text: 'Trees by Height'
-						}
-					},
-					legend: {
-						reversed: true
-					},
-					plotOptions: {
-						series: {
-							stacking: 'normal'
-						}
-					},
-					series: [{
-						name: '0-10',
-						data: [310, 476, 576, 666, 778, 580, 856, 698, 721, 1314, 556, 1045, 773, 386, 449, 922, 463, 550, 148]
-					}, {
-						name: '10-20',
-						data: [309, 248, 295, 478, 455, 562, 500, 572, 602, 1071, 385, 390, 681, 319, 390, 642, 415, 278, 48]
-					}, {
-						name: '20-30',
-						data: [56, 240, 51, 81, 37, 150, 125, 59, 95, 280, 340, 34, 79, 83, 124, 214, 100, 9, 9]
-					}, {
-						name: '30-40',
-						data: [2, 42, 0, 1, 0, 0, 0, 1, 0, 4, 8, 0, 1, 30, 15, 8, 1, 0, 0]
-					}
-						, {
-						name: '40+',
-						data: [1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-					}
-
-					]
-				});
-			});
-		</script>
 	</div>
+
+	<!----	JAVASCRIPT SOURCES ---->
 	
-
-	<!-- Script that animates landing page -->
-	<script type = "text/javascript">
-		TweenMax.from(".hero-img", 1.6, {
-            delay: 6.4,
-            opacity: 0,
-            y: 30,
-            ease: Expo.easeInOut
-      });
-
-      TweenMax.from(".main-text h1", 1.6, {
-            delay: 6.8,
-            opacity: 0,
-            y: 30,
-            ease: Expo.easeInOut
-      });
-
-      TweenMax.from(".main-text p", 1.6, {
-            delay: 7,
-            opacity: 0,
-            y: 30,
-            ease: Expo.easeInOut
-      });
-
-      TweenMax.from("#down", 1.6, {
-            delay: 7.4,
-            opacity: 0,
-            y: 30,
-            ease: Expo.easeInOut
-      });
-
-	</script>
-	<!-- Script to hide navbar.-->
-	<script type = "text/javascript">
-
-		//scroll to top on page refresh.
-		window.onbeforeunload = function () {
-		window.scrollTo(0, 0);
-		}
-
-		$(document).ready(function(){		
-			// hide .navbar first
-			$(".navbar").hide();
-			console.log("hidden.")
-
-			// fade in .navbar
-			$(function () {
-				$(window).scroll(function () {
-					// set distance user needs to scroll before we fadeIn navbar
-					if ($(this).scrollTop() > 80) {
-						$(".navbar").fadeIn();
-						console.log("not hidden.")
-					} else {
-						$(".navbar").fadeOut();
-						console.log("hidden agagin.")
-					}
-				});
-
-
-			});
-			$("#down").on('click', function () {
-				$("html").scrollTop(0);
-				$("html, body").animate({
-					scrollTop: $("#map").offset().top
-				}, 1000);
-			})
-		});	
-		
-		
-	</script>
-
-	<!-- Google Map JS gets loaded below here! -->
-	<script type="text/javascript">
-
-		var map;       			//	Declare empty variables for use later.
-		var markerArray = [];
-		var dataArray 	= [];
-		var heatArray	= [];
-		var heatmap 		;
-		var dataMap			;
-		var count		= 1	;
-		var dCount 		= 0	;
-		var coeffMin 	= Number.MAX_VALUE;
-		var coeffMax 	= Number.MIN_VALUE;
-		var infowindow 	= new google.maps.InfoWindow({ maxWidth: 300 });
-
-		//jQuery initialises and runs after body loads.
-		$(document).ready(function() {
-
-			// Initialize map.
-			function initialise() {
-				// The location of Camden.
-				var camden_cds = { lat: 51.554756, lng: -0.164345 };
-				// Map Options
-				var mapOptions = {
-					center: camden_cds,
-					zoom: 13,
-					minZoom: 12,
-					styles: retroMap,
-					disableDefaultUI: true,
-					zoomControl: true
-				};
-				// The map, centered at camden
-				map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-				//	Init geoJSON retrieval for data layer
-				dataMap = new google.maps.Data();
-				dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8703/data/boundary', {idPropertyName : 'name'});
-
-				//	Init heatmap.
-				heatmap = new google.maps.visualization.HeatmapLayer({
-					data: getHeatmap()
-				});
-
-				//  Gets Data on map load.
-				getData(map.getCenter().lat(), map.getCenter().lng());
-				//  The marker, positioned at camden
-				//var marker = new google.maps.Marker({ position: camden_cds, map: map });
-			}
-
-			//    Create function that gets the tree data to be shown on map from API.
-			function getData(lat, lng) {
-				var lat = lat.toFixed(2); //Changes to 2 decimal places.
-				var lng = lng.toFixed(3);
-
-				console.log("Getting Data: " + lat + ", " + lng);
-
-				setAllMap(null);
-				markerArray = [];
-				var radius = 2000; //Radius of 2km.
-
-				//  URL = API Endpoint that gets the data. Check "http://dev.spatialdatacapture.org:8703/" for more info.
-				var url = "http://dev.spatialdatacapture.org:8703/data/" + lat + "/" + lng + "/" + radius;
-				console.log("API Endpoint :" + url);
-
-				//  jQuery gets data through API Endpoint
-				$.getJSON(url, function (data) {
-					//  Declare variables
-					var latitude;
-					var longitude;
-					console.log("Declared latitude,longitude variables.");
-					//Loops through each row, extracts coordinates, and generates marker on map.
-					$.each(data, function (key, value) {
-						latitude = value["Lat"];
-						longitude = value["Lon"];
-						//console.log("lat: " + latitude + ", lon: " + longitude); //For testing purposes.
-
-						var latlng = new google.maps.LatLng(latitude, longitude);
-
-
-
-						dataArray.push(latlng);
-						//Make new marker on map.
-						var marker = new google.maps.Marker({
-							position: latlng,
-							customInfo: value.id,
-							icon: "./img/icon.png",
-							map: map
-						});
-
-						//When you click on tree display some information from API Endpoint.
-						google.maps.event.addListener(marker, 'click', function (content) {
-							return function () {
-								infowindow.setContent("");
-
-								map.setCenter(new google.maps.LatLng(value.coords.y, value.coords.x)); //Moves map to marker center.
-								$.getJSON("http://dev.spatialdatacapture.org:8703/data/treeDescription/" + this.customInfo, function (data) { //Adds custom info to marker based on API Endpoint.
-									var dateInspected = new XDate((data[0].Date)).toString("MMM d, yyyy HH:mm:ss");
-									var dateUploaded = new XDate((data[0].Uploaded)).toString("MMM d, yyyy HH:mm:ss");
-									var content = "<b> Tree ID: </b>" + value.id + "<br/> <br/><b> Common Name:</b>" + data[0].Com_Name +
-										" <br/> <br/><b>Height (m): </b>" + data[0].Height_M + " <br/> <br/><b>Spread (m): </b>" + data[0].Spread_M +
-										"<br/> <br/><b> Diameter (cm): </b>" + data[0].Diameter_CM + " <br/> <br/><b>Maturity: </b>" + data[0].Maturity +
-										"<br/> <br/><b> Health: </b>" + data[0].Condition + "<br/> <br><b> Location: </b>" + value.coords.y + ", " + value.coords.x +
-										"<br/> <br><b> Date Inspected: </b>" + dateInspected + "<br/> <br><b> Date Uploaded: </b>" + dateUploaded;
-
-									infowindow.setContent(content)
-								})
-
-								infowindow.open(map, this);
-							}
-						}(""));
-
-						markerArray.push(marker);
-
-
-					});
-					clearMarkers();
-				});
-
-			}
-			//Heatmap function, gets data for heatmap.
-			function getHeatmap() {
-				//Need to add input that depends on user button press.
-				//Store input variable.
-				var wgt = "Carbon_Sequest_YR";
-				//console.log("Getting weighted location data: " + wgt); //	Testing.
-
-				//setAllMap(null);  //Clears map of markers.
-				heatArray = [];   //Clears heatmap data array.
-
-				//    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8703/" for more.
-				var url = "http://dev.spatialdatacapture.org:8703/data/sust/" + wgt;
-				console.log("API Endpoint: " + url);
-
-				//    jQuery to grab data through endpoint
-				$.getJSON(url, function (data) {
-					var latitude;
-					var longitude;
-					var weight;
-					$.each(data, function (key, value) {
-						latitude = value["Lat"];
-						longitude = value["Lon"];
-						weight = value[wgt];
-						//console.log("lat:" + latitude + ", lon: " + longitude + ", " + wgt + ": " + weight); //	Testing.
-
-						var loc = new google.maps.LatLng(latitude, longitude);
-						var object = { location: loc, weight: weight };
-						heatArray.push(object);
-					})
-					//console.log("heatmap array length: " + heatArray.length);
-				})
-				return heatArray;
-			}
-
-			//	Functions for GeoJSON.
-			function clusterData(measure){
-				//Something about measure.
-
-				//	URL = API Endpoint to get JSON data for wards on data layer.
-				var url = "http://dev.spatialdatacapture.org:8703/data/clusters";
-				console.log("API Endpoint: " + url);
-
-				//	jQuery to grab data through endpoint.
-				$.getJSON(url, function(data){
-					var ward_name;
-					var result;
-					//	Loops through each row of the retrieved JSON.
-					$.each(data, function (key, value){
-						ward_name 	= value["ward_name"];
-						//	coeff = the clustering coefficient value assigned to that ward.
-						coeff 		= parseFloat(value[measure]);
-						console.log("Ward: " + ward_name + ", Value: " + coeff);
-						//	Get feature/ward of GeoJSON by ward_name and assign to variable.
-						var feat = dataMap.getFeatureById(ward_name)
-						if (feat != undefined) {
-							console.log("Feature exists!");
-							feat.setProperty('data', coeff);	//	Set property of ward to be value.
-							console.log("Property set");
-							console.log(feat);
-						}
-						//	Tracking min and max values of coeff for legend.
-						if (coeff < coeffMin){
-							coeffMin = coeff;
-							console.log("New Min: " + coeffMin);
-						}
-						if (coeff > coeffMax){
-							coeffMax = coeff;
-							console.log("New Max: " + coeffMax);
-						}
-					});
-					console.log("coeff Min: " + coeffMin + ", coeff Max: " + coeffMax);
-					//	Updates legend with the min/max data.
-					document.getElementById('data-min').textContent =
-						coeffMin.toLocaleString();
-					document.getElementById('data-max').textContent =
-						coeffMax.toLocaleString();
-				});
-			}
-
-			function styleFeature(feature) {
-				var low 	= 	[49,70,54]; //Colours of min and max datum in hsl.
-				var high 	=	[118,41,51];
-
-				//	Delta represents ratio of where the data value sits between min and max.
-				var delta = (feature.getProperty('data') - coeffMin) / (coeffMax - coeffMin);
-				console.log("delta: " + delta);
-				console.log("data: " + feature.getProperty('data'));
-
-				//	Assign colour to feature using math :P.
-				var colour = [];
-				for ( var i = 0; i < 3; i++ ) {
-					colour[i] = (high[i] - low[i]) * delta + low[i];
-				}
-
-				//	Determine whether to show this feature style or not.
-				var showRow = true;
-				if ( feature.getProperty('data') == null  || isNaN(feature.getProperty('data'))) {
-					showRow = false;
-				}
-				console.log("show: " + showRow);
-
-				//	Declare line weights/z index and amplify when mouseover.
-				var outlineWeight = 2, zIndex = 1;
-				if ( feature.getProperty('state') === 'hover') {
-					outlineWeight 	= 4;
-					zIndex 			= 2;
-				}
-
-				return {
-					strokeWeight: outlineWeight,
-					strokeColor: '#ebe5d5',
-					zIndex: zIndex,
-					fillColor: 'hsl(' + colour[0] + ',' + colour[1] + '%,' + colour[2] + '%)',
-					fillOpacity: 0.75,
-					visible: showRow
-				};
-			}
-
-			function mouseInWard(e) {
-				//	Set hover state so that styleFeature func can change border styles.
-				e.feature.setProperty('state', 'hover');
-
-				//	Calculate percentage - where the data value is within distribution of all data values.
-				var percent = (e.feature.getProperty('data') - coeffMin)/
-					(coeffMax - coeffMin) * 100;
-
-				//	Update the legend with the data of the ward.
-
-				document.getElementById('data-label').textContent 	=
-					e.feature.getProperty('name');
-				document.getElementById('data-value').textContent 	=
-					e.feature.getProperty('data').toLocaleString();
-				//	Update legend and moves data point along it.
-				document.getElementById('data-box').style.display 	= 'block';
-				document.getElementById('data-point').style.display = 'block';
-				document.getElementById('data-point').style.paddingLeft = percent + '%';
-			}
-
-			function mouseOutWard(e) {
-				//	Reset hover state.
-				e.feature.setProperty('state', 'normal');
-			}
-
-			//	Loads the ward boundary polygon from geoJSON source.
-			//	Functions for Map toggles.
-			function toggleMarkers(){
-				heatmap.setMap(null);
-				dataMap.setMap(null);
-				dCount = 0;
-				if(count == 0){
-					clearMarkers();
-					count = 1;
-				}else{
-					setAllMap(map);
-					count = 0;
-				}
-			}
-
-			function toggleHeatmap() {
-				console.log("Clearing Map...")
-				clearMarkers();
-				count = 1;
-				dataMap.setMap(null);
-				dCount = 0;
-				console.log("Starting Heatmap...")
-				heatmap.setMap(heatmap.getMap() ? null : map);
-			}
-
-			function toggleData() {
-				console.log("Clearing Map...")
-				clearMarkers();
-				count = 1;
-				heatmap.setMap(null);
-				console.log("Grabbing Polygons...")
-				if (dCount == 0){
-					console.log(dataMap.getFeatureById('Belsize'));
-					clusterData('Amenity_Gi')
-					//dataMap.setMap(map);
-					console.log(dataMap.getFeatureById('Belsize'));
-					dataMap.setStyle(styleFeature);
-					dataMap.addListener('mouseover', mouseInWard);
-					dataMap.addListener('mouseout', mouseOutWard);
-
-					dataMap.setMap(map);
-					dCount = 1;
-				}	else	{
-					dataMap.setMap(null);
-					dCount = 0;
-				}
-			}
-			
-			function iterFeature(){
-				dataMap.forEach(function(feature){
-  						console.log("Id from Google's feature: " + feature.getId());
-						var testX = feature.getId();
-						console.log(dataMap.getFeatureById(testX));
-						console.log(typeof(testX));
-  					});
-			}
-
-			//	Button-jQuery
-			$("#btn-heatmap").click(toggleHeatmap);
-
-			$("#btn-markers").click(toggleMarkers);
-
-			$("#btn-data").click(toggleData);
-
-			//	Start map with initialise function, loads map with markers.
-			//	Delay of 10 seconds to reduce lag.
-			function initdata() {
-				setTimeout(function(){
-				    console.log("initiating initialise function.");
-					initialise();
-				},10000);
-			}
-
-			google.maps.event.addDomListener(window, 'load', initdata);
-		});
-
-		// Functions that are used by map toggles.
-		function createMarkers() {
-			var marker = new google.maps.Marker({
-				position: latlng
-			});
-		}
-
-		function setAllMap(map) {
-			for (var i = 0; i < markerArray.length; i++) {
-				markerArray[i].setMap(map);
-			}
-		}
-
-		function clearMarkers() {
-			setAllMap(null);
-		}
-
-
-		String.prototype.replaceAll = function (str1, str2, ignore) {
-			return decodeURIComponent(this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2));
-		}
-
-	</script>
-	<script>
-		//		script for changing text when buttons are clicked.
-		function toggleBox(bro) {
-			var x = document.getElementById(bro);
-			if(bro=='geoInfo' || bro=='data-control-widget') {
-				document.getElementById('heatInfo').style.display = "none";
-				document.getElementById('markerInfo').style.display = "none";
-			} else {
-				document.getElementById('heatInfo').style.display = "none";
-				document.getElementById('markerInfo').style.display = "none";
-				document.getElementById('geoInfo').style.display = "none";
-				document.getElementById('data-control-widget').style.display = "none";
-				console.log("plz give us a first")
-			;}
-
-			if (x.style.display === "block") {
-				console.log("block.")
-				x.style.display = "none";
-			} else {
-				console.log("none.")
-				x.style.display = "block";
-			}
-		};
-	</script>
+	<!----	Libraries + gMap ---->
+	
+	<!-- jQuery -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+	<!-- Google Maps -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
+	<!-- XDate For Date formatting-->
+	<script type='text/javascript' src='http://dev.spatialdatacapture.org/xdate/xdate.js'></script>
+	<!-- Bootstrap 4 js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- gSap TweenMax for animations -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	<!-- High  Charts for charts -->
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+
+	<!-- chart.js  for charts -->
+	<script src = "node_modules/chart.js/dist/Chart.js"></script>
+	<!-- chart.js deferred plugin to defer animations-->
+	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
+	
+	<!---- 	Local scripts ---->
+	
+	<!-- Toolkit: small functions -->
+	<script type = 'text/javascript' src = "JS/toolkit.js"></script>
+	<!-- Google Maps + Styles -->
+	<script type="text/javascript" src = "JS/gmap.js"></script>
+	<script type="text/javascript" src = "JS/gmapStyle.js"></script>
+	<!-- chart.js script -->
+	<script type="text/javascript" src = "JS/chartjsScript.js"></script>
+	<!-- high-chart.js script -->
+	<script type="text/javascript" src = "JS/highChartScript.js"></script>
+
+
+	
+	<!--<script type="text/javascript" <script type='text/javascript' src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script> -->
 </body>
 
 </html>
