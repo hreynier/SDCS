@@ -33,7 +33,133 @@ h1 {
 
 
 /* --------- 2. HOME PAGE --------- */
-/* --------  2.1 NAV BAR  -------- */
+/* ------- LOADING ANIMATION ------ */
+.first-block {
+  position: absolute;
+  width: 0%;
+  height: 100vh;
+  background: #52414C;
+  animation: go-left 4s cubic-bezier(.74, .06, .4, .92) forwards;
+  left: 0;
+}
+
+@keyframes go-left {
+  0% {
+        left: 0;
+        width: 0%;
+  }
+  50% {
+        left: 0;
+        width: 100%;
+  }
+  100% {
+        left: 100%;
+        width: 0;
+  }
+}
+
+.second-block {
+  position: absolute;
+  width: 0%;
+  height: 100vh;
+  background: #8F5C38;
+  animation: go-left 4s cubic-bezier(.74, .06, .4, .92) forwards;
+  animation-delay: 2s;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.loader ul li {
+  display: inline-block;
+  color: #fff;
+  font-family: 'Lato';
+  font-weight: bolder;
+  margin: 0 8px;
+  font-size: 24px;
+  text-transform: uppercase;
+  animation: loadNow 4s ease-in-out forwards;
+  opacity: 0;
+  transform: translateX(0px);
+}
+
+@keyframes loadNow {
+  0% {
+        opacity: 0;
+        transform: translateX(80px);
+  }
+  20% {
+        opacity: 1;
+        transform: translateX(0px);
+  }
+  80% {
+        opacity: 1;
+        transform: translateX(0px);
+  }
+  100% {
+        opacity: 0;
+        transform: translateX(-80px);
+  }
+}
+
+.loader ul li:nth-child(1) {
+  animation-delay: 1.1s;
+}
+
+.loader ul li:nth-child(2) {
+  animation-delay: 1.2s;
+}
+
+.loader ul li:nth-child(3) {
+  animation-delay: 1.3s;
+}
+
+.loader ul li:nth-child(4) {
+  animation-delay: 1.4s;
+}
+
+.loader ul li:nth-child(5) {
+  animation-delay: 1.5s;
+}
+
+.loader ul li:nth-child(6) {
+  animation-delay: 1.6s;
+}
+
+.loader ul li:nth-child(7) {
+  animation-delay: 1.6s;
+}
+
+.third-block {
+  position: absolute;
+  width: 0%;
+  height: 100vh;
+  background: #FCC8B2;
+  animation: expandNow 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-delay: 6.2s;
+}
+
+@keyframes expandNow {
+  0% {
+        width: 0%;
+  }
+
+  100% {
+        width: 70%;
+  }
+}
+
+/* --------  2.1 NAV BAR  --------- */
 .navbar {
   padding-right: 23px;
   /*box-shadow: 0px 5px 10px #cccccc;*/
@@ -73,22 +199,50 @@ h1 {
   margin-right: auto;
   margin-left: auto;
 }
-.main-text{
-  text-align: center;
+.main-text {
+  text-align: left;
+  /*max-width: 50%;*/
+  margin-left: 5%;
+  padding-left: 0px !important;
+  margin-right: auto;
+  padding-right: 10px !important;
 }
 .main-text h1 {
-  font-size: 6em;
-  text-transform: uppercase;
+  font-size: 4.5em;
   font-weight: 700;
   margin-bottom: 11px;
 }
+.GI{
+  -webkit-text-decoration: #A8CDA6 solid underline;
+  text-decoration: #A8CDA6 solid underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
+  text-decoration-thickness: 7px;
+}
 .main-text p {
-  font-size: 18px;
+  font-size: 1.5em;
   font-weight: bold;
-  letter-spacing: 6px;
+  letter-spacing: 2px;
   line-height: 1.6;
-  word-spacing: 5px;
-  text-transform: uppercase;
+  word-spacing: 4px;
+  margin-bottom: 5px;
+}
+.hero-img{
+  padding-right: 0px !important;
+  padding-left: 20px !important;
+}
+
+#down {
+  font-size: 40px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+}
+
+#down:hover {
+  cursor: pointer;
+  color: #A8CDA6;
+  opacity: 0.8;
 }
 
 /* --------  2.3 MAP STYLES  -------- */

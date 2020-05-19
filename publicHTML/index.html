@@ -17,10 +17,27 @@
 </head>
 
 <body>
+	<!-- LOADING ANIMATION -->
+	<div class="first-block"></div>
+    <div class="second-block"></div>
+    <div class="loader">
+        <ul>
+			<li>L</li>
+			<li>O</li>
+			<li>A</li>
+			<li>D</li>
+			<li>I</li>
+			<li>N</li>
+			<li>G</li>
+		</ul>
+	</div>
+	<div class="third-block"></div>
+	<!-- 	landing page + nav bar -->
 	<header id = "home" class = "h-100">
 		<!-- Header nav bar -->
 		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
 			<a class="navbar-brand py-0" href="#">
+				<span class="w-100 d-lg-none d-block"></span>
 				<h1><b>Treecon🌲</b></h1>
 			</a>
 			<!--allows the links to shrink into a menu on small screens -->
@@ -28,42 +45,35 @@
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
+			<div class="collapse navbar-collapse flex-grow-1" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link py-0" href="./index.html">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link py-0 m-1" href="./index.html">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link py-0" href="./about.html">About</a>
+						<a class="nav-link py-0 m-1" href="./about.html">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link py-0" href="./group.html">Group</a>
+						<a class="nav-link py-0 m-1" href="./group.html">Group</a>
 					</li>
 				</ul>
 
 			</div>
 		</nav>
-		<!-- <div class = "jumbotron jumbotron-fluid">
-			<div class="container">
-				<h1 class="display-4">Fluid jumbo heading</h1>
-				<p class="lead">Jumbo helper text</p>
-				<hr class="my-2">
-				<p>More info</p>
-				<p class="lead">
-					<a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-				</p>
-			</div>
-		</div> -->
-	
+		<!-- Landing Page main content -->
 		<div class = "container">
-			<div class = "main-text">
-				<br><br><br><br>
-				<h1>Welcome to the website.</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin augue ipsum, venenatis eu orci nec, semper rhoncus eros. Aenean eu ligula lacinia, maximus erat a, dignissim purus. Nulla pellentesque ex sit amet tellus dapibus accumsan. Nullam tincidunt quis lacus ut facilisis. Integer aliquam enim sit amet mi aliquet congue. Suspendisse condimentum dolor id iaculis placerat. Fusce elementum vel risus eu luctus. Aenean vitae turpis imperdiet, posuere enim vel, congue erat. Ut vel imperdiet libero. Nam massa velit, auctor in libero ut, feugiat rutrum magna. Aliquam hendrerit varius magna, ac fringilla augue. Quisque quis cursus diam, id gravida risus. Etiam ac libero vitae nisi varius hendrerit quis in ex.</p>
-				<br><br>
-				<span id = "down">&#x21e3;</span>
+			<div class = "row">
+				<div class = "main-text col-4">
+					<br><br>
+					<h1>Treecon🌲</h1>
+					<p>The Analytics Platform for <br><u class = "GI">Green Infrastructure.</u></p>
+				</div>
+				<div class = "hero-img col-6">
+					<img src="img/undraw_through_the_park_lxnl.svg" alt="hero image." width = "100%">
+				</div>
 			</div>
 		</div>
+		<span id = "down">&#x21e3</span>
 	</header>
 
 
@@ -117,6 +127,9 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
 	<script type="text/javascript" <script type='text/javascript'
 		src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script>
 	<script type='text/javascript' src='./js/JS.js'></script>
@@ -283,6 +296,77 @@
 			});
 		</script>
 	</div>
+	
+
+	<!-- Script that animates landing page -->
+	<script type = "text/javascript">
+		TweenMax.from(".hero-img", 1.6, {
+            delay: 6.4,
+            opacity: 0,
+            y: 30,
+            ease: Expo.easeInOut
+      });
+
+      TweenMax.from(".main-text h1", 1.6, {
+            delay: 6.8,
+            opacity: 0,
+            y: 30,
+            ease: Expo.easeInOut
+      });
+
+      TweenMax.from(".main-text p", 1.6, {
+            delay: 7,
+            opacity: 0,
+            y: 30,
+            ease: Expo.easeInOut
+      });
+
+      TweenMax.from("#down", 1.6, {
+            delay: 7.4,
+            opacity: 0,
+            y: 30,
+            ease: Expo.easeInOut
+      });
+
+	</script>
+	<!-- Script to hide navbar.-->
+	<script type = "text/javascript">
+
+		//scroll to top on page refresh.
+		window.onbeforeunload = function () {
+		window.scrollTo(0, 0);
+		}
+
+		$(document).ready(function(){		
+			// hide .navbar first
+			$(".navbar").hide();
+			console.log("hidden.")
+
+			// fade in .navbar
+			$(function () {
+				$(window).scroll(function () {
+					// set distance user needs to scroll before we fadeIn navbar
+					if ($(this).scrollTop() > 80) {
+						$(".navbar").fadeIn();
+						console.log("not hidden.")
+					} else {
+						$(".navbar").fadeOut();
+						console.log("hidden agagin.")
+					}
+				});
+
+
+			});
+			$("#down").on('click', function () {
+				$("html").scrollTop(0);
+				$("html, body").animate({
+					scrollTop: $("#map").offset().top
+				}, 1000);
+			})
+		});	
+		
+		
+	</script>
 
 	<!-- Google Map JS gets loaded below here! -->
 	<script type="text/javascript">
@@ -611,7 +695,15 @@
 			$("#btn-data").click(toggleData);
 
 			//	Start map with initialise function, loads map with markers.
-			google.maps.event.addDomListener(window, 'load', initialise);
+			//	Delay of 10 seconds to reduce lag.
+			function initdata() {
+				setTimeout(function(){
+				    console.log("initiating initialise function.");
+					initialise();
+				},10000);
+			}
+
+			google.maps.event.addDomListener(window, 'load', initdata);
 		});
 
 		// Functions that are used by map toggles.
