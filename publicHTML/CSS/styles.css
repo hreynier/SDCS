@@ -20,12 +20,12 @@ h6 {
     line-height: normal;
     font-weight: 700;
 	font-family: 'Taviraj', sans-serif;
-	color: #4d4d4d;
+	color: #3e3e3e;
 }
 h1 {
   font-size: 20px;
   font-family: 'Taviraj', verdana  , sans-serif;
-  color: #4d4d4d;
+  color: #3e3e3e;
   font-weight:800;
 
 }
@@ -38,7 +38,7 @@ h1 {
   position: absolute;
   width: 0%;
   height: 100vh;
-  background: #52414C;
+  background: #3E3E3E;
   animation: go-left 4s cubic-bezier(.74, .06, .4, .92) forwards;
   left: 0;
 }
@@ -62,9 +62,18 @@ h1 {
   position: absolute;
   width: 0%;
   height: 100vh;
-  background: #8F5C38;
-  animation: go-left 4s cubic-bezier(.74, .06, .4, .92) forwards;
+  background: #CB997E;
+  animation: go-left 2s cubic-bezier(.74, .06, .4, .92) forwards;
   animation-delay: 2s;
+}
+
+.third-block {
+  position: absolute;
+  width: 0%;
+  height: 100vh;
+  background: #93A58D;
+  animation: go-left 3s cubic-bezier(.74, .06, .4, .92) forwards;
+  animation-delay: 2.5s;
 }
 
 .loader {
@@ -82,7 +91,7 @@ h1 {
 
 .loader ul li {
   display: inline-block;
-  color: #fff;
+  color: #F5F5F5;
   font-family: 'Lato';
   font-weight: bolder;
   margin: 0 8px;
@@ -140,11 +149,11 @@ h1 {
   animation-delay: 1.6s;
 }
 
-.third-block {
+.fourth-block {
   position: absolute;
   width: 0%;
   height: 100vh;
-  background: #FCC8B2;
+  background: #F0E5D3;
   animation: expandNow 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   animation-delay: 6.2s;
 }
@@ -155,7 +164,7 @@ h1 {
   }
 
   100% {
-        width: 70%;
+        width: 75%;
   }
 }
 
@@ -169,7 +178,7 @@ h1 {
 .nav-link{
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  color: #4d4d4d !important; 
+  color: #3e3e3e !important; 
 }
 .nav-link active{
   color:#65AD07;
@@ -261,26 +270,27 @@ h1 {
   text-align: center !important;
 }
 .mapBtn {
-  background-color: #A5AA93;
-  border: 1px solid #A5AA93;
+  background-color: #CB997E;
+  border: 1px solid #CB997E;
   border-radius: 12px;
   font-size: 18px;
   font-family: 'Lato', verdana  , sans-serif;
   font-weight: 700;
-  color: white;
+  color: #3E3E3E;
   margin:10px;
   padding: 5px;
 }
 
 .mapBtn:hover {
-  background-color: #A5AA93;
-  color: white;
+  background-color: #BB8A71;
+  color: #3E3E3E;
+
+}
+.mapBtn:active {
+    background-color: #BB8A71;
+    color: #3E3E3E;
 }
 
-.mapBtn:active {
-    background-color: #A5AA93;
-    color: white;
-}
 #heatInfo {
   width: 100%;
   padding: 20px 0;
@@ -288,11 +298,11 @@ h1 {
   padding-right:15%;
   text-align: center;
   margin-top: 20px;
-  display : none;
+  display : none !important;
   font-size: 20px;
   font-family: 'Lato', optima  , sans-serif;
   font-weight: 300;
-  color: #4c4f3e;
+  color: #3E3E3E;
   background-color: #cfcfa7;
 }
 #markerInfo {
@@ -302,11 +312,11 @@ h1 {
   padding-right:15%;
   text-align: center;
   margin-top: 20px;
-  display : none;
+  display : none !important;
   font-size: 20px;
   font-family: 'Lato', optima, sans-serif;
   font-weight: 300;
-  color: #4c4f3e;
+  color: #3E3E3E;
   background-color: #cfcfa7;
 }
 #geoInfo{
@@ -316,11 +326,11 @@ h1 {
   padding-right:15%;
   text-align: center;
   margin-top: 20px;
-  display : none;
+  display : none !important;
   font-size: 20px;
   font-family: 'Lato', optima  , sans-serif;
   font-weight: 300;
-  color: #4c4f3e;
+  color: #3E3E3E;
   background-color: #cfcfa7;
 }
 /*--- CONTROL + LEGEND BOX FOR CLUSTER MAP */
@@ -424,7 +434,7 @@ h1 {
 
 .TitleDiv {
     display: inline-block;
-    color: #4a4a4a;
+    color: #3E3E3E;
     font-family: 'Taviraj';
     font-size: 22px;
     letter-spacing: 1.04px;
@@ -440,7 +450,7 @@ h1 {
   font-family: 'Lato',Verdana, sans-serif;
   font-weight: 300;
 	border-collapse: collapse;
-	border: 1px solid #EBEBEB;
+	border: 1px solid #F5F5F5;
 	margin: 10px auto;
 	text-align: center;
 	width: 100%;
@@ -459,10 +469,10 @@ h1 {
     padding: 0.5em;
 }
 .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-    background: #f8f8f8;
+    background: #F5F5F5;
 }
 .highcharts-data-table tr:hover {
-    background: #f1f7ff;
+    background: #F5F5F5;
 }
 
 

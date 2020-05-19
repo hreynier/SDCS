@@ -84,7 +84,7 @@ $(document).ready(function(){
     $(function () {
         $(window).scroll(function () {
             // set distance user needs to scroll before we fadeIn navbar
-            if ($(this).scrollTop() > 80) {
+            if ($(this).scrollTop() > 200) {
                 $(".navbar").fadeIn();
                 console.log("not hidden.")
             } else {
