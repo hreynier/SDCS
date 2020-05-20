@@ -109,7 +109,7 @@ $(document).ready(function(){
     $("#about-dwn").on('click', function () {
         $("#about").scrollTop(0);
         $("html,#about").animate({
-            scrollTop: $("#map-section").offset().top
+            scrollTop: $("#map-section").offset().top -49
         }, 1000);
     })
 

@@ -305,9 +305,9 @@ a.link:hover{
   min-height: 100vh;
   max-height: 100vh;
   height: 100vh;
-  min-width: 100vw;
+  /*min-width: 100vw;
   max-width: 100vw;
-  width: 100vw;
+  width: 100vw;*/
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -329,9 +329,8 @@ a.link:hover{
 .map-control-widget {
   margin: auto;
   margin-top: 0%;
-  margin-bottom: 1%;
+  margin-bottom: 0%;
   width:700px;
-  padding-bottom: 5px;
   text-align: center !important;
 }
 .mapBtn {
@@ -356,7 +355,7 @@ a.link:hover{
     color: #3E3E3E;
 }
 
-#heatInfo {
+.infoBox {
   width: 100%;
   padding: 20px 0;
   padding-left: 15%;
@@ -366,37 +365,17 @@ a.link:hover{
   display : none;
   font-size: 20px;
   font-family: 'Lato', optima  , sans-serif;
-  font-weight: 300;
+  font-weight: 505;
   color: #3E3E3E;
-  background-color: #cfcfa7;
+  background-color: #CB997E;
 }
-#markerInfo {
+
+.map-block{
+  top: 80%;
   width: 100%;
-  padding: 20px 0;
-  padding-left: 15%;
-  padding-right:15%;
-  text-align: center;
-  margin-top: 20px;
-  display : none;
-  font-size: 20px;
-  font-family: 'Lato', optima, sans-serif;
-  font-weight: 300;
-  color: #3E3E3E;
-  background-color: #cfcfa7;
-}
-#geoInfo{
-  width: 100%;
-  padding: 20px 0;
-  padding-left: 15%;
-  padding-right:15%;
-  text-align: center;
-  margin-top: 20px;
-  display : none;
-  font-size: 20px;
-  font-family: 'Lato', optima  , sans-serif;
-  font-weight: 300;
-  color: #3E3E3E;
-  background-color: #cfcfa7;
+  height: 20%;
+  background: #856C5E;
+  z-index: -1;
 }
 /*--- CONTROL + LEGEND BOX FOR CLUSTER MAP */
 #data-control-widget{
