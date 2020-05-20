@@ -198,7 +198,7 @@ $(document).ready(function() {
         setTimeout(function(){
             console.log("initiating initialise function.");
             initialise();
-        },600);
+        },4000);
     }
 
     google.maps.event.addDomListener(window, 'load', initdata);
