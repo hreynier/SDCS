@@ -37,7 +37,7 @@
 
 	<!------  1. LANDING PAGE + NAV BAR  ------>
 	<header id = "home" class = "h-100">
-		
+
 		<!--	NAV BAR		-->
 		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
 			<a class="navbar-brand py-0" href="#">
@@ -71,17 +71,32 @@
 				<div class = "main-text col-4">
 					<br><br>
 					<h1>Treecon🌳</h1>
-					<p>The Analytics Platform for <br><u class = "GI">Green Infrastructure.</u></p>
+					<p>The Analytics Platform for </br><u class = "GI">Green Infrastructure.</u></p>
 				</div>
 				<div class = "hero-img col-6">
 					<img src="img/undraw_through_the_park_lxnl.svg" alt="hero image." width = "100%">
 				</div>
 			</div>
 		</div>
-		<span id = "down">&#x21e3</span>
+		<span id = "down"> &#x21e3; </span>
 	</header>
 
-	<!------ 2. ABOUT SECTION  ------>
+  <!------ 2. ABOUT SECTION  ------>
+	<div id="about" class = "h-100" >
+		<div class = "row" style="padding-top:90px">
+			<div class = "hero-img col-4">
+				<img src="img/undraw_empty_street_sfxm.svg" alt="hero image." width = "100%">
+			</div>
+			<div class = "main-text col-6">
+				<br><br>
+				<h1><u class = "GI">About</u></h1>
+				<p style= "font-size: 16px;font-weight: 300"> This project was drafted by a <a href="./group.html" class="link">group</a> of students in order to communicate the presence and importance of the trees within Camden Council. Our means are twofolds: firstly, we visualized the location of "public" trees (trees that are within council-owned property) through a multi-layered map. Secondly, we interpreted council-provided data on the trees through some summaries and a regression analysis. <br/><br/>All information on this website is open to public access. The data was sourced from the <a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" class="link">Camden Council tree dataset</a>. <p id = "downer"> &#x21e3; </p>
+
+			</div>
+
+		</div>
+
+	</div>
 
 	<!------ 3. BUTTON MAP SECTION 	------>
 
@@ -101,8 +116,8 @@
 	</div>
 
 	<!-- 	MAP 	-->
-	<div id="map"></div>
-	
+	<div id="map" class = "h-80"></div>
+
 	<!-- 3 Button Widget -->
 	<div class="map-control-widget">
 		<button id = "btn-markers"  class = "mapBtn" onclick="toggleBox('markerInfo')">Tree Location</button>
@@ -132,9 +147,9 @@
 	</div>
 
 	<!----	JAVASCRIPT SOURCES ---->
-	
+
 	<!----	Libraries + gMap ---->
-	
+
 	<!-- jQuery -->
 	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
 	<!-- Google Maps -->
@@ -152,9 +167,9 @@
 	<script src = "node_modules/chart.js/dist/Chart.js"></script>
 	<!-- chart.js deferred plugin to defer animations-->
 	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
-	
+
 	<!---- 	Local scripts ---->
-	
+
 	<!-- Toolkit: small functions -->
 	<script type = 'text/javascript' src = "JS/toolkit.js"></script>
 	<!-- Google Maps + Styles -->
@@ -166,7 +181,7 @@
 	<script type="text/javascript" src = "JS/highChartScript.js"></script>
 
 
-	
+
 	<!--<script type="text/javascript" <script type='text/javascript' src='https://opendata.camden.gov.uk/resource/csqp-kdss.json?$$app_token=5YbHlvnsIgblrrY3kSuIU9WZ0'></script> -->
 </body>
 

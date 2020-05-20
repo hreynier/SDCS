@@ -107,7 +107,7 @@ var retroMap =[
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#a5b076"
+        "color": "#A8CDA6"
       }
     ]
   },
@@ -161,7 +161,7 @@ var retroMap =[
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#f8c967"
+        "color": "#93A58D"
       }
     ]
   },
@@ -170,7 +170,7 @@ var retroMap =[
     "elementType": "geometry.stroke",
     "stylers": [
       {
-        "color": "#e9bc62"
+        "color": "#93A58D"
       }
     ]
   },
@@ -188,7 +188,7 @@ var retroMap =[
     "elementType": "geometry",
     "stylers": [
       {
-        "color": "#e98d58"
+        "color": "#A8CDA6"
       }
     ]
   },
@@ -197,7 +197,7 @@ var retroMap =[
     "elementType": "geometry.stroke",
     "stylers": [
       {
-        "color": "#db8555"
+        "color": "#A8CDA6"
       }
     ]
   },

@@ -8,7 +8,7 @@
 
 //  GLOBAL VARIABLES
 //	Declare empty variables for use later.
-var map;       			
+var map;
 var heatmap 		;
 var dataMap			;
 
@@ -34,7 +34,7 @@ $(document).ready(function() {
 
         // The location of Camden.
         var camden_cds = { lat: 51.554756, lng: -0.164345 };
-        
+
         // Map Options
         var mapOptions = {
             center:             camden_cds,
@@ -88,7 +88,7 @@ $(document).ready(function() {
             //  Declare variables
             var latitude;
             var longitude;
-            
+
             //Loops through each row, extracts coordinates, and generates marker on map.
             $.each(data, function (key, value) {
                 latitude = value["Lat"];
@@ -99,7 +99,7 @@ $(document).ready(function() {
                 //  Generate new google map coord object + store.
                 var latlng = new google.maps.LatLng(latitude, longitude);
                 dataArray.push(latlng);
-                
+
                 //  Make new marker on map.
                 var marker = new google.maps.Marker({
                     position: latlng,
@@ -146,13 +146,13 @@ $(document).ready(function() {
     //  Gets data for the heatmap layer.
     function getHeatmap() {
         //  SUGGESTION: ADD USER INPUT FEATURE (DROPDOWN MENU)
-        
+
         //Store input variable
         var wgt = "Pollution_Year_grams";
         console.log("Getting weighted location data: " + wgt);
 
         //  Clear data array.
-        heatArray = [];   
+        heatArray = [];
 
         //    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8703/" for more.
         var url = "http://dev.spatialdatacapture.org:8703/data/sust/" + wgt;
@@ -164,8 +164,8 @@ $(document).ready(function() {
             var latitude;
             var longitude;
             var weight;
-            
-            //  Loop through json, extract point data and weight value.  
+
+            //  Loop through json, extract point data and weight value.
             $.each(data, function (key, value) {
                 latitude = value["Lat"];
                 longitude = value["Lon"];
@@ -183,7 +183,7 @@ $(document).ready(function() {
         //  Returns the array so that function can be called.
         return heatArray;
     }
-    
+
 
     //	Toggles map layers on button click.
     $("#btn-heatmap").click(toggleHeatmap);
@@ -198,7 +198,7 @@ $(document).ready(function() {
         setTimeout(function(){
             console.log("initiating initialise function.");
             initialise();
-        },10000);
+        },600);
     }
 
     google.maps.event.addDomListener(window, 'load', initdata);
@@ -212,8 +212,8 @@ jQuery.clusterData = function clusterData(measure){
 
     //	jQuery to grab data through endpoint.
     $.getJSON(url, function(data){
-        
-        // Declare local variables. 
+
+        // Declare local variables.
         var ward_name;
         var coeff;
 
@@ -225,7 +225,7 @@ jQuery.clusterData = function clusterData(measure){
             coeff 		= parseFloat(value[measure]);
 
             //console.log("Ward: " + ward_name + ", Value: " + coeff);      //  Uncomment for testing purposes.
-            
+
             //	Get feature/ward of GeoJSON by ward_name and assign to variable.
             var feat = dataMap.getFeatureById(ward_name)
             if (feat != undefined) {
@@ -266,12 +266,12 @@ jQuery.clusterData = function clusterData(measure){
 function styleFeature(feature) {
 
     //  Colours of the min and max datum in HSL.
-    var low 	= 	[49,70,54]; 
+    var low 	= 	[49,70,54];
     var high 	=	[118,41,51];
 
     //	Delta represents ratio of where the data value sits between min and max.
     var delta = (feature.getProperty('data') - coeffMin) / (coeffMax - coeffMin);
-    
+
     //console.log("delta: " + delta);
     //console.log("data: " + feature.getProperty('data'));   //     Uncomment for test purposes.
 
@@ -371,7 +371,7 @@ function toggleData() {
     heatmap.setMap(null);
     console.log("Grabbing Polygons...")
     if (dCount == 0){
-        
+
         $.clusterData('Amenity_Gi');
         //dataMap.setMap(map);
         //console.log(dataMap.getFeatureById('Belsize'));

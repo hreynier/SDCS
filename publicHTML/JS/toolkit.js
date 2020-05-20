@@ -2,7 +2,7 @@
 // -- AUTHOR: Harvey Reynier --//
 // ------- DESCRIPTION ------- //
 
-//  Smaller functions that add interactivity, 
+//  Smaller functions that add interactivity,
 //  Animations, or ...
 
 
@@ -15,7 +15,7 @@ window.onbeforeunload = function () {
 // ---- LOADING ANIMATION ON SITE LOAD ---- //
 //  Utilises the GSAP tweenmax library.
 
-//  Animates the hero-img svg to move up. 
+//  Animates the hero-img svg to move up.
 TweenMax.from(".hero-img", 1.6, {
     delay: 6.4,
     opacity: 0,
@@ -71,11 +71,11 @@ function toggleBox(bro) {
 // ---- jQuery Section ---- //
 //  On DOM page load -> init.
 $(document).ready(function(){
-    
+
     //  ----- NAV-BAR FADE -----//
     //  Hide Navbar, and fade in and out depending
     //  on scroll position.
-   
+
     // hide .navbar first
     $(".navbar").hide();
     console.log("hidden.")
@@ -102,10 +102,14 @@ $(document).ready(function(){
     $("#down").on('click', function () {
         $("html").scrollTop(0);
         $("html, body").animate({
+            scrollTop: $("#about").offset().top
+        }, 1000);
+    })
+    $("#downer").on('click', function () {
+        $("#about").scrollTop(0);
+        $("html,#about").animate({
             scrollTop: $("#map").offset().top
         }, 1000);
     })
 
-
-});	
-    
+});

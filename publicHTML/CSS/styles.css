@@ -30,8 +30,16 @@ h1 {
 
 }
 
+a.link{
+  color:#93A58D;
+  font-weight: 600;
 
-
+}
+a.link:hover{
+  color:#3E3E3E;
+  font-weight: 600;
+  text-decoration: none;
+}
 /* --------- 2. HOME PAGE --------- */
 /* ------- LOADING ANIMATION ------ */
 .first-block {
@@ -178,7 +186,7 @@ h1 {
 .nav-link{
   font-family: 'Lato', sans-serif;
   font-weight: 700;
-  color: #3e3e3e !important; 
+  color: #3e3e3e !important;
 }
 .nav-link active{
   color:#65AD07;
@@ -199,6 +207,13 @@ h1 {
 .h-100{
   min-height: 100vh;
   max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h-80{
+  min-height: 80vh;
+  max-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -253,6 +268,20 @@ h1 {
   color: #A8CDA6;
   opacity: 0.8;
 }
+#downer{
+  font-size: 40px;
+  position: static;
+  bottom: 5%;
+  left: 50%;
+  text-align: center !important;
+}
+
+#downer:hover {
+
+  cursor: pointer;
+  color: #A8CDA6;
+  opacity: 0.8;
+}
 /* -------   2.3 ABOUT STYLES -------- */
 
 
@@ -265,29 +294,29 @@ h1 {
 .map-control-widget {
   margin: auto;
   padding-top: 35px;
-  width:500px;
+  width:700px;
   padding-bottom: 5px;
   text-align: center !important;
 }
 .mapBtn {
-  background-color: #CB997E;
-  border: 1px solid #CB997E;
+  background-color: #8cb58a;
+  border: 1px solid #8cb58a;
   border-radius: 12px;
   font-size: 18px;
   font-family: 'Lato', verdana  , sans-serif;
-  font-weight: 700;
+  font-weight: 505;
   color: #3E3E3E;
   margin:10px;
-  padding: 5px;
+  padding: 8px;
 }
 
 .mapBtn:hover {
-  background-color: #BB8A71;
+  background-color: #93A58D;
   color: #3E3E3E;
 
 }
 .mapBtn:active {
-    background-color: #BB8A71;
+    background-color: #8cb58a;
     color: #3E3E3E;
 }
 
@@ -479,7 +508,7 @@ h1 {
 
 
 /* Not sure what these are used for?
-#heading { 
+#heading {
   width:100%;
 }
 
