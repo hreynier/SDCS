@@ -473,6 +473,62 @@ a.link:hover{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* -------  2.5 DATA EXPLORATION SECTION 2 --------*/
+
+/*     ---- HTML ---- */
+
+#explr2-block{
+  background-color: rgba(133, 108, 94,0.1);
+  height: 100vh;
+  width: 48%;
+  margin-right: 52%;
+  z-index: -5;
+}
+
+#explr2-container{
+  position: absolute;
+}
+.explr2-text {
+  text-align: left;
+  padding-left: 1% !important;
+  margin-right: 5%;
+}
+.explr2-text h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.explr2-text p {
+  font-size: 1em;
+  font-family: 'Lato';
+  letter-spacing: 2px;
+  line-height: 1.6;
+  word-spacing: 4px;
+  margin-bottom: 5px;
+}
+.explr2-chart{
+  right: 0;
+  left: 10%;
+  max-width: 48% !important;
+  margin-top: 30px;
+}
+
+
+
+
+
 /* ----  High Charts  ---- */
 .hc-container {
   padding-top: 100px;
