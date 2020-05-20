@@ -30,16 +30,7 @@ h1 {
 
 }
 
-a.link{
-  color:#93A58D;
-  font-weight: 600;
 
-}
-a.link:hover{
-  color:#3E3E3E;
-  font-weight: 600;
-  text-decoration: none;
-}
 /* --------- 2. HOME PAGE --------- */
 /* ------- LOADING ANIMATION ------ */
 .first-block {
@@ -298,6 +289,17 @@ a.link:hover{
   padding-left: 0px !important;
 }
 
+a.link{
+  color:#84957F;
+  font-weight: 600;
+  font-size: 1.05em;
+
+}
+a.link:hover{
+  color:#3E3E3E;
+  font-weight: 600;
+  text-decoration: none;
+}
 
 
 /* --------  2.4 MAP STYLES  -------- */
@@ -311,6 +313,7 @@ a.link:hover{
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  background-color: rgba(133, 108, 94,0.1);
 }
 #gMap-size{
   position: relative;
