@@ -40,7 +40,7 @@ TweenMax.from(".main-text p", 1.6, {
 });
 
 //  Animates the down icon.
-TweenMax.from("#down", 1.6, {
+TweenMax.from("#home-dwn", 1.6, {
     delay: 7.4,
     opacity: 0,
     y: 30,
@@ -49,6 +49,7 @@ TweenMax.from("#down", 1.6, {
 
 //  --- TOGGLES WHETHER DESCRIPTION BOXES ARE SHOWN/HIDDEN --- //
 function toggleBox(bro) {
+    console.log("toggleBox function init");
     var x = document.getElementById(bro);
     if(bro=='geoInfo' || bro=='data-control-widget') {
         document.getElementById('heatInfo').style.display = "none";
@@ -78,7 +79,7 @@ $(document).ready(function(){
 
     // hide .navbar first
     $(".navbar").hide();
-    console.log("hidden.")
+    //console.log("hidden.")
 
     // fade in .navbar
     $(function () {
@@ -86,10 +87,10 @@ $(document).ready(function(){
             // set distance user needs to scroll before we fadeIn navbar
             if ($(this).scrollTop() > 200) {
                 $(".navbar").fadeIn();
-                console.log("not hidden.")
+                //console.log("not hidden.")
             } else {
                 $(".navbar").fadeOut();
-                console.log("hidden agagin.")
+                //console.log("hidden agagin.")
             }
         });
 
@@ -99,16 +100,16 @@ $(document).ready(function(){
     //  ---- ANIMATED SCROLL ON CLICK ----//
     //  When click on #down element on landing page
     //  autoscroll to next section.
-    $("#down").on('click', function () {
+    $("#home-dwn").on('click', function () {
         $("html").scrollTop(0);
         $("html, body").animate({
             scrollTop: $("#about").offset().top
         }, 1000);
     })
-    $("#downer").on('click', function () {
+    $("#about-dwn").on('click', function () {
         $("#about").scrollTop(0);
         $("html,#about").animate({
-            scrollTop: $("#map").offset().top
+            scrollTop: $("#map-section").offset().top
         }, 1000);
     })
 

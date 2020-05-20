@@ -78,62 +78,76 @@
 				</div>
 			</div>
 		</div>
-		<span id = "down"> &#x21e3; </span>
+		<span class = "down" id = "home-dwn"> &#x21e3; </span>
 	</header>
 
   <!------ 2. ABOUT SECTION  ------>
 	<div id="about" class = "h-100" >
-		<div class = "row" style="padding-top:90px">
-			<div class = "hero-img col-4">
-				<img src="img/undraw_empty_street_sfxm.svg" alt="hero image." width = "100%">
+		<div class = "container">
+			<div class = "row" style="padding-top:90px">
+				<div class = "about-img col-4">
+					<br><br><br><br>
+					<img src="img/undraw_empty_street_sfxm.svg" alt="Empty Street svg" width = "100%">
+				</div>
+				<div class = "about-text col-6">
+					<br><br>
+					<h1><u class = "text-underline">About</u></h1>
+					<p style= "font-size: 16px;font-weight: 300"> 
+						This project was drafted by a <a href="./group.html" class="link">group</a>
+						of students in order to communicate the presence and importance of the trees within Camden Council. 
+						Our means are twofolds: firstly, we visualized the location of "public" trees (trees that are within council-owned property) 
+						through a multi-layered map. Secondly, we interpreted council-provided data on the trees through some summaries and a regression analysis. 
+						<br/><br/>
+						All information on this website is open to public access. The data was sourced from the 
+						<a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" class="link">Camden Council tree dataset</a>.
+					</p>
+				</div>
 			</div>
-			<div class = "main-text col-6">
-				<br><br>
-				<h1><u class = "GI">About</u></h1>
-				<p style= "font-size: 16px;font-weight: 300"> This project was drafted by a <a href="./group.html" class="link">group</a> of students in order to communicate the presence and importance of the trees within Camden Council. Our means are twofolds: firstly, we visualized the location of "public" trees (trees that are within council-owned property) through a multi-layered map. Secondly, we interpreted council-provided data on the trees through some summaries and a regression analysis. <br/><br/>All information on this website is open to public access. The data was sourced from the <a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" class="link">Camden Council tree dataset</a>. <p id = "downer"> &#x21e3; </p>
-
+			<div class = "d-flex justify-content-center" style = "padding-top:20%">
+				<span class = "down" id = "about-dwn"> &#x21e3; </span>	
 			</div>
-
 		</div>
-
+		</div>
+		
 	</div>
 
 	<!------ 3. BUTTON MAP SECTION 	------>
-
+	<div id = "map-section" class = "h-100">
 	<!-- 	Clustering Coefficient Legend + Data box -->
-	<div id = "data-control-widget">
-		<div id = "cluster-controls" class = "nicebox">
-			<div id = "legend">
-				<div id = "data-min">min</div>
-				<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
-				<div id = "data-max">max</div>
+		<div id = "data-control-widget">
+			<div id = "cluster-controls" class = "nicebox">
+				<div id = "legend">
+					<div id = "data-min">min</div>
+					<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
+					<div id = "data-max">max</div>
+				</div>
+			</div>
+			<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
+				<label id = "data-label" for "data-value"></label>
+				<span id = "data-value"></span>
 			</div>
 		</div>
-		<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
-			<label id = "data-label" for "data-value"></label>
-			<span id = "data-value"></span>
+
+		<!-- 	MAP 	-->
+		<div id="map" class = "h-80"></div>
+
+		<!-- 3 Button Widget -->
+		<div class="map-control-widget">
+			<button id = "btn-markers"  class = "mapBtn" onclick="toggleBox('markerInfo')">Tree Location</button>
+			<button id = "btn-heatmap"  class = "mapBtn" onclick="toggleBox('heatInfo')">Pollution Removal</button>
+			<button id = "btn-data"     class = "mapBtn" onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">Ward Clustering</button>
 		</div>
-	</div>
 
-	<!-- 	MAP 	-->
-	<div id="map" class = "h-80"></div>
-
-	<!-- 3 Button Widget -->
-	<div class="map-control-widget">
-		<button id = "btn-markers"  class = "mapBtn" onclick="toggleBox('markerInfo')">Tree Location</button>
-	  	<button id = "btn-heatmap"  class = "mapBtn" onclick="toggleBox('heatInfo')">Pollution Removal</button>
-	  	<button id = "btn-data"     class = "mapBtn" onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">Ward Clustering</button>
-	</div>
-
-	<!-- Information Boxes -->
-	<div id="markerInfo">
-		This layer displays the individual trees within the Borough of Camden. Click on the markers for more information.
-	</div>
-	<div id="heatInfo">
-		This layer displays a heatmap of pollution removed per year in grams, in the form of carbon absorbed or carbon stored due to trees.
-	</div>
-	<div id="geoInfo">
-		This layer displays the level of similarity in pollution removal among wards, calculated based on the Moran's I.
+		<!-- Information Boxes -->
+		<div id="markerInfo">
+			This layer displays the individual trees within the Borough of Camden. Click on the markers for more information.
+		</div>
+		<div id="heatInfo">
+			This layer displays a heatmap of pollution removed per year in grams, in the form of carbon absorbed or carbon stored due to trees.
+		</div>
+		<div id="geoInfo">
+			This layer displays the level of similarity in pollution removal among wards, calculated based on the Moran's I.
+		</div>
 	</div>
 
 	<!--Chart.js pie chart showing tree types-->

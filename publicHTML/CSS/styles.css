@@ -196,14 +196,7 @@ a.link:hover{
 }
 
 /* --------  2.2 LANDING PAGE STYLES  -------- */
-.jumbotron jumbotron-fluid{
-  background-color: #F5F5F5;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh !important;
-  width: 100vw;
-}
+
 .h-100{
   min-height: 100vh;
   max-height: 100vh;
@@ -236,7 +229,7 @@ a.link:hover{
   font-weight: 700;
   margin-bottom: 11px;
 }
-.GI{
+.text-underline{
   -webkit-text-decoration: #A8CDA6 solid underline;
   text-decoration: #A8CDA6 solid underline;
   -webkit-text-decoration-skip: ink;
@@ -256,33 +249,55 @@ a.link:hover{
   padding-left: 20px !important;
 }
 
-#down {
+.down {
   font-size: 40px;
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
 }
 
-#down:hover {
+.down:hover {
   cursor: pointer;
   color: #A8CDA6;
   opacity: 0.8;
 }
-#downer{
-  font-size: 40px;
-  position: static;
+#home-dwn{
+  position: absolute;
   bottom: 5%;
   left: 50%;
   text-align: center !important;
 }
 
-#downer:hover {
-
+#a:hover {
   cursor: pointer;
   color: #A8CDA6;
   opacity: 0.8;
 }
 /* -------   2.3 ABOUT STYLES -------- */
+.about-text {
+  text-align: left;
+  /*max-width: 50%;*/
+  margin-left: auto;
+  padding-left: 10px !important;
+  margin-right: 5%;
+  padding-right: 0px !important;
+}
+.about-text h1 {
+  font-size: 4em;
+  font-weight: 700;
+  margin-bottom: 11px;
+}
+
+.about-text p {
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  word-spacing: 4px;
+  margin-bottom: 5px;
+}
+.about-img{
+  padding-right: 20px !important;
+  padding-left: 0px !important;
+}
+
 
 
 /* --------  2.4 MAP STYLES  -------- */
@@ -327,7 +342,7 @@ a.link:hover{
   padding-right:15%;
   text-align: center;
   margin-top: 20px;
-  display : none !important;
+  display : none;
   font-size: 20px;
   font-family: 'Lato', optima  , sans-serif;
   font-weight: 300;
@@ -341,7 +356,7 @@ a.link:hover{
   padding-right:15%;
   text-align: center;
   margin-top: 20px;
-  display : none !important;
+  display : none;
   font-size: 20px;
   font-family: 'Lato', optima, sans-serif;
   font-weight: 300;
@@ -355,7 +370,7 @@ a.link:hover{
   padding-right:15%;
   text-align: center;
   margin-top: 20px;
-  display : none !important;
+  display : none;
   font-size: 20px;
   font-family: 'Lato', optima  , sans-serif;
   font-weight: 300;
