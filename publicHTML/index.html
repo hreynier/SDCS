@@ -86,7 +86,7 @@
 		<div class = "container">
 			<div class = "row" style="padding-top:90px">
 				<div class = "about-img col-4">
-					<br><br><br><br>
+					<br><br><br><br><br><br><br>
 					<img src="img/undraw_empty_street_sfxm.svg" alt="Empty Street svg" width = "100%">
 				</div>
 				<div class = "about-text col-6">
@@ -112,24 +112,27 @@
 	</div>
 
 	<!------ 3. BUTTON MAP SECTION 	------>
-	<div id = "map-section" class = "h-100">
+	<div id = "map-section">
 	<!-- 	Clustering Coefficient Legend + Data box -->
-		<div id = "data-control-widget">
-			<div id = "cluster-controls" class = "nicebox">
-				<div id = "legend">
-					<div id = "data-min">min</div>
-					<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
-					<div id = "data-max">max</div>
+		<div id = "gMap-size">
+			<div id = "data-control-widget">
+				<div id = "cluster-controls" class = "nicebox">
+					<div id = "legend">
+						<div id = "data-min">min</div>
+						<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
+						<div id = "data-max">max</div>
+					</div>
+				</div>
+				<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
+					<label id = "data-label" for "data-value"></label>
+					<span id = "data-value"></span>
 				</div>
 			</div>
-			<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
-				<label id = "data-label" for "data-value"></label>
-				<span id = "data-value"></span>
-			</div>
-		</div>
 
-		<!-- 	MAP 	-->
-		<div id="map" class = "h-80"></div>
+			<!-- 	MAP 	-->
+		
+			<div id="map"></div>
+		</div>
 
 		<!-- 3 Button Widget -->
 		<div class="map-control-widget">

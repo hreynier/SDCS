@@ -301,14 +301,35 @@ a.link:hover{
 
 
 /* --------  2.4 MAP STYLES  -------- */
+#map-section{
+  min-height: 100vh;
+  max-height: 100vh;
+  height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+#gMap-size{
+  position: relative;
+  width: 100%;
+  max-height: 60%;
+  min-height: 40%;
+  height: 60%;
+  box-sizing: border-box;
+  overflow: auto;
+}
 #map {
-  height: 500px;  /* The height is 500 pixels */
+  height: 100%;  /* The height is 500 pixels */
   width: 100%;  /* The width is the width of the web page */
 }
 /* ----  Buttons + Info boxes  ---- */
 .map-control-widget {
   margin: auto;
-  padding-top: 35px;
+  margin-top: 0%;
+  margin-bottom: 1%;
   width:700px;
   padding-bottom: 5px;
   text-align: center !important;
