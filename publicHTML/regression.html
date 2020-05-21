@@ -1,102 +1,122 @@
 <!doctype html>
-<html>
+<html lang = "en">
 
 <head>
-	<title>SDCSA - Camden Tree Analysis</title>
+	<!-- Required Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Descriptive Tags -->
+	<title>Treecon: Predictive Analytic Tool</title>
+	<meta name = "author" 		content = "see humans.txt 😊">
+	<meta name = "description" 	content = "Treecon uses predictive analysis to critically evaluate green infrastructure within London's borough of Camden.">
+	<!-- Fonts, Stylesheets, Bootstrap -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,700|Taviraj" rel="stylesheet">
 	<link rel="stylesheet" href="./CSS/styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Mono">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <title>Tree Output</title>
+	<link rel="stylesheet" href="./CSS/svg_anim.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
-		<a class="navbar-brand py-0" href="#">
-			<span class="w-100 d-lg-none d-block"></span>
-			<h1><b>Treecon🌳</b></h1>
-		</a>
-		<!--allows the links to shrink into a menu on small screens -->
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse flex-grow-1" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a class="nav-link py-0 m-1" href="./index.html">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link py-0 m-1" href="./about.html">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link py-0 m-1" href="./group.html">Group</a>
-				</li>
-			</ul>
+	<!-------  1. Header. This is the first thing that the user sees when loading the predictive analysis tool. ------->
+	<!-------  It contains the navbar, title, brief description of the tool, with links to the methodology (section 3), and an image. ------->
+	<header id = "regression-header" class = "h-100">
+		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
+			<a class="navbar-brand py-0" href="./index.html">
+				<span class="w-100 d-lg-none d-block"></span>
+				<h1><b>Treecon<img id = "brand-logo" src = "./img/logo.svg"></b></h1>
+			</a>
+			<!--allows the links to shrink into a menu on small screens -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse flex-grow-1" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link py-0 m-1" href="./index.html">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link py-0 m-1" href="./about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link py-0 m-1" href="./group.html">Group</a>
+					</li>
+				</ul>
 
-		</div>
-	</nav>
+			</div>
+		</nav>
 
-<!--  <hr/> -->
-
-<!--Introductory text for regression page-->
-<div id="reg-text">
-	<h3>PREDICTIVE TOOL</h3>
-	<p>
-		The predictive tool enables you to predict the amount of pollution removed by the London Plane,
-		the most common tree in Camden, over the course of the five years.
-		<!--You can find an in-depth explanation of the analysis
-		<a href="./ana.html" class="link">here</a>.-->
-	</p>
-</div>
-
-
-<!--  NEED TO EDIT LOCATION OF THE NEXT TWO DIVs. E.G. SPLIT SCREEN IN TWO-->
-
-<!-- THIS CODE NEEDS TO BE COMPLETELY REWRITTEN, WITH DIFFERENT ID'S.
-	THE JAVASCRIPT ALSO NEEDS TO BE REDONE IN ANOTHER FILE OR REDO THE OLD FILE,
-	THIS FILE NEEDS TO BE CLEANED A BIT TOO!! (head section is just c+p'd, missing JS files, unused js files etc...)
--->
-
-<div id = "map-section">
-	<div id = "gMap-size">
-		<div id = "data-control-widget">
-			<div id = "cluster-controls" class = "nicebox">
-				<div id = "legend">
-					<div id = "data-min">min</div>
-					<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
-					<div id = "data-max">max</div>
+		<!-- Introductory landing text for the predic analytic tool
+			ADD MORE TEXT!!!-->
+		<div class = "container">
+			<div class = "row">
+				<div class = "reg-text col-5">
+					<br><br>
+					<h1>Treecon<img id = "brand-logo" src = "./img/logo.svg"></h1>
+					<h2>Camden Case Study</h2>
+					<p>The predictive tool enables you to predict the amount of pollution removed by the London Plane,
+						the most common tree in Camden, over the course of the five years.</p>
+					<!--You can find an in-depth explanation of the analysis
+					<a href="./ana.html" class="link">here</a>.-->
+				</div>
+				<div class = "regr-Hero col-7">
+					<img src="./img/analysis-hero.svg" alt="regression hero image." width = "100%">
 				</div>
 			</div>
-			<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
-				<label id = "data-label" for "data-value"></label>
-				<span id = "data-value"></span>
-			</div>
 		</div>
+		<span class = "down" id = "home-dwn"> &#x21e3; </span>
+	</header>
 
-		<!-- 	MAP 	-->
-	
-		<div id="map"></div>
-	</div>
-	
 
-	<!-- What does this slider.js file do?? -->
-	<div class="slidecontainer">
-		<input type="range" min="0" max="5" value="0" class="slider" id="myRange">
+
+
+
+	<!--  NEED TO EDIT LOCATION OF THE NEXT TWO DIVs. E.G. SPLIT SCREEN IN TWO-->
+
+	<!-- THIS CODE NEEDS TO BE COMPLETELY REWRITTEN, WITH DIFFERENT ID'S.
+		THE JAVASCRIPT ALSO NEEDS TO BE REDONE IN ANOTHER FILE OR REDO THE OLD FILE,
+		THIS FILE NEEDS TO BE CLEANED A BIT TOO!! (head section is just c+p'd, missing JS files, unused js files etc...)
+	-->
+
+	<div id = "map-section">
+		<div class = "analysis-map-container">
+			<div id = "data-control-widget">
+				<div id = "cluster-controls" class = "nicebox">
+					<div id = "legend">
+						<div id = "data-min">min</div>
+						<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
+						<div id = "data-max">max</div>
+					</div>
+				</div>
+				<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
+					<label id = "data-label" for "data-value"></label>
+					<span id = "data-value"></span>
+				</div>
+			</div>
+
+			<!-- 	MAP 	-->
+		
+			<div id="map"></div>
+		</div>
+		
+
+		<!-- What does this slider.js file do?? -->
+		<div class="slidecontainer">
+			<input type="range" min="0" max="5" value="0" class="slider" id="myRange">
+		</div>
 	</div>
-</div>
 	
 
 <!--
 	<div id = "reg-plot">
 		<p> This will include a plot <p>
 	</div>
-	<div class = "chartjs-wrapper"> <!-- in CSS file: .chartjs-wrapper
+	<div class = "chartjs-wrapper"> in CSS file: .chartjs-wrapper
 	.hc-container
  	Several .highcharts-data-table -->
 	<!--
 		<canvas id = "treePie" ></canvas>
-	</div>
+	</div> -->
 	<!-- High Charts-->
 	<!--
 	<div id="hc-container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
@@ -105,50 +125,44 @@
 	<div id = "reg-methodology">
 		<h3> METHODOLOGY </h3>
 		<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor cursus quam, non sagittis dui varius non. Aliquam at enim et velit malesuada lacinia quis non velit. Suspendisse euismod purus eget semper maximus. Cras iaculis eget leo mollis eleifend. Nunc suscipit ex quis mi hendrerit commodo. Maecenas posuere lorem at erat bibendum, at condimentum urna accumsan. Nunc vel feugiat erat. Quisque cursus scelerisque rutrum.
-</p>
-<p>
-Fusce mollis faucibus felis vel ornare. Nulla a risus non purus porttitor laoreet. Phasellus finibus et est vel faucibus. Curabitur pretium ligula lorem, nec sagittis ex rutrum eu. Phasellus ante tortor, convallis molestie aliquam ac, auctor suscipit felis. Suspendisse interdum volutpat orci, at ornare tortor sollicitudin sed. Quisque pellentesque ligula vestibulum aliquet ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi efficitur ante non sapien consectetur tincidunt. Proin a rutrum turpis. Ut consectetur ac nisi vestibulum laoreet. Proin nec velit metus.
-</p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor cursus quam, non sagittis dui varius non. Aliquam at enim et velit malesuada lacinia quis non velit. Suspendisse euismod purus eget semper maximus. Cras iaculis eget leo mollis eleifend. Nunc suscipit ex quis mi hendrerit commodo. Maecenas posuere lorem at erat bibendum, at condimentum urna accumsan. Nunc vel feugiat erat. Quisque cursus scelerisque rutrum.
+		</p>
+		<p>
+			Fusce mollis faucibus felis vel ornare. Nulla a risus non purus porttitor laoreet. Phasellus finibus et est vel faucibus. Curabitur pretium ligula lorem, nec sagittis ex rutrum eu. Phasellus ante tortor, convallis molestie aliquam ac, auctor suscipit felis. Suspendisse interdum volutpat orci, at ornare tortor sollicitudin sed. Quisque pellentesque ligula vestibulum aliquet ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi efficitur ante non sapien consectetur tincidunt. Proin a rutrum turpis. Ut consectetur ac nisi vestibulum laoreet. Proin nec velit metus.
+		</p>
 
-<p>
-Integer venenatis risus sem, nec sollicitudin urna laoreet ac. Curabitur eget semper lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Sed interdum quis tellus in accumsan. Praesent ut massa urna. Nullam sollicitudin est metus, ut rutrum dui bibendum lobortis. In pellentesque massa risus, et venenatis lacus commodo iaculis. Praesent vel libero varius, egestas elit sed, aliquam nisi. Fusce malesuada rutrum urna, in pellentesque mi congue quis. Donec posuere iaculis nisi in ullamcorper. Ut lobortis at tellus quis sodales.
-</p>
-<p>
-Nulla sit amet sem at augue consectetur condimentum eget vitae velit. Aenean non dapibus orci. Etiam suscipit odio felis, in luctus lorem rhoncus id. Integer venenatis turpis vitae dapibus convallis. Morbi et risus et arcu aliquam faucibus nec vel enim. Nunc pulvinar nunc sed nunc commodo, et ornare eros gravida. Nullam blandit nulla in mi venenatis ultricies. Sed ac libero nulla. Nam in fermentum ante, id semper erat. Proin ac risus et erat tincidunt tristique quis in nisl. Cras et urna sed erat fermentum aliquam. Nulla lacinia et lorem id gravida.
-</p>
-<p>
-Aenean rutrum sem vitae lobortis lacinia. Sed non sagittis urna, ac feugiat mauris. Mauris dui nisl, mattis nec ligula sit amet, iaculis molestie magna. Praesent nibh leo, dictum non auctor sed, imperdiet eu mauris. Mauris pulvinar sapien sapien, vitae consectetur justo hendrerit ut. Cras faucibus lobortis ligula, ac scelerisque lacus pellentesque a. Suspendisse sit amet tellus nec sem convallis scelerisque. Morbi luctus tincidunt justo, sit amet aliquet lorem consectetur aliquet.
-</p>
+		<p>
+			Integer venenatis risus sem, nec sollicitudin urna laoreet ac. Curabitur eget semper lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Sed interdum quis tellus in accumsan. Praesent ut massa urna. Nullam sollicitudin est metus, ut rutrum dui bibendum lobortis. In pellentesque massa risus, et venenatis lacus commodo iaculis. Praesent vel libero varius, egestas elit sed, aliquam nisi. Fusce malesuada rutrum urna, in pellentesque mi congue quis. Donec posuere iaculis nisi in ullamcorper. Ut lobortis at tellus quis sodales.
+		</p>
+		<p>
+			Nulla sit amet sem at augue consectetur condimentum eget vitae velit. Aenean non dapibus orci. Etiam suscipit odio felis, in luctus lorem rhoncus id. Integer venenatis turpis vitae dapibus convallis. Morbi et risus et arcu aliquam faucibus nec vel enim. Nunc pulvinar nunc sed nunc commodo, et ornare eros gravida. Nullam blandit nulla in mi venenatis ultricies. Sed ac libero nulla. Nam in fermentum ante, id semper erat. Proin ac risus et erat tincidunt tristique quis in nisl. Cras et urna sed erat fermentum aliquam. Nulla lacinia et lorem id gravida.
+		</p>
+		<p>
+			Aenean rutrum sem vitae lobortis lacinia. Sed non sagittis urna, ac feugiat mauris. Mauris dui nisl, mattis nec ligula sit amet, iaculis molestie magna. Praesent nibh leo, dictum non auctor sed, imperdiet eu mauris. Mauris pulvinar sapien sapien, vitae consectetur justo hendrerit ut. Cras faucibus lobortis ligula, ac scelerisque lacus pellentesque a. Suspendisse sit amet tellus nec sem convallis scelerisque. Morbi luctus tincidunt justo, sit amet aliquet lorem consectetur aliquet.
+		</p>
 	</div>
 
-	<!HERE WILL NEED TO LINK NEW FILES, THAT STYLE THE MAP AND THE CHART DIFFERENTLY FROM THE MAP ON THE MAIN PAGE-->
+<!--JAVASCRIPT-->
 
-	<!-- chart.js  for charts
-	<script src = "node_modules/chart.js/dist/Chart.js"></script>
-	<!-- chart.js deferred plugin to defer animations-->
-	<!--
-	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
+<!--Libraries (NEED TO CHANGE TO LOCAL NPM FOR REPRODUCIBILITY)-->
+<!-- jQuery -->
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+<!-- Google Maps -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
+<!-- gSap TweenMax for animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<!---- 	Local scripts ---->
 
-	<!-- jQuery -->
-	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
-	<!-- Google Maps -->
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
+<!-- Toolkit: small functions -->
+<script type = 'text/javascript' src = "JS/toolkit.js"></script>
 
-	<!---- 	Local scripts ---->
+<!-- Google Maps + Styles -->
+<script type="text/javascript" src = "JS/gmap.js"></script>
+<script type="text/javascript" src = "JS/gmapStyle.js"></script>
 
-	<!-- Toolkit: small functions -->
-	<script type = 'text/javascript' src = "JS/toolkit.js"></script>
-
-	<!-- Google Maps + Styles -->
-	<script type="text/javascript" src = "JS/gmap.js"></script>
-	<script type="text/javascript" src = "JS/gmapStyle.js"></script>
-
-	<!-- chart.js script -->
-	<script type="text/javascript" src = "JS/chartjsScript.js"></script>
-	<!-- high-chart.js script -->
-	<script type="text/javascript" src = "JS/highChartScript.js"></script>
-	<script type="text/javascript" src = "JS/regcharts.js"></script>
-	<script type="text/javascript" src = "JS/slider.js"></script>
+<!-- high-chart.js script -->
+<!--<script type="text/javascript" src = "JS/highChartScript.js"></script>-->
+<!--<script type="text/javascript" src = "JS/regcharts.js"></script>-->
+<!--<script type="text/javascript" src = "JS/slider.js"></script>-->
 </body>
 </html>
