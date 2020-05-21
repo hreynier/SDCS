@@ -40,25 +40,52 @@
 <!--  <hr/> -->
 
 <!--Introductory text for regression page-->
-	<div id="reg-text">
-		<h3>PREDICTIVE TOOL</h3>
-		<p>
-			The predictive tool enables you to predict the amount of pollution removed by the London Plane,
-			the most common tree in Camden, over the course of the five years.
-			<!--You can find an in-depth explanation of the analysis
-			<a href="./ana.html" class="link">here</a>.-->
-		</p>
-	</div>
-	<hr/>
+<div id="reg-text">
+	<h3>PREDICTIVE TOOL</h3>
+	<p>
+		The predictive tool enables you to predict the amount of pollution removed by the London Plane,
+		the most common tree in Camden, over the course of the five years.
+		<!--You can find an in-depth explanation of the analysis
+		<a href="./ana.html" class="link">here</a>.-->
+	</p>
+</div>
 
-	<! NEED TO EDIT LOCATION OF THE NEXT TWO DIVs. E.G. SPLIT SCREEN IN TWO-->
-	<div id = "map-section">
+
+<!--  NEED TO EDIT LOCATION OF THE NEXT TWO DIVs. E.G. SPLIT SCREEN IN TWO-->
+
+<!-- THIS CODE NEEDS TO BE COMPLETELY REWRITTEN, WITH DIFFERENT ID'S.
+	THE JAVASCRIPT ALSO NEEDS TO BE REDONE IN ANOTHER FILE OR REDO THE OLD FILE,
+	THIS FILE NEEDS TO BE CLEANED A BIT TOO!! (head section is just c+p'd, missing JS files, unused js files etc...)
+-->
+
+<div id = "map-section">
+	<div id = "gMap-size">
+		<div id = "data-control-widget">
+			<div id = "cluster-controls" class = "nicebox">
+				<div id = "legend">
+					<div id = "data-min">min</div>
+					<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
+					<div id = "data-max">max</div>
+				</div>
+			</div>
+			<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
+				<label id = "data-label" for "data-value"></label>
+				<span id = "data-value"></span>
+			</div>
+		</div>
+
+		<!-- 	MAP 	-->
+	
 		<div id="map"></div>
-		<div class="slidecontainer">
-  	<input type="range" min="0" max="5" value="0" class="slider" id="myRange">
-  	</div>
 	</div>
+	
+
+	<!-- What does this slider.js file do?? -->
+	<div class="slidecontainer">
+		<input type="range" min="0" max="5" value="0" class="slider" id="myRange">
 	</div>
+</div>
+	
 
 <!--
 	<div id = "reg-plot">
