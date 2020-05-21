@@ -12,6 +12,7 @@
 	<!-- Fonts, Stylesheets, Bootstrap -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,700|Taviraj" rel="stylesheet">
 	<link rel="stylesheet" href="./CSS/styles.css">
+	<link rel="stylesheet" href="./CSS/svg_anim.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<title>Treeconomic Output</title>
 </head>
@@ -156,56 +157,30 @@
 	</div>
 
 	<!-- 4. Tree Type Pie Chart Section -->
-	<!--Chart.js pie chart showing tree types-->
-	<div class = "chartjs-wrapper">
-		<canvas id = "treePie" ></canvas>
-	</div>
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<div id = "explore1-section"  class = "h-100">
+		<div id = "explr1-container" class = "container-fluid">
+			<div class = "row">
+				<div class = "explr1-chart col-md-6">
+					<h2>Most Common Tree Species in Camden</h2>
+					<!--Chart.js pie chart showing tree types-->
+					<div class = "chartjs-wrapper">
+						<canvas id = "treePie" ></canvas>
+					</div>
+				</div>
+				<div class = "explr1-text col-md-4">
+					<h1><u class = "text-underline">Data Exploration</u></h1>
+					<br><br>
+					<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
+						Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut. 
+						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
+						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
 	
 	<!-- 5. Azza's Radial Chart Section -->
 	<div id = "explore2-section" class = "h-100">
@@ -267,6 +242,7 @@
 	<script src = "node_modules/chart.js/dist/Chart.js"></script>
 	<!-- chart.js deferred plugin to defer animations-->
 	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
+	
 
 	<!---- 	Local scripts ---->
 

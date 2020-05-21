@@ -15,11 +15,11 @@ $(document).ready(function() {
     //	Declare styling options.
     var opt = {
         title: {
-            display: true,
+            display: false,
             text: "Most Common Tree Species in Camden",
             fontSize: 18,
             fontFamily: "'Taviraj', 'sans-serif'",
-            fontColor: "#4d4d4d",
+            fontColor: "#3e3e3e",
             position: 'top',
             padding: 10
         },
@@ -30,14 +30,17 @@ $(document).ready(function() {
         legend: {
             display: true,
             position: 'left',
-            align:	'start' 
+            align:	'end',
+            labels: {
+                padding: 15
+            } 
         },
         cutoutPercentage: 30,
         plugins: {
             deferred : {
                 xOffset: '100%',	//	defer animation until 100% of the chart width is in the viewport.
-                yOffset: '80%',		//	defer animation until 80% of the chart height is in the viewport.
-                delay: 200			//	delay of 250ms after canvas is considered in the viewport.
+                yOffset: '60%',		//	defer animation until 80% of the chart height is in the viewport.
+                delay: 500			//	delay of 250ms after canvas is considered in the viewport.
             }
         }
     };
