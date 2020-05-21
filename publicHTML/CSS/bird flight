@@ -1,0 +1,41 @@
+.bird {
+	background-image: url(https://raw.githubusercontent.com/AzzaElHajjar/birds-flight/master/bird-cells-new-13-01.svg);
+	background-size: auto 100%;
+	width: 80px;
+	height: 125px;
+	will-change: background-position;
+	
+	animation-name: fly-cycle;
+	animation-timing-function: steps(10);
+	animation-iteration-count: infinite;
+
+	&--one {
+		animation-duration: 1s;
+		animation-delay: -0.5s;		
+	}
+	
+	&--two {
+		animation-duration: 0.9s;
+		animation-delay: -0.75s;
+	}
+	
+	&--three {
+		animation-duration: 1.25s;
+		animation-delay: -0.25s;
+	}
+	
+	&--four {
+		animation-duration: 1.1s;
+		animation-delay: -0.5s;
+	}
+
+}
+
+
+@keyframes fly-cycle {
+	
+	100% {
+		background-position: -900px 0;
+	}
+
+}
