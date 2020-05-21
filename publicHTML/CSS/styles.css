@@ -500,27 +500,6 @@ a.link:hover{
   padding-top: 10%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* -------  2.5 DATA EXPLORATION SECTION 2 --------*/
 
 /*     ---- HTML ---- */
@@ -566,13 +545,45 @@ a.link:hover{
 
 
 
-/* ----  High Charts  ---- */
-.hc-container {
-  padding-top: 100px;
- width: 900px;
+/* -------  2.6 DATA EXPLORATION SECTION 3 --------*/
+#explr3-container{
+  margin-top: 5%;
+  position: absolute;
+}
+#hc-container {
+  width: 70%;
+  margin-right: 15%;
+  margin-left: 15%;
 }
 
-.TitleDiv {
+#explr3-container .row p{
+  display: inline-block;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+}
+
+#explr3-tri{
+  margin-top: auto;
+  width: 0;
+  height:0;
+  border-bottom: 36vh solid rgba(168, 205, 166,0.3);
+  border-left: 80vw solid transparent;
+  margin-left: auto;
+  z-index: -2;
+}
+
+
+
+
+
+
+
+
+
+
+/*.TitleDiv {
     display: inline-block;
     color: #3E3E3E;
     font-family: 'Taviraj';
@@ -613,7 +624,7 @@ a.link:hover{
 }
 .highcharts-data-table tr:hover {
     background: #F5F5F5;
-}
+}*/
 
 
 
