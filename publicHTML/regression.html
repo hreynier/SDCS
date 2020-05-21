@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>SDCSA - Camden Tree Analysis</title>
+	<link rel="stylesheet" href="./CSS/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Mono">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Tree Output</title>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<a class="navbar-brand" href="#">
+			<h1><b>Tree Maput</b></h1>
+		</a>
+
+		<!--alows the links to shrink into a menu on small screens -->
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./about.html">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./group.html">Group</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./regression.html">Predictive tool</a>
+				</li>
+			</ul>
+
+		</div>
+	</nav>
+
+  <hr/>
+
+	<!-- The Javascript from external websites gets Loaded Here
+ 	NOT SURE WHICH ONES WE NEED (this is just from the prac)
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"> </script>
+	<script type='text/javascript' src='http://dev.spatialdatacapture.org/xdate/xdate.js'></script>
+ <script type='text/javascript' src='./js/mapStyle.js'></script> -->
+
+
+	<div id="text"> <!--Introductory text for regression page-->
+		<h3>PREDICTIVE TOOL</h3>
+		<p>
+			The predictive tool enables you to predict the amount of pollution removed by the London Plane,
+			the most common tree in Camden, over the course of the five years.
+			<!--You can find an in-depth explanation of the analysis
+			<a href="./ana.html" class="link">here</a>.-->
+		</p>
+	</div>
+	<hr/>
+
+	<! NEED TO EDIT LOCATION OF THE NEXT TWO DIVs. E.G. SPLIT SCREEN IN TWO-->
+	<!--<div id = "map">
+		<p> This will include a map. Also need to include a slider </p> -->
+	<div id = "map-section">
+		<div id="map"></div>
+	</div>
+	</div>
+	<div id = "reg-plot">
+		<p> This will include a plot <p>
+	</div>
+	<div id = "reg-methodology">
+		<h3> METHODOLOGY </h3>
+		<p> This will include explanation of linear regression <p>
+	</div>
+
+	<!HERE WILL NEED TO LINK NEW FILES, THAT STYLE THE MAP AND THE CHART DIFFERENTLY FROM THE MAP ON THE MAIN PAGE-->
+
+	<!-- chart.js  for charts
+	<script src = "node_modules/chart.js/dist/Chart.js"></script>
+	<!-- chart.js deferred plugin to defer animations-->
+	<!--
+	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
+
+	<!-- jQuery -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+	<!-- Google Maps -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
+
+	<!---- 	Local scripts ---->
+
+	<!-- Toolkit: small functions -->
+	<script type = 'text/javascript' src = "JS/toolkit.js"></script>
+
+	<!-- Google Maps + Styles -->
+	<script type="text/javascript" src = "JS/gmap.js"></script>
+	<script type="text/javascript" src = "JS/gmapStyle.js"></script>
+	<!-- chart.js script -->
+	<script type="text/javascript" src = "JS/chartjsScript.js"></script>
+	<!-- high-chart.js script -->
+	<script type="text/javascript" src = "JS/highChartScript.js"></script>
+
+</body>
+</html>
