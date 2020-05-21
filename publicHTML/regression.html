@@ -11,48 +11,36 @@
 </head>
 
 <body>
-
-	<nav class="navbar navbar-expand-md navbar-light bg-light">
-		<a class="navbar-brand" href="#">
-			<h1><b>Tree Maput</b></h1>
+	<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
+		<a class="navbar-brand py-0" href="#">
+			<span class="w-100 d-lg-none d-block"></span>
+			<h1><b>Treecon🌳</b></h1>
 		</a>
-
-		<!--alows the links to shrink into a menu on small screens -->
-
+		<!--allows the links to shrink into a menu on small screens -->
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
+		<div class="collapse navbar-collapse flex-grow-1" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link py-0 m-1" href="./index.html">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="./about.html">About</a>
+					<a class="nav-link py-0 m-1" href="./about.html">About</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="./group.html">Group</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./regression.html">Predictive tool</a>
+					<a class="nav-link py-0 m-1" href="./group.html">Group</a>
 				</li>
 			</ul>
 
 		</div>
 	</nav>
 
-  <hr/>
+<!--  <hr/> -->
 
-	<!-- The Javascript from external websites gets Loaded Here
- 	NOT SURE WHICH ONES WE NEED (this is just from the prac)
-	<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"> </script>
-	<script type='text/javascript' src='http://dev.spatialdatacapture.org/xdate/xdate.js'></script>
- <script type='text/javascript' src='./js/mapStyle.js'></script> -->
-
-
-	<div id="text"> <!--Introductory text for regression page-->
+<!--Introductory text for regression page-->
+	<div id="reg-text">
 		<h3>PREDICTIVE TOOL</h3>
 		<p>
 			The predictive tool enables you to predict the amount of pollution removed by the London Plane,
@@ -64,18 +52,47 @@
 	<hr/>
 
 	<! NEED TO EDIT LOCATION OF THE NEXT TWO DIVs. E.G. SPLIT SCREEN IN TWO-->
-	<!--<div id = "map">
-		<p> This will include a map. Also need to include a slider </p> -->
 	<div id = "map-section">
 		<div id="map"></div>
+		<div class="slidecontainer">
+  	<input type="range" min="0" max="5" value="0" class="slider" id="myRange">
+  	</div>
 	</div>
 	</div>
+
+<!--
 	<div id = "reg-plot">
 		<p> This will include a plot <p>
 	</div>
+	<div class = "chartjs-wrapper"> <!-- in CSS file: .chartjs-wrapper
+	.hc-container
+ 	Several .highcharts-data-table -->
+	<!--
+		<canvas id = "treePie" ></canvas>
+	</div>
+	<!-- High Charts-->
+	<!--
+	<div id="hc-container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
+	</div> -->
+
 	<div id = "reg-methodology">
 		<h3> METHODOLOGY </h3>
-		<p> This will include explanation of linear regression <p>
+		<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor cursus quam, non sagittis dui varius non. Aliquam at enim et velit malesuada lacinia quis non velit. Suspendisse euismod purus eget semper maximus. Cras iaculis eget leo mollis eleifend. Nunc suscipit ex quis mi hendrerit commodo. Maecenas posuere lorem at erat bibendum, at condimentum urna accumsan. Nunc vel feugiat erat. Quisque cursus scelerisque rutrum.
+</p>
+<p>
+Fusce mollis faucibus felis vel ornare. Nulla a risus non purus porttitor laoreet. Phasellus finibus et est vel faucibus. Curabitur pretium ligula lorem, nec sagittis ex rutrum eu. Phasellus ante tortor, convallis molestie aliquam ac, auctor suscipit felis. Suspendisse interdum volutpat orci, at ornare tortor sollicitudin sed. Quisque pellentesque ligula vestibulum aliquet ornare. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi efficitur ante non sapien consectetur tincidunt. Proin a rutrum turpis. Ut consectetur ac nisi vestibulum laoreet. Proin nec velit metus.
+</p>
+
+<p>
+Integer venenatis risus sem, nec sollicitudin urna laoreet ac. Curabitur eget semper lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Sed interdum quis tellus in accumsan. Praesent ut massa urna. Nullam sollicitudin est metus, ut rutrum dui bibendum lobortis. In pellentesque massa risus, et venenatis lacus commodo iaculis. Praesent vel libero varius, egestas elit sed, aliquam nisi. Fusce malesuada rutrum urna, in pellentesque mi congue quis. Donec posuere iaculis nisi in ullamcorper. Ut lobortis at tellus quis sodales.
+</p>
+<p>
+Nulla sit amet sem at augue consectetur condimentum eget vitae velit. Aenean non dapibus orci. Etiam suscipit odio felis, in luctus lorem rhoncus id. Integer venenatis turpis vitae dapibus convallis. Morbi et risus et arcu aliquam faucibus nec vel enim. Nunc pulvinar nunc sed nunc commodo, et ornare eros gravida. Nullam blandit nulla in mi venenatis ultricies. Sed ac libero nulla. Nam in fermentum ante, id semper erat. Proin ac risus et erat tincidunt tristique quis in nisl. Cras et urna sed erat fermentum aliquam. Nulla lacinia et lorem id gravida.
+</p>
+<p>
+Aenean rutrum sem vitae lobortis lacinia. Sed non sagittis urna, ac feugiat mauris. Mauris dui nisl, mattis nec ligula sit amet, iaculis molestie magna. Praesent nibh leo, dictum non auctor sed, imperdiet eu mauris. Mauris pulvinar sapien sapien, vitae consectetur justo hendrerit ut. Cras faucibus lobortis ligula, ac scelerisque lacus pellentesque a. Suspendisse sit amet tellus nec sem convallis scelerisque. Morbi luctus tincidunt justo, sit amet aliquet lorem consectetur aliquet.
+</p>
 	</div>
 
 	<!HERE WILL NEED TO LINK NEW FILES, THAT STYLE THE MAP AND THE CHART DIFFERENTLY FROM THE MAP ON THE MAIN PAGE-->
@@ -99,10 +116,12 @@
 	<!-- Google Maps + Styles -->
 	<script type="text/javascript" src = "JS/gmap.js"></script>
 	<script type="text/javascript" src = "JS/gmapStyle.js"></script>
+
 	<!-- chart.js script -->
 	<script type="text/javascript" src = "JS/chartjsScript.js"></script>
 	<!-- high-chart.js script -->
 	<script type="text/javascript" src = "JS/highChartScript.js"></script>
-
+	<script type="text/javascript" src = "JS/regcharts.js"></script>
+	<script type="text/javascript" src = "JS/slider.js"></script>
 </body>
 </html>
