@@ -573,6 +573,34 @@ a.link:hover{
   margin-left: auto;
   z-index: -2;
 }
+/* -------  2.7 End --------*/
+#end-ctr{
+  align-items: center !important;
+  height: 70vh;
+  margin-top: 30vh;
+}
+
+#end-ctr img{
+  width: 100%;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+#toTop-ctr{
+  position: relative;
+  /*padding-top: 40%;*/
+  margin-bottom: 0%;
+}
+
+#toTop{
+  display: inline-block;
+  position: absolute;
+  bottom: -20%;
+}
+
+#end-ctr .row{
+  height: 30% !important;
+}
 
 
 
