@@ -71,4 +71,114 @@ $(function () {
 });
 
 
-//  Pie Chart ...
+//  Radial Chart detailing the distribution of amenity values across wards for the top 3 highest 'networth' trees.
+Highcharts.chart('radial-hc', {
+    colors: ['#797D62', '#9B9B7A', '#D9AE94', '#F1DCA7'],
+    chart: {
+      type: 'column',
+      inverted: true,
+      polar: true,
+      backgroundColor: 'transparent',
+      height: (150/100 * 100 ) + '%'
+    },
+    title: {
+      text: 'Capital Amenity Value (in £millions) per Ward for the top 3 value trees',
+      margin: -20,
+      y: 60,
+      floating: true
+    },
+    
+    tooltip: {
+      outside: true
+    },
+    pane: {
+      size: '100%',
+      innerSize: '20%',
+      endAngle: 270
+    },
+    xAxis: {
+      tickInterval: 1,
+      labels: {
+        align: 'right',
+        useHTML: true,
+        allowOverlap: true,
+        step: 1,
+        y: 0.3,
+        padding:6,
+        style: {
+          fontSize: '0.75em'
+        }
+      },
+      lineWidth: 0,
+      categories: [
+        'Belsize <span class="f16">' +
+        '</span></span>',
+        'Bloomsbury <span class="f16">' +
+        '</span></span>',
+        'Camden Town with Primrose Hill<span class="f16">' +
+        '</span></span>',
+        'Cantelowes <span class="f16">' +
+        '</span></span>',
+        'Fortune Green <span class="f16">' +
+        '</span></span>',
+        'Frognal and Fitzjohns <span class="f16">' +
+        '</span></span>',
+        'Gospel Oak <span class="f16">' +
+        '</span></span>',
+        'Hampstead Town <span class="f16">' +
+        '</span></span>',
+        'Haverstock <span class="f16">' +
+        '</span></span>',
+        'Highgate <span class="f16">' +
+        '</span></span>',
+        'Holborn and Covent Garden <span class="f16">' +
+        '</span></span>',
+        'Kentish Town <span class="f16">' +
+        '</span></span>',
+        'Kilburn <span class="f16">' +
+        '</span></span>',
+        'King Cross <span class="f16">' +
+        '</span></span>',
+        'Regent Park <span class="f16">' +
+        '</span></span>',
+        'St Pancras and Somers Town <span class="f16">' +
+        '</span></span>',
+        'Swiss Cottage <span class="f16">' +
+        '</span></span>',
+        'West Hampstead <span class="f16">' + '</span></span>',
+        
+      ]
+    },
+    yAxis: {
+      crosshair: {
+        enabled: true,
+        color: '#333'
+      },
+      lineWidth: 0,
+      tickInterval: 3,
+      reversedStacks: false,
+      endOnTick: true,
+      showLastLabel: true
+    },
+    plotOptions: {
+      column: {
+        stacking: 'normal',
+        borderWidth: 0,
+        pointPadding: 0,
+        groupPadding: 0.15
+      }
+    },
+    series: [{
+      name: 'London Plane',
+      data: [2.7, 17.2, 5.3, 4.6, 7.1, 11.9, 5.9, 6.0, 4.3, 11.0, 22.7, 3.6, 1.6, 11.0, 12.1, 13.8, 7.3, 1.2]
+    }, {
+      name: 'Lime-Common',
+      data: [1.9, 0.5, 0.8, 1.4, 1.2, 1.2, 2.2, 0.9, 4.1, 2.6, 4.4, 0.4, 0.8, 1.8, 0.7, 1.5, 1.7, 2.0]
+    }, {
+      name: 'Sycamore',
+      data: [0.6, 0.08, 0.39, 0.73, 0.48, 1.5, 0.76, 0.82, 1.72, 3.20, 0.08, 0.58, 1.3, 0.14, 0.31, 0.53, 0.61, 0.02]
+     }, {
+      name: 'Other',
+      data: [4.35, 2.70, 3.82, 6.22, 4.89, 8.5, 8.0, 6.35, 7.52, 19.73, 4.30, 6.01, 9.30, 4.1, 4.7, 8.5, 5.5, 3.8]
+    }]
+  });
