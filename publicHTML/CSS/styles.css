@@ -619,6 +619,8 @@ a.link:hover{
 }
 
 /* --------- 3. FURTHER ANALYSIS STYLES --------- */
+
+/* --------- 3.1 HEADER STYLES --------- */
 .reg-text h1 {
   font-size: 4.5em;
   font-weight: 700;
@@ -633,6 +635,17 @@ a.link:hover{
   -webkit-text-decoration-skip: ink;
   text-decoration-skip: ink;
   text-decoration-thickness: 7px;
+}
+/* --------- 3.2 MAP SECTION STYLES --------- */
+.analysis-map-container{
+  margin-top: 50px;
+  position: relative;
+  width: 100%;
+  max-height: 60%;
+  min-height: 40%;
+  height: 60%;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 
