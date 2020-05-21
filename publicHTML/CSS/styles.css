@@ -552,27 +552,6 @@ a.name{
   padding-top: 10%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* -------  2.5 DATA EXPLORATION SECTION 2 --------*/
 
 /*     ---- HTML ---- */
@@ -618,13 +597,79 @@ a.name{
 
 
 
-/* ----  High Charts  ---- */
-.hc-container {
-  padding-top: 100px;
- width: 900px;
+/* -------  2.6 DATA EXPLORATION SECTION 3 --------*/
+#explr3-container{
+  margin-top: 5%;
+  position: absolute;
+}
+#hc-container {
+  width: 70%;
+  margin-right: 15%;
+  margin-left: 15%;
 }
 
-.TitleDiv {
+#explr3-container .row p{
+  display: inline-block;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+}
+
+#explr3-tri{
+  margin-top: auto;
+  width: 0;
+  height:0;
+  border-bottom: 36vh solid rgba(168, 205, 166,0.3);
+  border-left: 80vw solid transparent;
+  margin-left: auto;
+  z-index: -2;
+}
+/* -------  2.7 End --------*/
+#end-ctr{
+  align-items: center !important;
+  height: 70vh;
+  margin-top: 30vh;
+}
+
+#end-ctr img{
+  width: 100%;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+#toTop-ctr{
+  position: relative;
+  /*padding-top: 40%;*/
+  margin-bottom: 0%;
+}
+
+#toTop{
+  display: inline-block;
+  position: absolute;
+  bottom: -20%;
+}
+
+#end-ctr .row{
+  height: 30% !important;
+}
+
+#end-ctr h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+/*.TitleDiv {
     display: inline-block;
     color: #3E3E3E;
     font-family: 'Taviraj';
@@ -665,7 +710,7 @@ a.name{
 }
 .highcharts-data-table tr:hover {
     background: #F5F5F5;
-}
+}*/
 
 
 

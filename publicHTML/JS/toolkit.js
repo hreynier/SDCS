@@ -112,5 +112,11 @@ $(document).ready(function(){
             scrollTop: $("#map-section").offset().top -49
         }, 1000);
     })
+    $("#toTop").on('click', function () {
+        $("#home").scrollTop(0);
+        $("html,#home").animate({
+            scrollTop: $("#home").offset().top
+        }, 1000);
+    })
 
 });
