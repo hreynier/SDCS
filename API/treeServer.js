@@ -333,15 +333,40 @@ app.get('/data/tree-types', function (req, res) {
         if (err) console.log("Error: " + err);
         if (rows != undefined){
             res.send(rows);
-            console.log("Successfully delivered data.")
+            console.log("Successfully delivered data.");
         }   else   {
-            console.log("rows undefined.")
+            console.log("rows undefined.");
             res.send("");
         }
     })
 })
 
+//  API Endpoint to get predictive analysis data results.
+app.get('/data/predict', function (req, res) {
 
+    //  Allows data to be dwnld from the server with security concerns to bypass CORS policy.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
+
+    //  SQL
+    var sql = "SELECT * FROM prediction_Camden;"
+
+    console.log("Getting Data: " + sql);
+
+    //  Query
+    connection.query(sql, function(err, rows){
+        if (err) console.log(err);
+        if (rows != undefined){
+            res.send(rows);
+            console.log("successfully delivered data.");
+        }   else    {
+            console.log("rows undefined.");
+            res.send("");
+        }
+
+    })
+
+})
 // Setup the server and print a string to the screen when server is ready
 var server = app.listen(portNumber, function () {
     var host = server.address().address;
