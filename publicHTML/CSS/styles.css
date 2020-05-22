@@ -310,53 +310,7 @@ a.link:hover{
   text-decoration: none;
 }
 
-/* -------   2.3.2 GROUP STYLES -------- */
-.group-text {
-  text-align: left;
-  /*max-width: 50%;*/
-  margin-left: auto;
-  padding-left: 10px !important;
-  margin-right: 5%;
-  padding-right: 0px !important;
-}
-.group-text h1 {
-  font-size: 4em;
-  font-weight: 700;
-  margin-bottom: 21px;
-  margin-top: 10em;
-}
 
-.group-text p {
-  font-size: 1.5em;
-  font-weight: bold;
-  letter-spacing: 2px;
-  line-height: 1.6;
-  word-spacing: 4px;
-  margin-bottom: 5px;
-}
-.group-img{
-  padding-right: 20px !important;
-  padding-left: 0px !important;
-}
-
-a.link{
-  color:#84957F;
-  font-weight: 300;
-  font-size: 1.05em;
-}
-
-a.footerText{
-  color:#3E3E3E;
-  font-size: 1em;
-  font-style: italic;
-}
-
-a.name{
-  color:#84957F;
-  font-weight: 600;
-  font-size: 1.15em;
-
-}
 
 /* --------  2.4 MAP STYLES  -------- */
 #map-section{
@@ -694,7 +648,7 @@ a.name{
   overflow: auto;
 }
 
-/*--ADD THINGS HERE --*/
+
 
 
 
@@ -748,7 +702,6 @@ a.name{
   font-size: 1.15em;
 
 }
-
 
 
 
