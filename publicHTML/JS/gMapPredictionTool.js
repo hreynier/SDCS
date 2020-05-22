@@ -129,12 +129,12 @@ jQuery.predictData = function predictData(){
             //      has been assigned to that ward.
             ward_name 	= value["Ward_Name"];
             pol0 		= parseFloat(value["Actual_Pollution_Year_grams"]);
-            pol1 		= parseFloat(value["Pollution_Removal_in_1_year"]);
-            pol2 		= parseFloat(value["Pollution_Removal_in_2_years"]);
-            pol3 		= parseFloat(value["Pollution_Removal_in_3_year"]);
-            pol4 		= parseFloat(value["Pollution_Removal_in_4_years"]);
-            pol5 		= parseFloat(value["Pollution_Removal_in_5_years"]);
-            change 		= parseFloat(value["change5"]);
+            pol1 		= parseFloat(value["change1"]);
+            pol2 		= parseFloat(value["change2"]);
+            pol3 		= parseFloat(value["change3"]);
+            pol4 		= parseFloat(value["change4"]);
+            pol5 		= parseFloat(value["change5"]);
+            change 		= parseFloat(value["Pollution_Removal_in_5_years"]);
 
 
             //console.log("Ward: " + ward_name + ", Value: " + coeff);      //  Uncomment for testing purposes.
@@ -228,9 +228,9 @@ function updateLegend(layerMin, layerMax){
     //	Updates legend with the min/max data.
 
     document.getElementById('data-min').textContent =
-        layerMin.toLocaleString();
+        (layerMin.toLocaleString() + "%");
     document.getElementById('data-max').textContent =
-        layerMax.toLocaleString();
+        (layerMax.toLocaleString() + "%");
 }
 
 
@@ -380,7 +380,7 @@ jQuery.mouseInWard = function mouseInWard(e) {
     document.getElementById('data-label').textContent 	=
         e.feature.getProperty('name');
     document.getElementById('data-value').textContent 	=
-        e.feature.getProperty(label).toLocaleString();
+        (e.feature.getProperty(label).toLocaleString() + "%");
 
     //	Update legend and moves data point along it.
     document.getElementById('data-box').style.display 	= 'block';
