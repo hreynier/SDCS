@@ -376,7 +376,7 @@ app.get('/data/predict-ward', function (req, res){
     res.header("Acces-Control-Allow-Headers", "X-Requested-WithD");
 
     //  SQL statement.
-    var sql = "SELECT ward_name, Amenity_Gi, Pollution_Gi FROM clusters ORDER BY ward_name;"
+    var sql = "SELECT Ward_Name, Actual_Pollution_Year_grams, Pollution_Removal_in_1_year, Pollution_Removal_in_2_years, Pollution_Removal_in_3_year, Pollution_Removal_in_4_years,Pollution_Removal_in_5_years, change1, change2, change3, change4, change5 FROM predictions ORDER BY ward_name;"
     //  Log it.
     console.log("SQL: " + sql);
 

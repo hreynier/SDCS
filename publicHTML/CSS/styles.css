@@ -654,6 +654,11 @@ a.link:hover{
   width: 100%;
 }
 
+#analysis-widget{
+  position:relative;
+  top: 0px;
+  z-index: 5;
+}
 
 
 
