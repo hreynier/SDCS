@@ -649,8 +649,16 @@ a.link:hover{
 }
 
 
+#predictionMap{
+  height: 100%;
+  width: 100%;
+}
 
-
+#analysis-widget{
+  position:relative;
+  top: 0px;
+  z-index: 5;
+}
 
 
 

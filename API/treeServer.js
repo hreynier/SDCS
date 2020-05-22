@@ -367,6 +367,30 @@ app.get('/data/predict', function (req, res) {
     })
 
 })
+
+//  API Endpoint to get prediction results for next 5 years, aggregated per ward.
+app.get('/data/predict-ward', function (req, res){
+
+    //  Allows data to be dwnloaded from the server with security concerns.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Acces-Control-Allow-Headers", "X-Requested-WithD");
+
+    //  SQL statement.
+    var sql = "SELECT Ward_Name, Actual_Pollution_Year_grams, Pollution_Removal_in_1_year, Pollution_Removal_in_2_years, Pollution_Removal_in_3_year, Pollution_Removal_in_4_years,Pollution_Removal_in_5_years, change1, change2, change3, change4, change5 FROM predictions ORDER BY ward_name;"
+    //  Log it.
+    console.log("SQL: " + sql);
+
+    //  Run the query.
+    connection.query(sql, function(err, rows){
+        if (err) console.log("Err: " + err);
+        if (rows != undefined){
+            res.send(rows);
+        }   else    {
+            res.send("");
+        }
+    })
+})
+
 // Setup the server and print a string to the screen when server is ready
 var server = app.listen(portNumber, function () {
     var host = server.address().address;

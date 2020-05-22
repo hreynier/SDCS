@@ -82,7 +82,7 @@
 
 	<div id = "map-section">
 		<div class = "analysis-map-container">
-			<div id = "data-control-widget">
+			<div id = "analysis-widget">
 				<div id = "cluster-controls" class = "nicebox">
 					<div id = "legend">
 						<div id = "data-min">min</div>
@@ -98,13 +98,13 @@
 
 			<!-- 	MAP 	-->
 		
-			<div id="map"></div>
+			<div id="predictionMap"></div>
 		</div>
 		
 
 		<!-- What does this slider.js file do?? -->
 		<div class="slidecontainer">
-			<input type="range" min="0" max="5" value="0" class="slider" id="myRange">
+			<input type="range" min="0" max="5" value="0" class="slider" id="myRange"  onchange="setPredict(this.value)"> <!--oninput="setPredict(this.value)"-->
 		</div>
 	</div>
 	
@@ -159,12 +159,12 @@
 <script type = 'text/javascript' src = "JS/toolkit.js"></script>
 
 <!-- Google Maps + Styles -->
-<script type="text/javascript" src = "JS/gmap.js"></script>
+<script type="text/javascript" src = "JS/gMapPredictionTool.js"></script>
 <script type="text/javascript" src = "JS/gmapStyle.js"></script>
 
 <!-- high-chart.js script -->
 <!--<script type="text/javascript" src = "JS/highChartScript.js"></script>-->
 <!--<script type="text/javascript" src = "JS/regcharts.js"></script>-->
-<!--<script type="text/javascript" src = "JS/slider.js"></script>-->
+<script type="text/javascript" src = "JS/slider.js"></script>
 </body>
 </html>
