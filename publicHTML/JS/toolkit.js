@@ -12,7 +12,7 @@ window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
 
-// ---- LOADING ANIMATION ON SITE LOAD ---- //
+// ---- LOADING ANIMATION ON SITE LOAD + TOOL LOAD ---- //
 //  Utilises the GSAP tweenmax library.
 
 //  Animates the hero-img svg to move up.
@@ -23,6 +23,12 @@ TweenMax.from(".hero-img", 1.6, {
     ease: Expo.easeInOut
 });
 
+TweenMax.from(".reg-hero", 1.6, {
+    delay: 6.4,
+    opacity: 0,
+    y: 30,
+    ease: Expo.easeInOut
+});
 //  Animates the brand text to move up.
 TweenMax.from(".main-text h1", 1.6, {
     delay: 6.8,
@@ -31,6 +37,20 @@ TweenMax.from(".main-text h1", 1.6, {
     ease: Expo.easeInOut
 });
 
+TweenMax.from(".reg-text h1", 1.6, {
+    delay: 6.8,
+    opacity: 0,
+    y: 30,
+    ease: Expo.easeInOut
+});
+
+
+TweenMax.from(".reg-text h2", 1.6, {
+    delay: 7,
+    opacity: 0,
+    y: 30,
+    ease: Expo.easeInOut
+});
 //  Animates the tag-line to move up.
 TweenMax.from(".main-text p", 1.6, {
     delay: 7,
@@ -39,6 +59,12 @@ TweenMax.from(".main-text p", 1.6, {
     ease: Expo.easeInOut
 });
 
+TweenMax.from(".reg-text p", 1.6, {
+    delay: 7.2,
+    opacity: 0,
+    y: 30,
+    ease: Expo.easeInOut
+});
 //  Animates the down icon.
 TweenMax.from("#home-dwn", 1.6, {
     delay: 7.4,
@@ -46,6 +72,14 @@ TweenMax.from("#home-dwn", 1.6, {
     y: 30,
     ease: Expo.easeInOut
 });
+
+TweenMax.from("#tool-dwn", 1.6, {
+    delay: 7.6,
+    opacity: 0,
+    y: 30,
+    ease: Expo.easeInOut
+});
+
 
 //  --- TOGGLES WHETHER DESCRIPTION BOXES ARE SHOWN/HIDDEN --- //
 function toggleBox(bro) {

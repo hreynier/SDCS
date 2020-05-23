@@ -17,6 +17,26 @@
 </head>
 
 <body>
+	<!------  0. LOADING ANIMATION  ------>
+	<div class="regLoad1"></div>
+	<div class="regLoad2"></div>
+	<div class="regLoad3"></div>
+    <div class="regLoader">
+        <ul>
+			<li>Looking</li>
+			<li>through</li>
+			<li>the</li>
+			<li>crystal</li>
+			<li>ball</li>
+			<li>.</li>
+			<li>.</li>
+			<li>.</li>
+		</ul>
+	</div>
+	<div class="regLoad4"></div>
+
+
+
 	<!-------  1. Header. This is the first thing that the user sees when loading the predictive analysis tool. ------->
 	<!-------  It contains the navbar, title, brief description of the tool, with links to the methodology (section 3), and an image. ------->
 	<header id = "regression-header" class = "h-100">
@@ -59,7 +79,7 @@
 					<!--You can find an in-depth explanation of the analysis
 					<a href="./ana.html" class="link">here</a>.-->
 				</div>
-				<div class = "regr-Hero col-7">
+				<div class = "reg-hero col-7">
 					<img src="./img/analysis-hero.svg" alt="regression hero image." width = "100%">
 				</div>
 			</div>
@@ -134,15 +154,15 @@
 
 
 
-	<div id = "explore2-section" class = "h-100">
-		<div id = "explr2-block"></div>
+	<div id = "regFindings-section" class = "h-100">
+		<div id = "findingBlock1" class = "explr2-block"></div>
 		
 		<div id = "explr2-container" class = "container">
 
 			<div class = "row">
-				<div class = "explr2-text col-5">
+				<div class = "find1-text col-7">
 
-					<br><br>
+					
 					<h1><u class = "text-underline">Main Findings</u></h1>
 					<br><br>
 					<p>	PUT CHARTS HERE! ! ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
@@ -152,7 +172,7 @@
 					</p>
 
 				</div>
-				<div class = "explr2-chart col-6">
+				<div class = "find1-img col-5">
 
 				</div>
 			</div>
@@ -160,13 +180,18 @@
 	</div>
 
 
-	<div id = "explore2-section" class = "h-100">
-		<div id = "explr2-block"></div>
+	<div id = "regFindings2-section" class = "h-100">
+	
 		
 		<div id = "explr2-container" class = "container">
 
 			<div class = "row">
-				<div class = "explr2-text col-5">
+				
+				<div class = "find1-chart col-5">
+
+				</div>
+
+				<div class = "find2-text col-7">
 
 					<br><br>
 					<h1><u class = "text-underline">Main Findings Cont...</u></h1>
@@ -176,9 +201,6 @@
 						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
 						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
 					</p>
-
-				</div>
-				<div class = "explr2-chart col-6">
 
 				</div>
 			</div>
@@ -199,13 +221,14 @@
 	<div id="hc-container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
 	</div> -->
 
-	<div id = "explore1-section"  class = "h-100">
+	<div id = "method-section"  class = "h-100">
+		<div id = "findingBlock2" class = "explr2-block"></div>
 		<div id = "explr1-container" class = "container-fluid">
 			<div class = "row">
-				<div class = "explr1-chart col-md-6">
+				<div class = "explr1-chart col-6">
 
 				</div>
-				<div class = "explr1-text col-md-4">
+				<div class = "explr1-text col-4">
 					<h1><u class = "text-underline">Methodology</u></h1>
 					<br><br>
 					<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
@@ -220,14 +243,10 @@
 	</div>
 	
 
-	<div id="about" class = "h-100" >
+	<div id="conclusion-section" class = "h-100" >
 		<div class = "container">
 			<div class = "row" style="padding-top:90px">
-				<div class = "about-img col-4">
-					<br><br><br><br><br><br><br>
-					<img src="img/undraw_empty_street_sfxm.svg" alt="Empty Street svg" width = "100%">
-				</div>
-				<div class = "about-text col-6">
+				<div class = "about-text col-12">
 					<br><br>
 					<h1><u class = "text-underline">Conclusion</u></h1>
 					<p style= "font-size: 16px;font-weight: 300"> 
@@ -241,12 +260,13 @@
 					</p>
 				</div>
 			</div>
-			<div class = "d-flex justify-content-center" style = "padding-top:13%">
-				<span class = "down" id = "about-dwn"> &#x21e3; </span>	
+			<div class = "row justify-content-center">
+				<div class = "about-img col-6">
+					<br><br>
+					<img src="img/undraw_empty_street_sfxm.svg" alt="Empty Street svg" width = "100%">
+				</div>
 			</div>
 		</div>
-		</div>
-		
 	</div>
 
 
@@ -275,6 +295,5 @@
 <!-- high-chart.js script -->
 <!--<script type="text/javascript" src = "JS/highChartScript.js"></script>-->
 <!--<script type="text/javascript" src = "JS/regcharts.js"></script>-->
-<script type="text/javascript" src = "JS/slider.js"></script>
 </body>
 </html>
