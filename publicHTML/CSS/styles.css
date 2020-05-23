@@ -313,7 +313,7 @@ a.link:hover{
 
 
 /* --------  2.4 MAP STYLES  -------- */
-#map-section{
+.map-section{
   min-height: 100vh;
   max-height: 100vh;
   height: 100vh;
@@ -639,17 +639,30 @@ a.link:hover{
   text-decoration-skip: ink;
   text-decoration-thickness: 7px;
 }
+
+#tool-dwn{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  text-align: center !important;
+}
 /* --------- 3.2 MAP SECTION STYLES --------- */
+#predTool{
+  flex-direction: row;
+  align-items: flex-start;
+}
+
 
 /*Map*/
 .analysis-map-container{
   position: relative;
   width: 55%; /*Change to 55%*/
-  max-height: 95%;
+  max-height: 100%;
   min-height: 65%;
-  height: 95%;
+  height: 100%;
   box-sizing: border-box;
   overflow: auto;
+  padding-left: 0 !important;
 }
 #predictionMap{
   height: 100%;
@@ -662,7 +675,7 @@ a.link:hover{
   z-index: 5;
 }
 #legend-container {
-  top: 10px;
+  top: 25px;
   left: 25%;
   min-width: 50%;
   right: 25%;
@@ -670,7 +683,7 @@ a.link:hover{
   height: 40px;
 }
 #data-box2 {
-  top: 54px;
+  top: 70px;
   left: 25%;
   height: 30px;
   line-height: 30px;
@@ -687,7 +700,7 @@ a.link:hover{
   width: 80%;
   right: 10%;
   left: 10%;
-  height: 10%;
+  height: 15%;
   background-color: #F0E5D3;
 }
 
@@ -802,6 +815,17 @@ a.link:hover{
 .range-labels .active.selected::before {
   display: none;
 }
+
+/*        TExt */
+
+#predTool h1{
+ 
+  font-size: 3em;
+  font-weight: 700;
+  margin: 100px auto 15px auto;
+}
+
+
 
 
 

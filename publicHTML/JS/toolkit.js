@@ -118,6 +118,12 @@ $(document).ready(function(){
             scrollTop: $("#home").offset().top
         }, 1000);
     })
+    $("#tool-dwn").on('click', function () {
+        $("html").scrollTop(0);
+        $("html, body").animate({
+            scrollTop: $("#predTool").offset().top -49
+        }, 1000);
+    })
 
 });
 
@@ -153,7 +159,7 @@ var getTrackStyle = function (el) {
 //  Changes bar color on input ;)
 $rangeInput.on('input', function () {
   sheet.textContent = getTrackStyle(this);
-  
+
 });
 
 // Change input value on label click
