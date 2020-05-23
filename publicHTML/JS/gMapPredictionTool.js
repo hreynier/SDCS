@@ -56,16 +56,19 @@ $(document).ready(function() {
     function initialise() {
 
         // The location of Camden.
-        let camden_cds = { lat: 51.554756, lng: -0.164345 };
+        let camden_cds = { lat: 51.5431464, lng: -0.1581557 };
 
         // Map Options
         let mapOptions = {
             center:             camden_cds,
-            zoom:               12,
-            minZoom:            12,
+            zoom:               13,
+            minZoom:            13,
+            maxZoom:            13,
             styles:             retroMap,
             disableDefaultUI:   true,
-            zoomControl:        true
+            zoomControl:        false,
+            panControl:         false,
+            draggable:          false 
         };
 
         //  Init new google map, centered on Camden Town.
@@ -383,7 +386,7 @@ jQuery.mouseInWard = function mouseInWard(e) {
         (e.feature.getProperty(label).toLocaleString() + "%");
 
     //	Update legend and moves data point along it.
-    document.getElementById('data-box').style.display 	= 'block';
+    document.getElementById('data-box2').style.display 	= 'block';
     document.getElementById('data-point').style.display = 'block';
     document.getElementById('data-point').style.paddingLeft = percent + '%';
 }
@@ -401,22 +404,22 @@ function setPredict(sliderValue){
     sliderValue = parseFloat(sliderValue);
     
     switch(sliderValue){
-        case 0:
+        case 1:
             layerNo = 'pol_0';
             break;
-        case 1:
+        case 2:
             layerNo = 'pol_1';
             break;
-        case 2:
+        case 3:
             layerNo = 'pol_2';
             break;
-        case 3:
+        case 4:
             layerNo = 'pol_3';
             break;
-        case 4:
+        case 5:
             layerNo = 'pol_4';
             break;
-        case 5:
+        case 6:
             layerNo = 'pol_5';
             break;
     }
