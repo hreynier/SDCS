@@ -425,6 +425,9 @@ a.link:hover{
   height: 45px;
   line-height: 45px;
   display: none;
+  padding :2px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 #legend {
   display: flex;
@@ -618,7 +621,7 @@ a.link:hover{
   margin-bottom: 15px;
 }
 
-/* --------- 3. FURTHER ANALYSIS STYLES --------- */
+/* --------- 3. REGRESSION.HTML --------- */
 
 /* --------- 3.1 HEADER STYLES --------- */
 .reg-text h1 {
@@ -637,29 +640,168 @@ a.link:hover{
   text-decoration-thickness: 7px;
 }
 /* --------- 3.2 MAP SECTION STYLES --------- */
+
+/*Map*/
 .analysis-map-container{
-  margin-top: 50px;
   position: relative;
-  width: 100%;
-  max-height: 60%;
-  min-height: 40%;
-  height: 60%;
+  width: 55%; /*Change to 55%*/
+  max-height: 95%;
+  min-height: 65%;
+  height: 95%;
   box-sizing: border-box;
   overflow: auto;
 }
-
-
 #predictionMap{
   height: 100%;
   width: 100%;
 }
-
+/*Legend + Pop-up Widget*/
 #analysis-widget{
   position:relative;
   top: 0px;
   z-index: 5;
 }
+#legend-container {
+  top: 10px;
+  left: 25%;
+  min-width: 50%;
+  right: 25%;
 
+  height: 40px;
+}
+#data-box2 {
+  top: 54px;
+  left: 25%;
+  height: 30px;
+  line-height: 30px;
+  display: none;
+  padding :2px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.range {
+  position: absolute;
+  bottom: 0px;
+  z-index: 5;
+  width: 80%;
+  right: 10%;
+  left: 10%;
+  height: 10%;
+  background-color: #F0E5D3;
+}
+
+.slideContainer {
+  position: relative;
+  width: 550px;
+  height: 5px;
+}
+
+
+
+
+.slideContainer input {
+  width: 100%;
+  position: absolute;
+  top: 2px;
+  height: 0;
+  -webkit-appearance: none;
+}
+.slideContainer input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: -8px 0 0;
+  border-radius: 50%;
+  background: #70BDB3;
+  cursor: pointer;
+  border: 0 !important;
+}
+.slideContainer input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  margin: -8px 0 0;
+  border-radius: 50%;
+  background: #70BDB3;
+  cursor: pointer;
+  border: 0 !important;
+}
+.slideContainer input::-ms-thumb {
+  width: 18px;
+  height: 18px;
+  margin: -8px 0 0;
+  border-radius: 50%;
+  background: #70BDB3;
+  cursor: pointer;
+  border: 0 !important;
+}
+.slideContainer input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #3E3E3E;
+}
+.slideContainer input::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #3E3E3E;
+}
+.slideContainer input::-ms-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #3E3E3E;
+}
+.slideContainer input:focus {
+  background: none;
+  outline: none;
+}
+.slideContainer input::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.range-labels {
+  margin: 18px -41px 0;
+  padding: 0;
+  list-style: none;
+}
+.range-labels li {
+  position: relative;
+  float: left;
+  width: 107.966px;
+  text-align: center;
+  font-family: 'Lato';
+  font-weight: bold;
+  color: #3E3E3E;
+  font-size: 20px;
+  cursor: pointer;
+}
+.range-labels li::before {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  left: 0;
+  content: "";
+  margin: 0 auto;
+  width: 9px;
+  height: 9px;
+  background: #3E3E3E;
+  border-radius: 50%;
+}
+.range-labels .active {
+  color: #70BDB3;
+}
+.range-labels .selected::before {
+  background: #70BDB3;
+}
+.range-labels .active.selected::before {
+  display: none;
+}
 
 
 

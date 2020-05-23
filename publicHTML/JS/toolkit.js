@@ -120,3 +120,47 @@ $(document).ready(function(){
     })
 
 });
+
+
+var sheet = document.createElement('style'),  
+  $rangeInput = $('.slideContainer input'),
+  prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track']; //chrome, firefox, ie -> they really need to standardise..
+
+document.body.appendChild(sheet);
+
+var getTrackStyle = function (el) {  
+  var curVal = el.value,
+      val = (curVal - 1) * 20,//% Between each point. 20 as there are 5 gaps -> 100/5 = 20%.
+      style = '';
+  
+  // Set active label
+  $('.range-labels li').removeClass('active selected');
+  
+  var curLabel = $('.range-labels').find('li:nth-child(' + curVal + ')');
+  
+  curLabel.addClass('active selected');
+  curLabel.prevAll().addClass('selected');
+  
+  // Change background gradient
+  for (var i = 0; i < prefs.length; i++) {
+    style += '.slideContainer {background: linear-gradient(to right, #70BDB3 0%, #70BDB3 ' + val + '%, transparent ' + val + '%, transparent 100%)}';
+    style += '.slideContainer input::-' + prefs[i] + '{background: linear-gradient(to right, #70BDB3 0%, #70BDB3 ' + val + '%, #3E3E3E ' + val + '%, #3E3E3E 100%)}';
+  }
+
+  return style;
+}
+
+//  Changes bar color on input ;)
+$rangeInput.on('input', function () {
+  sheet.textContent = getTrackStyle(this);
+  
+});
+
+// Change input value on label click
+$('.range-labels li').on('click', function () {
+  var index = $(this).index();
+
+  $rangeInput.val(index + 1).trigger('input');
+  
+  
+});
