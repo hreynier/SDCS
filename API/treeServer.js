@@ -391,6 +391,225 @@ app.get('/data/predict-ward', function (req, res){
     })
 })
 
+
+//  API Endpoint to get the data for the two highcharts graphs. The endpoint gets either the
+//  Total capital amenity value (£mill) across the top three trees per ward or the Total pollution removed (kg/yr)
+//  across the top three trees per ward.
+
+app.get('/data/highcharts/:measure', function(req, res){
+    
+    //  Allows data to be dwnloaded from the server with security concerns.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Acces-Control-Allow-Headers", "X-Requested-WithD");
+
+    if(req.params.measure != ""){
+
+        var variable = mysql_real_escape_string(req.params.measure);
+
+        //  SQL statement drop temp tables if exist...
+
+        var sql = "DROP TABLE IF EXISTS temp_bot, temp_top, temp_bot2;"
+
+        connection.query(sql, function(err){
+            if (err) console.log("Err: " + err);
+            else console.log("Dropping temporary tables...")
+        })
+
+        //  If input is capital amenity value, provide user with the aggregated CAV across top three trees per ward.
+        if(variable == 'Amenity_Value'){
+
+            //  SQL Query to get Sum of CAV for top three tree types across wards.    CAV is divided by 1,000,000 to give value in £mill
+            var sql = "CREATE TEMPORARY TABLE temp_top SELECT Ward_Name, Com_Name, sum("+variable+"/1000000) as Val FROM tree_data WHERE Com_Name IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+
+              //  Log it
+            console.log("Creating temporary table for top three trees: " + variable);
+            console.log(sql);
+
+            //  Run the query.
+            connection.query(sql, function(err){
+                if (err) console.log("Error: " + err);
+                else console.log("Successfully created temporary table 1.")
+            })
+
+
+            var sql = "CREATE TEMPORARY TABLE temp_bot SELECT Ward_Name, Com_Name, sum("+variable+"/1000000) as Val FROM tree_data WHERE Com_Name NOT  IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+            
+            //  Log it
+            console.log("Creating temporary table for other trees: " + variable);
+            console.log(sql);
+  
+            //  Run the query.
+            connection.query(sql, function(err){
+                if (err) console.log("Error: " + err);
+                else console.log("Successfully created temporary table 2.")
+            })
+
+            //  Summing the CAV for the other trees.
+            var sql = "CREATE TEMPORARY TABLE temp_bot2 SELECT Ward_Name, SUM(Val) as Val FROM temp_bot GROUP BY Ward_Name;"
+            //  Log it
+            console.log("Summing 'other' tree values...");
+            console.log(sql);
+  
+            //  Run the query.
+            connection.query(sql, function(err){
+                if (err) console.log("Error: " + err);
+                else console.log("Successfully created temporary table 3.")
+            })
+
+            //  Alter new temp table to add new column and fill with 'other'.
+            var sql = "ALTER TABLE temp_bot2 ADD Com_Name varchar(255);"
+
+            console.log("Adding new col");
+            console.log(sql);
+
+            //  Run the query.
+            connection.query(sql, function(err){
+                if (err) console.log("Error: " + err);
+                else console.log("Successfully added new column.");
+            })
+
+            
+            var sql = "UPDATE temp_bot2 SET Com_Name = 'Other';"
+
+            console.log("Filling...");
+            console.log(sql);
+
+            //  Run the query.
+            connection.query(sql, function(err){
+                if (err) console.log("Error: " + err);
+                else console.log("Successfully filled new column.");
+            })
+
+            //  Insert 'other' tree data into first temporary table and send to user.
+            var sql = "INSERT INTO temp_top (Com_Name, Ward_Name, Val) SELECT Com_Name, Ward_Name, Val FROM temp_bot2;"
+
+            //  Log.
+
+            console.log("Inserting temp3 into temp1...");
+            console.log(sql);
+
+            //  Run the query
+            connection.query(sql, function(err){
+                if (err) console.log("Error:" + err);
+                else console.log("Successfully inserted.");
+            })
+
+            //  Send results to user.
+
+            var sql = "SELECT * FROM temp_top;"
+
+            console.log(sql);
+
+            //  Run the query.
+            connection.query(sql, function(err, rows){
+                if (err) console.log("Err: " + err);
+                if (rows != undefined){
+                    res.send(rows);
+                }   else    {
+                    res.send("");
+                }       
+            })
+        }   else if(variable == 'Pollution_Year_grams'){     //  If input is capital amenity value, provide user with the aggregated pollution removal (kg/yr) across top three trees per ward.
+
+                //  SQL Query to get Sum of CAV for top three tree types across wards.   pollution removal is divided by 1,000 to give value in kg/yr
+                var sql = "CREATE TEMPORARY TABLE temp_top SELECT Ward_Name, Com_Name, sum("+variable+"/1000) as Val FROM clean_data WHERE Com_Name IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+
+                //  Log it
+                console.log("Creating temporary table for top three trees: " + variable);
+                console.log(sql);
+
+                //  Run the query.
+                connection.query(sql, function(err){
+                    if (err) console.log("Error: " + err);
+                    else console.log("Successfully created temporary table 1.")
+                })
+
+
+                var sql = "CREATE TEMPORARY TABLE temp_bot SELECT Ward_Name, Com_Name, sum("+variable+"/1000) as Val FROM clean_data WHERE Com_Name NOT  IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+                
+                //  Log it
+                console.log("Creating temporary table for other trees: " + variable);
+                console.log(sql);
+    
+                //  Run the query.
+                connection.query(sql, function(err){
+                    if (err) console.log("Error: " + err);
+                    else console.log("Successfully created temporary table 2.")
+                })
+
+                //  Summing the CAV for the other trees.
+                var sql = "CREATE TEMPORARY TABLE temp_bot2 SELECT Ward_Name, SUM(Val) as Val FROM temp_bot GROUP BY Ward_Name;"
+                //  Log it
+                console.log("Summing 'other' tree values...");
+                console.log(sql);
+    
+                //  Run the query.
+                connection.query(sql, function(err){
+                    if (err) console.log("Error: " + err);
+                    else console.log("Successfully created temporary table 3.")
+                })
+
+                //  Alter new temp table to add new column and fill with 'other'.
+                var sql = "ALTER TABLE temp_bot2 ADD Com_Name varchar(255);"
+
+                console.log("Adding new col");
+                console.log(sql);
+
+                //  Run the query.
+                connection.query(sql, function(err){
+                    if (err) console.log("Error: " + err);
+                    else console.log("Successfully added new column.");
+                })
+
+                
+                var sql = "UPDATE temp_bot2 SET Com_Name = 'Other';"
+
+                console.log("Filling...");
+                console.log(sql);
+
+                //  Run the query.
+                connection.query(sql, function(err){
+                    if (err) console.log("Error: " + err);
+                    else console.log("Successfully filled new column.");
+                })
+
+                //  Insert 'other' tree data into first temporary table and send to user.
+                var sql = "INSERT INTO temp_top (Com_Name, Ward_Name, Val) SELECT Com_Name, Ward_Name, Val FROM temp_bot2;"
+
+                //  Log.
+
+                console.log("Inserting temp3 into temp1...");
+                console.log(sql);
+
+                //  Run the query
+                connection.query(sql, function(err){
+                    if (err) console.log("Error:" + err);
+                    else console.log("Successfully inserted.");
+                })
+
+                //  Send results to user.
+
+                var sql = "SELECT * FROM temp_top;"
+
+                console.log(sql);
+
+                //  Run the query.
+                connection.query(sql, function(err, rows){
+                    if (err) console.log("Err: " + err);
+                    if (rows != undefined){
+                        res.send(rows);
+                    }   else    {
+                        res.send("");
+                    }       
+                })
+        }   else    {
+            console.log("Error: Wrong variable issued.")
+            res.send("");
+        }
+        
+    }
+})
+
 // Setup the server and print a string to the screen when server is ready
 var server = app.listen(portNumber, function () {
     var host = server.address().address;
