@@ -73,9 +73,9 @@
 				<div class = "reg-text col-5">
 					<br><br>
 					<h1>Treecon<img id = "brand-logo" src = "./img/logo.svg"></h1>
-					<h2>Camden Case Study</h2>
-					<p>The predictive tool enables you to predict the amount of pollution removed by the London Plane,
-						the most common tree in Camden, over the course of the five years.</p>
+					<h2>Predictive Tool</h2>
+					<p>The predictive tool uses multiple linear regression to predict the amount of pollution removed by the London Plane,
+						the most common tree in Camden, over the course of the next five years.</p>
 					<!--You can find an in-depth explanation of the analysis
 					<a href="./ana.html" class="link">here</a>.-->
 				</div>
@@ -138,12 +138,14 @@
 		</div>
 		<div id = "toolText-Container" class = "col-5">
 			
-			<h1> Predictive Analytic Tool </h1>
+			<h1> London Plane case study </h1>
 			<div class = "reg-text">
-				<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
-					Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut. 
-					Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
-					Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
+				<p>	Looking at the most common tree in the borough of Camden - the London Plane - pollution removal by this type of tree is predicted to increase significantly: by x% on average every year. By 2025, 
+					it will have increased by x%, compared to 2020, ranging from x% in King’s Cross, 
+					the lowest increase, to 70% in West Hampstead, the highest increase.  
+					Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes. 
+					<br> This could make the hotspots of air pollution removal disappear from the borough of Camden, as borough both in the North and the South 
+					would have high air pollution removal values.
 				</p>
 			</div>
 		
@@ -231,10 +233,19 @@
 				<div class = "explr1-text col-4">
 					<h1><u class = "text-underline">Methodology</u></h1>
 					<br><br>
-					<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
-						Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut. 
-						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
-						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
+					<h2>Model specification</h2>
+					<p>
+					The predictive tool is based on a multiple linear regression that models
+					the <b> average pollution removal (per year in grams) </b> for each London Plane tree based
+					on <b> carbon sequestration (per year in grams), spread (meters)
+					and height (meters) </b>. The model is described as follows:
+					<br> y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + b<sub>3</sub>x<sub>3</sub>
+					<br> Where:
+					<br> y = average pollution removal per tree
+					<br> b<sub>0</sub> is the constant term
+					<br> b<sub>1</sub> is the coefficient for the effect of carbon sequestration denoted x<sub>1</sub>
+					<br> b<sub>2</sub> is the coefficient for the effect of spread denoted x<sub>2</sub>
+					<br> b<sub>3</sub> is the coefficient for the effect of height denoted x<sub>3</sub>	
 					</p>
 				</div>
 			</div>
