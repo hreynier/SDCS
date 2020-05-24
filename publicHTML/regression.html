@@ -72,8 +72,7 @@
 			</div>
 		</nav>
 
-		<!-- Introductory landing text for the predic analytic tool
-			ADD MORE TEXT!!!-->
+		<!-- Introductory landing text for the prediction analytic tool -->
 		<div class = "container">
 			<div class = "row">
 				<div class = "reg-text col-5">
@@ -82,8 +81,6 @@
 					<h2>Predictive Tool</h2>
 					<p>The predictive tool uses multiple linear regression to predict the amount of pollution removed by the London Plane,
 						the most common tree in Camden, over the course of the next five years.</p>
-					<!--You can find an in-depth explanation of the analysis
-					<a href="./ana.html" class="link">here</a>.-->
 				</div>
 				<div class = "reg-hero col-7">
 					<img src="./img/analysis-hero.svg" alt="regression hero image." width = "100%">
@@ -144,12 +141,13 @@
 		</div>
 		<div id = "toolText-Container" class = "col-5">
 			
-			<h1> London Plane case study </h1>
-			<div class = "reg-text">
-				<p>	Looking at the most common tree in the borough of Camden - the London Plane - pollution removal by this type of tree is predicted to increase significantly: by x% on average every year. By 2025, 
-					it will have increased by x%, compared to 2020, ranging from x% in King’s Cross, 
-					the lowest increase, to 70% in West Hampstead, the highest increase.  
-					Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes. 
+			<h1> London Plane</h1>
+			<h2><b>Case Study</b></h2>
+			<div>
+				<p>	Looking at the most common tree in the borough of Camden - the <b>London Plane</b> - pollution removal by this type of tree is predicted to increase significantly:
+					by an average of x% per year.
+					<br><br>By 2025, it will have increased by x%, compared to 2020, ranging from x% in King’s Cross, the lowest increase, to 70% in West Hampstead, the highest increase.  
+					<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes. 
 					<br> This could make the hotspots of air pollution removal disappear from the borough of Camden, as borough both in the North and the South 
 					would have high air pollution removal values.
 				</p>
@@ -173,7 +171,7 @@
 					
 					<h1><u class = "text-underline">Main Findings</u></h1>
 					<br><br>
-					<p>	PUT CHARTS HERE! ! ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
+					<p>	Let me know if this is still needed! ! ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
 						Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut. 
 						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
 						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
@@ -229,92 +227,43 @@
 	<div id="hc-container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
 	</div> -->
 
-	<div id = "method-section"  class = "h-100">
-		<div id = "findingBlock2" class = "explr2-block"></div>
-		<div id = "explr1-container" class = "container-fluid">
-			<div class = "row">
-				<div class = "explr1-chart col-6">
-
-				</div>
-				<div class = "explr1-text col-4">
-					<h1><u class = "text-underline">Methodology</u></h1>
-					<br><br>
-					<h2>Model specification</h2>
-					<p>
-					The predictive tool is based on a multiple linear regression that models
-					the <b> average pollution removal (per year in grams) </b> for each London Plane tree based
-					on <b> carbon sequestration (per year in grams), spread (meters)
-					and height (meters) </b>. The model is described as follows:
-					<br> y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + b<sub>3</sub>x<sub>3</sub>
-					<br> Where:
-					<br> y = average pollution removal per tree
-					<br> b<sub>0</sub> is the constant term
-					<br> b<sub>1</sub> is the coefficient for the effect of carbon sequestration denoted x<sub>1</sub>
-					<br> b<sub>2</sub> is the coefficient for the effect of spread denoted x<sub>2</sub>
-					<br> b<sub>3</sub> is the coefficient for the effect of height denoted x<sub>3</sub>	
-					</p>
-				</div>
-			</div>
-		</div>
-		
-	</div>
+	
 	
 	<!-- Here copy-pasted first type of main fidings block--> 
-	<div id = "regFindings-section" class = "h-100">
-		<div id = "findingBlock1" class = "explr2-block"></div>
+	<div id = "method-section" class = "h-100">
+		<div id = "methodBlock1" class = "explr2-block"></div>
 
 		<div id = "explr2-container" class = "container">
-
-			<div class = "row">
-				<div class = "find1-text col-7">
-
-
+			<div class = "row justify-content-center">
+				<div class = "col-6">
 					<h1><u class = "text-underline">Methodology</u></h1>
-					<br><br>
+				</div>
+				
+			</div>
+			<div class = "row">
+				<div class = "find1-text col-4">
 					<h2>Model specification</h2>
 					<p>
-						The predictive tool is based on a multiple linear regression that models
-							the <b> average pollution removal (per year in grams) </b> for each London Plane tree based
-							on <b> carbon sequestration (per year in grams), spread (meters)
-							and height (meters) </b>. The model is described as follows:
-							<br> y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + b<sub>3</sub>x<sub>3</sub>
+							The predictive tool uses multiple linear regression to model
+							the <b> average pollution removal (grams/yr) </b> for each London Plane tree based
+							upon it's <em> carbon sequestration (grams/yr), spread (m)
+							and height (m) </em>. The model is shown as:
+							<br><em><b> y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + b<sub>3</sub>x<sub>3</sub></b></em>
 							<br> Where:
-							<br> y = average pollution removal per tree
-							<br> b<sub>0</sub> is the constant term
-							<br> b<sub>1</sub> is the coefficient for the effect of carbon sequestration denoted x<sub>1</sub>
-							<br> b<sub>2</sub> is the coefficient for the effect of spread denoted x<sub>2</sub>
-							<br> b<sub>3</sub> is the coefficient for the effect of height denoted x<sub>3</sub>
+							<br> <b>y</b> = average pollution removal per tree
+							<br> <b>b<sub>0</sub></b> is the constant term
+							<br> <b>b<sub>1</sub></b> is the coefficient for the effect of carbon sequestration denoted x<sub>1</sub>
+							<br> <b>b<sub>2</sub></b> is the coefficient for the effect of spread denoted x<sub>2</sub>
+							<br> <b>b<sub>3</sub></b> is the coefficient for the effect of height denoted x<sub>3</sub>
 					</p>
 					<p> 
-						With the estimated coefficients, the model is translated to: 
+						With these estimated coefficients, the model results in: 
 							<br> y = -510.9830 -3.56 x<sub>1</sub> + 93.1614 x<sub>2</sub>+ 8.7374 x<sub>3</sub>
 							<br> The model explains 89% of the variation in average air pollution removal for a sample size n of 3217 London Plane trees in Camden.  
 					</p>
 				</div>
-				<div class = "find1-img col-5">
 
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Here copy-pasted second type of main fidings block-->
-	<div id = "regFindings2-section" class = "h-100">
-
-
-		<div id = "explr2-container" class = "container">
-
-			<div class = "row">
-
-				<div class = "find1-chart col-5">
-
-				</div>
-
-				<div class = "find2-text col-7">
-
-					<br><br>
-					<!-- <h1><u class = "text-underline">Methodology</u></h1> --> 
-					<br><br>
+				<div class = "find1-text col-4">
 					<h2>Model selection</h2>
 					<p>	The initial pool of predictors consisted of a multitude of predictors selected from the Camden API – they were selected based on the researchers’ assessment of
 						variables that could be relevant in modelling pollution removal. The initial pre-selected variables consisted of: height, spread, diameter (centimeters at breast height),
@@ -327,22 +276,8 @@
 						In the stepwise regression, the p-value of each predictor had to be below 0.6 for the predictor to be kept in the regression. Physiological condition was the only predictor above this threshold and was therefore dropped. In the multicollinearity test, which was assessed by calculating the Variation Inflation Factor of each remaining predictor, the VIF threshold was of 10. Several predictors were multicollinear among each other: a meter, Amenity Value and Carbon Storage were removed for the final regression to remain with x1, x2 and x3 or carbon sequestration, spread and height.
 					</p>
 				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Here AGAIN copy-pasted first type of main findings block-->
-	<div id = "regFindings-section" class = "h-100">
-		<div id = "findingBlock1" class = "explr2-block"></div>
 
-		<div id = "explr2-container" class = "container">
-
-			<div class = "row">
-				<div class = "find1-text col-7">
-
-
-					<!-- <h1><u class = "text-underline">Methodology</u></h1> -->
-					<br><br>
+				<div class = "find1-text col-4">
 					<h2>Prediction</h2>
 					<p>
 						The model predicts future carbon sequestration each year for over a period of five years.
@@ -355,12 +290,14 @@
 						By being linear, the model also assumes the relation between those predictors and the outcome is the same for all trees regardless
 					</p>
 				</div>
-				<div class = "find1-img col-5">
+				
 
-				</div>
+			
 			</div>
 		</div>
 	</div>
+	
+	
 	
 	<!-- Here AGAIN copy-pasted second type of main findings block-->
 	<div id = "regFindings-section" class = "h-100">
@@ -372,7 +309,7 @@
 				<div class = "find1-text col-7">
 
 
-					<h1><u class = "text-underline">Perspectives</u></h1>
+					<h1><u class = "text-underline">Perspectives (maybe change to evaluation?)</u></h1>
 					<br><br>
 				<!--	<h2>Prediction</h2> -->
 					<p>
@@ -385,7 +322,7 @@
 					</p>
 				</div>
 				<div class = "find1-img col-5">
-
+					<p>Put image/SVG here ask @harvey for good free websites to find this resources.</p>
 				</div>
 			</div>
 		</div>
