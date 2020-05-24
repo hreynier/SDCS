@@ -93,28 +93,29 @@
 				<div class = "about-text col-6">
 					<br><br>
 					<h1><u class = "text-underline">About</u></h1>
-					<p style= "font-size: 16px;font-weight: 300"> 
-						This project was drafted by a <a href="./group.html" class="link">group</a>
-						of students in order to communicate the presence and importance of the trees within Camden Council. 
-						Our means are twofolds: firstly, we visualized the location of "public" trees (trees that are within council-owned property) 
-						through a multi-layered map. Secondly, we interpreted council-provided data on the trees through some summaries and a regression analysis. 
+					<p style= "font-size: 16px;font-weight: 300">
+						This project was drafted by a <a href="./group.html" target="_blank" class="link">group</a>
+						of students in order to communicate the presence and importance of the trees within Camden Council.
+						Our means are twofolds: firstly, we visualized the location of "public" trees (trees that are within council-owned property)
+						through a multi-layered map. Secondly, we interpreted council-provided data on the trees through some summaries and a regression analysis.<br>
+						Our focal point was the impact of these amenity trees on the pollution removal across the Council as see in the map below. In <a href="./regression.html" target="_blank" class="link">further data analysis</a>, we made a predictive tool that enables us to project the pollution removal of these trees over the coming half decade.
 						<br/><br/>
-						All information on this website is open to public access. The data was sourced from the 
-						<a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" class="link">Camden Council Tree Dataset</a>.
+						All information on this website is open to public access. The data was sourced from the
+						<a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" target="_blank" class="link">Camden Council Tree Dataset</a>.
 					</p>
 				</div>
 			</div>
-			<div class = "d-flex justify-content-center" style = "padding-top:13%">
-				<span class = "down" id = "about-dwn"> &#x21e3; </span>	
+		<div class = "d-flex justify-content-center" style = "padding-bottom:3%">
+				<span class = "down" id = "about-dwn"> &#x21e3; </span>
 			</div>
 		</div>
 		</div>
-		
+
 	</div>
 
 	<!------ 3. BUTTON MAP SECTION 	------>
-	<div class = "map-section">
-	
+	<div id = "map-section">
+
 	<!-- 	Clustering Coefficient Legend + Data box -->
 		<div id = "gMap-size">
 			<div id = "data-control-widget">
@@ -125,14 +126,14 @@
 						<div id = "data-max">max</div>
 					</div>
 				</div>
-				<div id = "data-box" class = "nicebox">
+				<div id = "data-box" class = "nicebox" style="padding :2px; padding-left: 5px;padding-right: 5px;">
 					<label id = "data-label" for "data-value"></label>
 					<span id = "data-value"></span>
 				</div>
 			</div>
 
 			<!-- 	MAP 	-->
-		
+
 			<div id="map"></div>
 		</div>
 
@@ -171,33 +172,28 @@
 				<div class = "explr1-text col-md-4">
 					<h1><u class = "text-underline">Data Exploration</u></h1>
 					<br><br>
-					<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
-						Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut. 
-						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
-						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
+					<p>	The most common type of tree in the Camden Council is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/london-plane/" target="_blank" class="link">London Plane tree </a>. It is the capital’s most common tree. It’s been widely planted since the 18th century; 3 centuries and counting! The second most common type of trees in Camden is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/common-lime/" target="_blank" class="link">Common Lime </a>. An interesting fact about this tree is that both male and female trees produce white-yellow flowers. It’s also a native tree to the UK and very common in urban areas and parks. The third most common type is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/norway-maple/" target="_blank" class="link">Norway Maple</a>. Birds and small mammals love feasting on the leaves of this tree that’s been around for 4 centuries now. It’s widely planted in parks and on urban streets because this tree is very resilient to the harsh environmental conditions of cities such as compact soil, pollution, shade and because its trunk is tall, remaining clear from circulation.
 					</p>
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
-	
+
 	<!-- 5. Azza's Radial Chart Section -->
 	<div id = "explore2-section" class = "h-100">
-		<div class = "explr2-block"></div>
-		
+		<div id = "explr2-block"></div>
+
 		<div id = "explr2-container" class = "container">
 
 			<div class = "row">
 				<div class = "explr2-text col-5">
 
-					<br><br>
+					<br><br><br><br>
 					<h1><u class = "text-underline">Data Exploration</u></h1>
 					<br><br>
-					<p>	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
-						Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut. 
-						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
-						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
+					<p>	Capital Amenity Value for Trees or <a href="https://doi.org/10.1080/03071375.2018.1454077" target="_blank" class="link"> Capital Asset Value for Amenity Trees (CAVAT) </a> is a tool that enables authorities to quantify the value of amenity trees. Amenity trees are part of the urban forest system, which are trees within public domain and that authorities are therefore responsible for. CAVAT is a tool that is used by authorities in assets management to know the replacement value needed to compensate for a single tree or for a population of trees.<br>
+							In the case of Camden Council, we focused on the CAVAT for the most common trees as they have the largest aggregated CAVAT values per ward. This might be related to how common they are in each ward, but also to the fact that they are the largest (in overall dimensions of height, spread and Diameter at Breast Height).
 					</p>
 
 				</div>
@@ -211,16 +207,16 @@
 	<!-- 6. Highchart bar graph? -->
 	<div id = "explore3-section" class = "h-100">
 		<div id = "explr3-tri"></div>
-		
+
 		<div id = "explr3-container" class = "container-fluid">
 			<div class = "row my-auto">
 				<div id = "hc-container"></div>
 			</div>
 			<div class = "row">
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris. 
-					Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut. 
-					Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis. 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris.
+					Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut.
+					Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis.
 					Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
 				</p>
 			</div>
@@ -244,16 +240,16 @@
 			<div class = "row justify-content-between align-items-center">
 				<div class = "col-2">
 					<div id = "toTop-ctr" class = "d-flex justify-content-left align-bottom">
-						<span class = "down" id = "toTop"> &#x21e1; </span>	
+						<span class = "down" id = "toTop"> &#x21e1; </span>
 					</div>
 				</div>
 				<div class = "col-6">
 					<img src="./img/undraw_visual_data_b1wx.svg" alt="Visual Data SVG">
 				</div>
-				
+
 			</div>
 
-			
+
 		</div>
 
 	</div>
@@ -264,7 +260,7 @@
 
 
 
-	
+
 
 	<!----	JAVASCRIPT SOURCES ---->
 
@@ -288,7 +284,7 @@
 	<script src = "node_modules/chart.js/dist/Chart.js"></script>
 	<!-- chart.js deferred plugin to defer animations-->
 	<script src = "node_modules/chartjs-plugin-deferred/dist/chartjs-plugin-deferred.js"></script>
-	
+
 
 	<!---- 	Local scripts ---->
 
