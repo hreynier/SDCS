@@ -459,9 +459,9 @@ a.link:hover{
 #gMap-size{
   position: relative;
   width: 100%;
-  max-height: 60%;
+  max-height: 75%;
   min-height: 40%;
-  height: 60%;
+  height: 75%;
   box-sizing: border-box;
   overflow: auto;
 }

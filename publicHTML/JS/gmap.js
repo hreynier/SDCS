@@ -33,7 +33,7 @@ $(document).ready(function() {
     function initialise() {
 
         // The location of Camden.
-        var camden_cds = { lat: 51.554756, lng: -0.164345 };
+        let camden_cds = { lat: 51.5431464, lng: -0.1581557 };
 
         // Map Options
         var mapOptions = {
