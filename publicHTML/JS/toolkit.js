@@ -143,7 +143,7 @@ $(document).ready(function(){
     $("#about-dwn").on('click', function () {
         $("#about").scrollTop(0);
         $("html,#about").animate({
-            scrollTop: $("#map-section").offset().top -49
+            scrollTop: $(".map-section").offset().top-35
         }, 1000);
     })
     $("#toTop").on('click', function () {
@@ -155,7 +155,7 @@ $(document).ready(function(){
     $("#tool-dwn").on('click', function () {
         $("html").scrollTop(0);
         $("html, body").animate({
-            scrollTop: $("#predTool").offset().top -49
+            scrollTop: $("#predTool").offset().top-49
         }, 1000);
     })
 

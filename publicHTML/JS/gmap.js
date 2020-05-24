@@ -175,7 +175,7 @@ $(document).ready(function() {
                 //  New google map  coord object.
                 var loc = new google.maps.LatLng(latitude, longitude);
                 //  Format for heatmap.
-                var object = { location: loc, weight: weight };
+                var object = { location: loc, weight: weight/1000 };//  Weight scaled down to make heat-map distribution clearer.
                 //  Push to array.
                 heatArray.push(object);
             })
