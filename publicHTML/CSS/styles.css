@@ -348,6 +348,12 @@ a.link:hover{
   align-items: center;
   justify-content: center;
 }
+.h-100x{
+  min-height: 100vh;
+  max-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
 .h-80{
   min-height: 80vh;
   max-height: 80vh;
@@ -481,8 +487,8 @@ a.link:hover{
   text-align: center !important;
 }
 .mapBtn {
-  background-color: #8cb58a;
-  border: 1px solid #8cb58a;
+  background-color: #c5e6c3;
+  border: 1px solid #c5e6c3;
   border-radius: 12px;
   font-size: 18px;
   font-family: 'Lato', verdana  , sans-serif;
@@ -493,13 +499,30 @@ a.link:hover{
 }
 
 .mapBtn:hover {
-  background-color: #93A58D;
+  background-color: #b2d6b0;
   color: #3E3E3E;
 
 }
 .mapBtn:active {
     background-color: #8cb58a;
     color: #3E3E3E;
+}
+
+.mapBtn2 {
+  background-color: #c5e6c3;
+  border: 1px solid #c5e6c3;
+  border-radius: 12px;
+  font-size: 18px;
+  font-family: 'Lato', verdana  , sans-serif;
+  font-weight: 505;
+  color: #3E3E3E;
+  margin:10px;
+  padding: 8px;
+}
+
+.mapBtn2:hover {
+  background-color: #b2d6b0;
+  color: #3E3E3E;
 }
 
 .infoBox {
@@ -517,6 +540,19 @@ a.link:hover{
   background-color: #CB997E;
 }
 
+.infoCard {
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 16px;
+  font-family: 'Lato', optima  , sans-serif;
+  color: #3E3E3E;
+  background-color: #e6edec;
+}
 .map-block{
   top: 80%;
   width: 100%;
@@ -736,7 +772,7 @@ a.link:hover{
 #toTop-ctr{
   position: relative;
   padding-top: 80%;
-  
+
 }
 
 #toTop{
@@ -796,7 +832,7 @@ a.link:hover{
   align-items: flex-start;
 }
 #predTool h1{
- 
+
   font-size: 3em;
   font-weight: 700;
   margin: 100px auto 10px auto;
@@ -1030,7 +1066,7 @@ a.link:hover{
   height: 80vh;
   padding: 0;
   padding-bottom: 10%;
-  
+
 }
 
 
