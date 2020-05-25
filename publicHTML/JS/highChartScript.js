@@ -111,7 +111,7 @@ $(document).ready(function() {
 		
 		//  Radial Chart detailing the distribution of amenity values across wards for the top 3 highest 'networth' trees.
 		Highcharts.chart('radial-hc', {
-			colors: ['#A8CDA6', '#01B698', '#84957F', '#04738F'],
+			colors: ['#04738F', '#84957F', '#01B698','#A8CDA6'],
 			chart: {
 			type: 'column',
 			inverted: true,
@@ -207,8 +207,8 @@ $(document).ready(function() {
 			}
 			},
 			series: [{
-			name: 'London Plane',
-			data: hc1Plane
+			name: 'Other',
+			data: hc1Other
 			}, {
 			name: 'Lime-Common',
 			data: hc1Lime
@@ -216,8 +216,8 @@ $(document).ready(function() {
 			name: 'Maple - Norway',
 			data: hc1Maple
 			}, {
-			name: 'Other',
-			data: hc1Other
+			name: 'London Plane',
+			data: hc1Plane
 			}]
 		});
 
