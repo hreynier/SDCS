@@ -1,8 +1,42 @@
 html, body {
+	background-color: #F5F5F5 !important; /* Overide bootstrap.*/
+	font-family: 'Lato', sans-serif;
+	font-size: 15px;
+	line-height: 1.8em;
 	height: 100%;
-	margin: 0px;
-	padding: 0px;
-	font-family: 'Raleway', sans-serif;
+	
+}
+  
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: normal;
+	font-weight: 700;
+	font-family: 'Taviraj', sans-serif;
+	color: #3e3e3e;
+}
+
+h1 {
+font-size: 20px;
+font-family: 'Taviraj', verdana  , sans-serif;
+color: #3e3e3e;
+font-weight:800 !important;
+
+}
+
+h2 {
+font-size: 10px;
+font-family: 'Lato', verdana  , sans-serif;
+color: #84957F;
+font-weight:800;
+}
+
+p{
+font-family: 'Lato';
+font-size: 1.1em;
 }
 #container {
     display: block;
