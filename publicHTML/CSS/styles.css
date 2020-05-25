@@ -39,7 +39,7 @@ h2 {
 
 p{
   font-family: 'Lato';
-  font-size: 1.1em;
+  font-size: 1em;
 }
 a.link{
   color:#A8CDA6;
@@ -327,6 +327,10 @@ a.link:hover{
   padding-top: 5px !important;
   padding-bottom: 0 !important;
 }
+
+.navbar-toggler{
+  justify-self: right;
+}
 .nav-link{
   font-family: 'Lato', sans-serif;
   font-weight: 700;
@@ -425,6 +429,10 @@ a.link:hover{
   opacity: 0.8;
 }
 /* -------   2.3 ABOUT STYLES -------- */
+#about{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .about-text {
   text-align: left;
   /*max-width: 50%;*/
@@ -440,10 +448,10 @@ a.link:hover{
 }
 
 .about-text p {
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 400;
   letter-spacing: 2px;
-  line-height: 1.6;
+  line-height: 1.1;
   word-spacing: 4px;
   margin-bottom: 5px;
 }
