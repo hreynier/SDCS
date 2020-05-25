@@ -182,6 +182,28 @@ $(document).ready(function(){
 });
 
 
+/* activate scrollspy menu for scrolling on nav bar links*/
+$('body').scrollspy({
+    target: '.navbar',
+    offset: 49
+});
+
+/* smooth scrolling sections - Adapted from Bootstrap 4 guide */
+$('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top - 49
+        }, 1000);
+        return false;
+    }
+    }
+});
+
+
+//  Hacky range slider code!! 
 var sheet = document.createElement('style'),
   $rangeInput = $('.slideContainer input'),
   prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track']; //chrome, firefox, ie -> they really need to standardise..
