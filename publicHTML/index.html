@@ -92,8 +92,8 @@
 	<div id="about" class = "h-100" >
 		<div class = "container">
 			<div class = "row" style="padding-top:90px">
-				<div class = "about-img col-lg-4 col-sm-6 order-sm-1">
-					<br><br><br><br><br><br><br>
+				<div class = "about-img col-lg-4 col-sm-5 order-sm-1 align-items-end">
+					<br><br>
 					<img src="img/undraw_empty_street_sfxm.svg" alt="Empty Street svg" width = "100%">
 				</div>
 				<div class = "about-text col-lg-6 col-sm-8 order-first order-sm-12">
@@ -101,12 +101,12 @@
 					<h1><u class = "text-underline">About</u></h1>
 					<p>
 						This project was drafted by a <a href="./group.html" target="_blank" class="link">group</a>
-						of students in order to communicate the presence and importance of the trees within Camden Council.
+						of students to highlight the presence and importance of street trees within the London Borough of Camden.
 						Our means are twofolds: firstly, we visualized the location of "public" trees (trees that are within council-owned property)
 						through a multi-layered map. Secondly, we interpreted council-provided data on the trees through some summaries and a regression analysis.<br>
 						Our focal point was the impact of these amenity trees on the pollution removal across the Council as see in the map below. In <a href="./regression.html" target="_blank" class="link">further data analysis</a>, we made a predictive tool that enables us to project the pollution removal of these trees over the coming half decade.
 						<br/><br/>
-						All information on this website is open to public access. The data was sourced from the
+						All information on this website is open to public access, with the data sourced from the
 						<a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" target="_blank" class="link">Camden Council Tree Dataset</a>.
 					</p>
 				</div>
@@ -168,16 +168,16 @@
 	<div id = "explore1-section"  class = "h-100">
 		<div id = "explr1-container" class = "container-fluid">
 			<div class = "row">
-				<div class = "explr1-chart col-md-6">
+				<div class = "explr1-chart col-md-6 order-md-1">
 					<h2>Most Common Tree Species in Camden</h2>
 					<!--Chart.js pie chart showing tree types-->
 					<div class = "chartjs-wrapper">
 						<canvas id = "treePie" ></canvas>
 					</div>
 				</div>
-				<div class = "explr1-text col-md-4">
+				<div class = "explr1-text col-md-4 order-first order-md-12">
 					<h1><u class = "text-underline">Data Exploration</u></h1>
-					<br><br>
+					<br>
 					<p>	The most common type of tree in the Camden Council is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/london-plane/" target="_blank" class="link">London Plane tree </a>. It is the capital’s most common tree. It’s been widely planted since the 18th century; 3 centuries and counting! The second most common type of trees in Camden is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/common-lime/" target="_blank" class="link">Common Lime </a>. An interesting fact about this tree is that both male and female trees produce white-yellow flowers. It’s also a native tree to the UK and very common in urban areas and parks. The third most common type is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/norway-maple/" target="_blank" class="link">Norway Maple</a>. Birds and small mammals love feasting on the leaves of this tree that’s been around for 4 centuries now. It’s widely planted in parks and on urban streets because this tree is very resilient to the harsh environmental conditions of cities such as compact soil, pollution, shade and because its trunk is tall, remaining clear from circulation.
 					</p>
 				</div>
@@ -193,17 +193,16 @@
 		<div id = "explr2-container" class = "container">
 
 			<div class = "row">
-				<div class = "explr2-text col-5">
+				<div class = "explr2-text col-md-5">
 
 					<br><br><br><br>
-					<h1><u class = "text-underline">Data Exploration</u></h1>
-					<br><br>
+					
 					<p>	Capital Amenity Value for Trees or <a href="https://doi.org/10.1080/03071375.2018.1454077" target="_blank" class="link"> Capital Asset Value for Amenity Trees (CAVAT) </a> is a tool that enables authorities to quantify the value of amenity trees. Amenity trees are part of the urban forest system, which are trees within public domain and that authorities are therefore responsible for. CAVAT is a tool that is used by authorities in assets management to know the replacement value needed to compensate for a single tree or for a population of trees.<br>
 							In the case of Camden Council, we focused on the CAVAT for the most common trees as they have the largest aggregated CAVAT values per ward. This might be related to how common they are in each ward, but also to the fact that they are the largest (in overall dimensions of height, spread and Diameter at Breast Height).
 					</p>
 
 				</div>
-				<div class = "explr2-chart col-6" id = "radial-hc">
+				<div class = "explr2-chart col-md-6 col-xs-12" id = "radial-hc">
 
 				</div>
 			</div>
@@ -244,7 +243,7 @@
 				<h1><a href="./regression.html"><u class = "text-underline">predictive analytical tool</u></a></h1>
 			</div>
 			<div class = "row justify-content-end align-items-center">
-				<div class = "col-6">
+				<div class = "col-md-6 col-xs-8">
 					<img src="./img/undraw_visual_data_b1wx.svg" alt="Visual Data SVG">
 				</div>
 

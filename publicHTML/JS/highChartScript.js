@@ -117,13 +117,20 @@ $(document).ready(function() {
 			inverted: true,
 			polar: true,
 			backgroundColor: 'transparent',
-			height: (150/100 * 100 ) + '%'
+			//height: (160/100 * 100 ) + '%'
 			},
 			title: {
 			text: 'Capital Amenity Value (£mill) across top three species per ward',
 			margin: -20,
 			y: 60,
 			floating: false
+			},
+			responsive: {
+				rules:	[{
+					condition:{
+						minwidth: 500
+					}
+				}]
 			},
 			
 			tooltip: {
@@ -270,11 +277,17 @@ $(document).ready(function() {
 				chart: {
 					type: 'bar',
 					backgroundColor: 'transparent',
-					height: (9/16 * 100 ) + '%'
+					//height: (9/16 * 100 ) + '%'
 				},
 				colors: ['#A8CDA6', '#01B698', '#84957F', '#04738F'],
 				title: {
 					text: 'Pollution removal per year (kg) across top three species per ward'
+				},responsive: {
+					rules:	[{
+						condition:{
+							minHeight: 400
+						}
+					}]
 				},
 				xAxis: {
 					categories: [" Belsize ",
