@@ -253,7 +253,7 @@ app.get('/data/clusters/', function (req, res){
     res.header("Acces-Control-Allow-Headers", "X-Requested-WithD");
 
     //  SQL statement.
-    var sql = "SELECT ward_name, Pollution_Gi, Pollution_Gi FROM clusters ORDER BY ward_name;"
+    var sql = "SELECT ward_name, Pollution_Gi FROM clusters ORDER BY ward_name;"
     //  Log it.
     console.log("SQL: " + sql);
 
