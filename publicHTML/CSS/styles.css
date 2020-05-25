@@ -866,7 +866,7 @@ a.link:hover{
 /*Map*/
 .analysis-map-container{
   position: relative;
-  width: 55%; /*Change to 55%*/
+  /*width: 55%;*/ /*Change to 55%*/
   max-height: 100%;
   min-height: 65%;
   height: 100%;

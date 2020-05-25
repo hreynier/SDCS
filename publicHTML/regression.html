@@ -75,14 +75,14 @@
 		<!-- Introductory landing text for the prediction analytic tool -->
 		<div class = "container">
 			<div class = "row">
-				<div class = "reg-text col-5">
+				<div class = "reg-text col-lg-5 col-sm-8">
 					<br><br>
 					<h1>Treecon<img id = "brand-logo" src = "./img/logo.svg"></h1>
 					<h2>Predictive Tool</h2>
 					<p>The predictive tool uses multiple linear regression to predict the amount of pollution removed by the London Plane,
 						the most common tree in Camden, over the course of the next five years.</p>
 				</div>
-				<div class = "reg-hero col-7">
+				<div class = "reg-hero col-lg-7 col-sm-8">
 					<img src="./img/analysis-hero.svg" alt="regression hero image." width = "100%">
 				</div>
 			</div>
@@ -100,55 +100,60 @@
 	-->
 
 	<div id = "predTool" class = "map-section">
-		<div class = "analysis-map-container col-7">
-			<div id = "analysis-widget">
-				<div id = "legend-container" class = "nicebox">
-					<div id = "legend">
-						<div id = "data-min">min</div>
-						<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
-						<div id = "data-max">max</div>
+		<div class = "container-fluid">
+
+			<div class = "row">
+			<div class = "analysis-map-container col-lg-7 col-md-12 col-sm-12 col-xs-12">
+				<div id = "analysis-widget">
+					<div id = "legend-container" class = "nicebox">
+						<div id = "legend">
+							<div id = "data-min">min</div>
+							<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
+							<div id = "data-max">max</div>
+						</div>
+					</div>
+					<div id = "data-box2" class = "nicebox">
+						<label id = "data-label" for "data-value"></label>
+						<span id = "data-value"></span>
 					</div>
 				</div>
-				<div id = "data-box2" class = "nicebox">
-					<label id = "data-label" for "data-value"></label>
-					<span id = "data-value"></span>
+
+				<!-- 	MAP 	-->
+				<div id="predictionMap"></div>
+
+				<div class = "range">
+					<div class="slideContainer">
+						<input class="predictTool-Slider" type="range" min="1" max="6" value="1"   onchange="setPredict(this.value)" oninput="setPredict(this.value)"> <!--oninput="setPredict(this.value)"-->
+					</div>
+
+					<ul class="range-labels">
+						<li class="active selected">2020</li>
+						<li>2021</li>
+						<li>2022</li>
+						<li>2023</li>
+						<li>2024</li>
+						<li>2025</li>
+					</ul>
 				</div>
+
+
 			</div>
+			<div id = "toolText-Container" class = "col-lg-5 col-md-8 col-sm-8 col-xs-8">
 
-			<!-- 	MAP 	-->
-			<div id="predictionMap"></div>
-
-			<div class = "range">
-				<div class="slideContainer">
-					<input class="predictTool-Slider" type="range" min="1" max="6" value="1"   onchange="setPredict(this.value)" oninput="setPredict(this.value)"> <!--oninput="setPredict(this.value)"-->
+				<h1> London Plane</h1>
+				<h2><b>Case Study</b></h2>
+				<div>
+					<p>	Looking at the most common tree in the borough of Camden - the <b>London Plane</b> - pollution removal by this type of tree is predicted to increase significantly:
+						by an average of x% per year.
+						<br><br>By 2025, it will have increased by x%, compared to 2020, ranging from x% in King’s Cross, the lowest increase, to 70% in West Hampstead, the highest increase.
+						<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes.
+						<br> This could make the hotspots of air pollution removal disappear from the borough of Camden, as borough both in the North and the South
+						would have high air pollution removal values.
+					</p>
 				</div>
 
-				<ul class="range-labels">
-					<li class="active selected">2020</li>
-					<li>2021</li>
-					<li>2022</li>
-					<li>2023</li>
-					<li>2024</li>
-					<li>2025</li>
-				  </ul>
 			</div>
-
-
 		</div>
-		<div id = "toolText-Container" class = "col-5">
-
-			<h1> London Plane</h1>
-			<h2><b>Case Study</b></h2>
-			<div>
-				<p>	Looking at the most common tree in the borough of Camden - the <b>London Plane</b> - pollution removal by this type of tree is predicted to increase significantly:
-					by an average of x% per year.
-					<br><br>By 2025, it will have increased by x%, compared to 2020, ranging from x% in King’s Cross, the lowest increase, to 70% in West Hampstead, the highest increase.
-					<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes.
-					<br> This could make the hotspots of air pollution removal disappear from the borough of Camden, as borough both in the North and the South
-					would have high air pollution removal values.
-				</p>
-			</div>
-
 		</div>
 	</div>
 
