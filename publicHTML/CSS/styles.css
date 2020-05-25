@@ -41,7 +41,19 @@ p{
   font-family: 'Lato';
   font-size: 1.1em;
 }
+a.link{
+  color:#A8CDA6;
+  font-weight: 600;
+  font-size: 1.15em;
+  text-decoration: dotted;
+  text-decoration-color: #A8CDA6;
 
+}
+a.link:hover{
+  color:#3E3E3E;
+  font-weight: 600;
+  text-decoration: none;
+}
 #brand-logo{
   width: 0.65em;
 }
@@ -418,8 +430,8 @@ p{
 }
 
 .about-text p {
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.1em;
+  font-weight: 400;
   letter-spacing: 2px;
   line-height: 1.6;
   word-spacing: 4px;
@@ -430,17 +442,7 @@ p{
   padding-left: 0px !important;
 }
 
-a.link{
-  color:#84957F;
-  font-weight: 600;
-  font-size: 1.05em;
 
-}
-a.link:hover{
-  color:#3E3E3E;
-  font-weight: 600;
-  text-decoration: none;
-}
 
 
 
@@ -733,8 +735,8 @@ a.link:hover{
 
 #toTop-ctr{
   position: relative;
-  /*padding-top: 40%;*/
-  margin-bottom: 0%;
+  padding-top: 80%;
+  
 }
 
 #toTop{
@@ -751,6 +753,16 @@ a.link:hover{
   font-size: 2.5em;
   font-weight: 700;
   margin-bottom: 15px;
+}
+
+#end-ctr h1 u{
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+#end-ctr a{
+  color:#3E3E3E;
+  font-weight: 600;
+  font-size: 0.9em;
 }
 
 /* --------- 3. REGRESSION.HTML --------- */
@@ -1056,11 +1068,7 @@ a.link:hover{
   padding-left: 0px !important;
 }
 
-a.link{
-  color:#84957F;
-  font-weight: 300;
-  font-size: 1.05em;
-}
+
 
 a.footerText{
   color:#3E3E3E;
