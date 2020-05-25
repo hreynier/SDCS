@@ -131,7 +131,7 @@ $(document).ready(function(){
 
     });
 
-    //  ---- ANIMATED SCROLL ON CLICK ----//
+    //  ---- ANIMATED SCROLL ON CLICK FOR ARROWS ----//
     //  When click on #down element on landing page
     //  autoscroll to next section.
     $("#home-dwn").on('click', function () {
@@ -161,6 +161,27 @@ $(document).ready(function(){
 
 });
 
+
+/* activate scrollspy menu for scrolling on nav bar links*/
+$('body').scrollspy({
+    target: '.navbar',
+    offset: 49
+});
+  
+/* smooth scrolling sections - Adapted from Bootstrap 4 guide */
+$('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top - 49
+        }, 1000);
+        return false;
+    }
+    }
+});
+  
 
 var sheet = document.createElement('style'),  
   $rangeInput = $('.slideContainer input'),

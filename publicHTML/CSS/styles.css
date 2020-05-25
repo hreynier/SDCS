@@ -339,6 +339,10 @@ a.link:hover{
   font-size: 30px;
 }
 
+.navbar li>a:hover,.navbar li>a:focus,.navbar li.active {
+  background-color: #A8CDA6;
+}
+
 /* --------  2.2 LANDING PAGE STYLES  -------- */
 
 .h-100{
