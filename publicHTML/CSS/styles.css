@@ -1110,6 +1110,14 @@ a.link:hover{
 
 
 /* ---------   4. GROUP STYLES --------- */
+#teamText h1 {
+  font-size: 4.3em;
+}
+
+#teamText p{
+  font-size: 1.3em;
+}
+
 .group-text {
   text-align: left;
   /*max-width: 50%;*/
