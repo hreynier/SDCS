@@ -362,6 +362,12 @@ a.link:hover{
   align-items: center;
   justify-content: center;
 }
+.h-80x{
+  min-height: 30vh;
+  max-height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
 .h-80{
   min-height: 80vh;
   max-height: 80vh;
