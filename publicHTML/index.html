@@ -18,6 +18,8 @@
 </head>
 
 <body>
+
+
 	<!------  0. LOADING ANIMATION  ------>
 	<div class="first-block"></div>
 	<div class="second-block"></div>
@@ -39,7 +41,7 @@
 	<!------  1. LANDING PAGE + NAV BAR  ------>
 	<header id = "home" class = "h-100">
 
-		<!--	NAV BAR		-->
+		<!--	1.1 Nav-Bar		-->
 		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
 			<a class="navbar-brand" href="#">
 				<span class="w-100 d-lg-none d-block"></span>
@@ -72,7 +74,7 @@
 			</div>
 		</nav>
 
-		<!-- LANDING PAGE MAIN CONTENT -->
+		<!-- 1.2 Landing page content -->
 		<div class = "container">
 			<div class = "row">
 				<div class = "main-text col-lg-4 col-sm-8">
@@ -87,6 +89,7 @@
 		</div>
 		<span class = "down" id = "home-dwn"> &#x21e3; </span>
 	</header>
+
 
   <!------ 2. ABOUT SECTION  ------>
 	<div id="about" class = "h-100" >
@@ -110,13 +113,13 @@
 			</div>
 		</div>
 		</div>
-
 	</div>
+
 
 	<!------ 3. BUTTON MAP SECTION 	------>
 	<div class = "map-section">
 
-	<!-- 	Clustering Coefficient Legend + Data box -->
+	<!-- 	3.1 Clustering Coefficient Legend + Data box -->
 		<div id = "gMap-size">
 			<div id = "data-control-widget">
 				<div id = "cluster-controls" class = "nicebox">
@@ -132,19 +135,18 @@
 				</div>
 			</div>
 
-			<!-- 	MAP 	-->
-
+			<!-- 3.2 MAP 	-->
 			<div id="map"></div>
 		</div>
 
-		<!-- 3 Button Widget -->
+		<!-- 3.3 Button Widget Controller-->
 		<div class="map-control-widget">
 			<button id = "btn-markers"  class = "mapBtn" onclick="toggleBox('markerInfo')">Tree Location</button>
 			<button id = "btn-heatmap"  class = "mapBtn" onclick="toggleBox('heatInfo')">Pollution Removal</button>
 			<button id = "btn-data"     class = "mapBtn" onclick="toggleBox('geoInfo'); toggleBox('data-control-widget')">Ward Clustering</button>
 		</div>
 
-		<!-- Information Boxes -->
+		<!-- 3.4 Information Boxes -->
 		<div class = infoBox id="markerInfo">
 			This layer displays the individual trees within the Borough of Camden. Click on the markers for more information.
 		</div>
@@ -157,7 +159,7 @@
 
 	</div>
 
-	<!-- 4. Tree Type Pie Chart Section -->
+	<!-- 4. Data Exploration - Pie Chart -->
 
 	<div id = "explore1-section"  class = "h-100">
 		<div id = "explr1-container" class = "container-fluid">
@@ -180,7 +182,8 @@
 
 	</div>
 
-	<!-- 5. Azza's Radial Chart Section -->
+
+	<!-- 5. Data Exploration - Azza's Radial Chart Section -->
 	<div id = "explore2-section" class = "h-100">
 		<div id = "explr2-block"></div>
 
@@ -203,7 +206,8 @@
 		</div>
 	</div>
 
-	<!-- 6. Highchart bar graph? -->
+
+	<!-- 6. Data Exploration - Bar Chart -->
 	<div id = "explore3-section" class = "h-100">
 		<div id = "explr3-tri"></div>
 
@@ -221,7 +225,7 @@
 
 	</div>
 
-	<!-- 7. Further Analysis Prompt -->
+	<!-- 7. Prompt for Further Analysis page -->
 
 	<div id = "end-section" class = "h-100">
 		<div id = "end-tri"></div>
