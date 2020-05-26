@@ -82,7 +82,10 @@
 
 					<br><br>
 					<h1><u class = "text-underline">Data Analysis</u></h1>
-					<p>In this section we look further into the data we sourced from Camden Council. We apply some advanced analytics tools in order to get a model reliable enough for prediction. The predicted value is the pollution removal in Camden, specifically by the London Plane type of tree. The end result is a predictive tool for the pollution removal in Camden for the years 2021 to 2025.</p>
+					<p>In this section we look further into the data we sourced from Camden Council.
+						We apply some advanced analytics tools in order to produce a model reliable enough for prediction.
+						The predicted value is pollution removal (in grams per year) in Camden, looking specifically at the London Plane type of tree.
+						The outcome is a predictive tool for the pollution removal in Camden for the years 2021 to 2025.</p>
 				</div>
 				<div class = "reg-hero col-lg-7 col-sm-8">
 					<img src="./img/analysis-hero.svg" alt="regression hero image." width = "100%">
@@ -99,10 +102,12 @@
 
 			<h1 style="text-align:center; padding:30px;"><u class = "text-underline" >Hypothesis</u></h1>
 
-
 				<p><a class="link">Does pollution removal by the urban forest in Camden change over time? Does it change homogeneously across wards?</a><br><br>
-					Our initial assumption was that there would be an increase in pollution removal, due to the natural growth of trees and the consequential increase in their capacity to remove pollution (the bigger the tree, the bigger the pollution removal). Therefore, we expected the increase to be relatively similar among wards. However, that was not what we found!</p>
-
+				Our hypothesis was that there would be an increase in pollution removal,
+				due to the trees' natural growth and the consequential increase in their capacity
+				to remove pollution (the bigger the tree, the larger the pollution removal).
+				Therefore, we expected the increase to be relatively similar among wards.
+				However, that was not what we found!</p>
 		</div>
 	</div>
 
@@ -161,7 +166,8 @@
 					<h1 style=" padding:30px;"><u class = "text-underline" >Main Findings</u></h1>
 					<p><a class="link">The London Plane tree pollution removal in Camden is predicted to increase significantly by an average of 7.7% per year.</a>
 						<br>By 2025, it will have increased by 45%, compared to 2020, ranging from 15% in King’s Cross, the lowest increase, to 70% in West Hampstead, the highest increase.
-						<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes. This could make the hotspots of air pollution removal disappear, as both North and South would have high air pollution removal values, therefore becoming more similar.</p>
+						<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes.
+						This could make the current hotspots of air pollution removal disappear, as the North could 'catch up' on the South's higher values of pollution removal.</p>
 				</div>
 				<div class = "find1-img col-lg-5 col-xs-12" id="bb-container">
 					<figure class="bb-figure">
@@ -250,10 +256,12 @@
 					<h1 style=" padding:30px;"><u class = "text-underline" >Evaluation</u></h1>
 					<br><br>
 					<p>
-						This is a simple model that provides an initial understanding of the potential that trees bring to Camden in terms of environmental, social and economic sustainability. The model is reliable in raising such awareness as it satisfies four out of five assumptions of linear regression and has high explanatory power. However, the model cannot predict the exact environmental, social and economic value of trees, as:
-						The quality and meaning of the data is questionable as the Borough of Camden has provided little to no metadata on the meaning, reliability and collection method of each variable.
-						The relation between the predictors and the outcome is dependent on the maturity of the trees which is ignored by the model.
-						The relation is also not linear, but other tested relations did not yield satisfactory results, so this was the best method among those we tried.
+						This is a simple model that provides an initial understanding of the potential that trees bring to Camden in terms of environmental, social and economic sustainability.
+						The model is reliable in raising such awareness as it satisfies three out of four assumptions of linear regression and has high explanatory power.
+						However, the model cannot predict the exact environmental, social and economic value of trees. First,
+						the quality and meaning of certain data entries is questionable as the Borough of Camden has provided little to no metadata on the definition, reliability and collection method of each variable.
+						Moreover, the relation between the predictors and the outcome is dependent on the maturity of the trees which is ignored by the model.
+						Finally, this relation is not exactly linear, but other tested relations did not yield satisfactory results, explaining why this model was kept among others.
 					</p>
 				</div>
 
@@ -274,7 +282,14 @@
 					<h1 style=" padding:30px;"><u class = "text-underline" >Conclusion</u></h1>
 					<br>
 					<p style= "font-size: 16px;font-weight: 300">
-						This tool allows us to see two main things. Firstly, we observe that certain wards in the North and the North-West of Camden borough will witness a higher increase in pollution removal over the coming 5 years’ time than the rest of the Borough. This will have an effect of reducing the hotspot effect by bringing the northern and southern wards to closer similarities in pollution removal values. Secondly, we observed that according to our model, the highest coefficient is the one related to tree spread. This means that tree spread is highly correlated to the change in pollution removal by the London Plane; the bigger the London Plane tree, the bigger the change in pollution removal by that tree!
+					This tool allows us to see two main things. First: we observe that wards in the North and the North-West of Camden borough
+						will witness a higher increase in pollution removal over the next five years compared to the
+					  	rest of the Borough. This will have an effect of smoothing out the hotspot of pollution
+						removal in the South of the borough.
+						Second, according to our model, the highest coefficient is the 
+						one related to tree spread. This means that tree spread is highly correlated to the change
+						in pollution removal by the London Plane; the bigger the London Plane tree, the bigger the
+						change in pollution removal by that tree!
 					</p>
 				</div>
 			</div>
