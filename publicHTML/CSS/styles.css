@@ -2,7 +2,7 @@
 body {
   background-color: #F5F5F5 !important; /* Overide bootstrap.*/
   font-family: 'Lato', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8em;
   height: 100%;
   /*overflow: -moz-scrollbars-none;
@@ -39,7 +39,7 @@ h2 {
 
 p{
   font-family: 'Lato';
-  font-size: 1em;
+  font-size: 1.05em;
 }
 a.link{
   color:#A8CDA6;
