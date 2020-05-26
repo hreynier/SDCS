@@ -2,3 +2,4 @@
 #  Ex: .DS_store files, Log files, node_module folders etc etec.
 .DS_Store
 node_modules/
+Python/.ipynb_checkpoints
