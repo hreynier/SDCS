@@ -393,7 +393,7 @@ jQuery.mouseInWard = function mouseInWard(e) {
     //	Update legend and moves data point along it.
     document.getElementById('data-box2').style.display 	= 'block';
     document.getElementById('data-point').style.display = 'block';
-    document.getElementById('data-point').style.paddingLeft = percent + fill;
+    document.getElementById('data-point').style.paddingLeft = percent + '%';
 }
 
 //  Functions that triggers when mouse exits ward/feature on cluster map.
