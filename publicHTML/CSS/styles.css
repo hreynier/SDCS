@@ -1033,9 +1033,18 @@ a.link:hover{
 
 /* ---------   3.3 Regression - Findings STYLES --------- */
 
-/*#regFinding-section{
+/* ---------  highchart bubble chart   --------------  */
+.bb-figure {
+  width: 100%;
+  min-width: 300px;
+  margin: 1em auto;
+  font-family: 'Lato', sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #EBEBEB;
+  text-align: center;
+	
+}
 
-}*/
 
 #findingBlock1{
   background-color: rgba(168, 205, 166,0.1);
