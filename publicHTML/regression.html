@@ -6,9 +6,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Descriptive Tags -->
-	<title>Treecon: Predictive Analytic Tool</title>
+	<title>TreePol: Predictive Analytic Tool</title>
 	<meta name = "author" 		content = "see humans.txt 😊">
-	<meta name = "description" 	content = "Treecon uses predictive analysis to critically evaluate green infrastructure within London's borough of Camden.">
+	<meta name = "description" 	content = "TreePol uses predictive analysis to critically evaluate green infrastructure within London's borough of Camden.">
 	<!-- Fonts, Stylesheets, Bootstrap -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,700|Taviraj" rel="stylesheet">
 	<link rel="stylesheet" href="./CSS/styles.css">
@@ -43,7 +43,7 @@
 		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
 			<a class="navbar-brand py-0" href="./index.html">
 				<span class="w-100 d-lg-none d-block"></span>
-				<h1><b>Treecon<img id = "brand-logo" src = "./img/logo.svg"></b></h1>
+				<h1><b>TreePol<img id = "brand-logo" src = "./img/logo.svg"></b></h1>
 			</a>
 			<!--allows the links to shrink into a menu on small screens -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -75,12 +75,12 @@
 		<!-- Introductory landing text for the prediction analytic tool -->
 		<div class = "container">
 			<div class = "row">
-				<div class = "reg-text col-lg-5 col-sm-8">
+
+				<div id = "text" class = "reg-text col-lg-5 col-sm-8">
+
 					<br><br>
-					<h1>Treecon<img id = "brand-logo" src = "./img/logo.svg"></h1>
-					<h2>Predictive Tool</h2>
-					<p>The predictive tool uses multiple linear regression to predict the amount of pollution removed by the London Plane,
-						the most common tree in Camden, over the course of the next five years.</p>
+					<h1><u class = "text-underline">Data Analysis</u></h1>
+					<p>In this section we look further into the data we sourced from Camden Council. We apply some advanced analytics tools in order to get a model reliable enough for prediction. The predicted value is the pollution removal in Camden, specifically by the London Plane type of tree. The end result is a predictive tool for the pollution removal in Camden for the years 2021 to 2025.</p>
 				</div>
 				<div class = "reg-hero col-lg-7 col-sm-8">
 					<img src="./img/analysis-hero.svg" alt="regression hero image." width = "100%">
@@ -137,59 +137,45 @@
 				</div>
 
 
+
 			</div>
 			
 		</div>
 		</div>
 	</div>
+    <!--HYPOTHESIS-->
 	<div id = "predToolText" class = "h-80">
 		<div id = "toolText-Container" class = "col-lg-5 col-md-12 col-sm-12 col-xs-12">
+      <br><br><br><br>
+      <h2><b>Hypothesis</b></h2>
 
-			<h1> London Plane</h1>
-			<h2><b>Case Study</b></h2>
-			<div>
-				<p>	Looking at the most common tree in the borough of Camden - the <b>London Plane</b> - pollution removal by this type of tree is predicted to increase significantly:
-					by an average of x% per year.
-					<br><br>By 2025, it will have increased by x%, compared to 2020, ranging from x% in King’s Cross, the lowest increase, to 70% in West Hampstead, the highest increase.
-					<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes.
-					<br> This could make the hotspots of air pollution removal disappear from the borough of Camden, as borough both in the North and the South
-					would have high air pollution removal values.
-				</p>
-			</div>
+
+				<p><a class="link">Does pollution removal by the urban forest in Camden change over time? Does it change homogeneously across wards?</a><br><br>
+					Our initial assumption was that there would be an increase in pollution removal, due to the natural growth of trees and the consequential increase in their capacity to remove pollution (the bigger the tree, the bigger the pollution removal). Therefore, we expected the increase to be relatively similar among wards. However, that was not what we found!</p>
 
 		</div>
 	</div>
 
 
-
-
-
+<!--FINDINGS-->
 	<div id = "regFindings-section" class = "h-100">
 		<div id = "findingBlock1" class = "explr2-block"></div>
-
 		<div id = "explr2-container" class = "container">
+				<div id = "toolText-Container" class = "find1-text col-7">
 
-			<div class = "row">
-				<div class = "find1-text col-7">
-
-
-					<h1><u class = "text-underline">Main Findings</u></h1>
-					<br><br>
-					<p>	Let me know if this is still needed! ! ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris.
-						Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut.
-						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis.
-						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
-					</p>
-
+					<h2><b>Main Findings</b></h2>
+					<p><a class="link">The London Plane tree pollution removal in Camden is predicted to increase significantly by an average of 7.7% per year.</a>
+						<br>By 2025, it will have increased by 45%, compared to 2020, ranging from 15% in King’s Cross, the lowest increase, to 70% in West Hampstead, the highest increase.
+						<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes. This could make the hotspots of air pollution removal disappear, as both North and South would have high air pollution removal values, therefore becoming more similar.</p>
 				</div>
-				<div class = "find1-img col-5">
-
+				<div class = "find1-img col-5" id="bubble-hc">
+<!-- insert bubble highchart here-->
 				</div>
-			</div>
+			<!--/div-->
 		</div>
 	</div>
 
-
+<!--
 	<div id = "regFindings2-section" class = "h-100">
 
 
@@ -203,7 +189,6 @@
 
 				<div class = "find2-text col-7">
 
-					<br><br>
 					<h1><u class = "text-underline">Main Findings Cont...</u></h1>
 					<br><br>
 					<p>	PUT CHARTS HERE! ! ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris.
@@ -215,7 +200,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
+
 <!--
 	<div id = "reg-plot">
 		<p> This will include a plot <p>
@@ -231,63 +217,70 @@
 	<div id="hc-container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
 	</div> -->
 
+
+
 	<!-- Here copy-pasted first type of main fidings block-->
-	<div id = "method-section" class = "h-100x">
-		<h1 style="text-align:center; padding:30px;"><u class = "text-underline" >Methodology</u></h1>
-		<div class="map-control-widget">
-			<button class = "mapBtn2" onclick="toggleCard('specification')">Specification</button>
-			<button class = "mapBtn2" onclick="toggleCard('selection')">Selection</button>
-			<button class = "mapBtn2" onclick="toggleCard('Prediction')">Prediction</button>
-		</div>
+	<div id = "method-section" class = "h-100">
 
-		<!-- Information Boxes -->
-		<div class = infoCard id="specification">
 
-			<h2>Model specification</h2>
-      <p>
-          The predictive tool uses multiple linear regression to model
-          the <b> average pollution removal (grams/yr) </b> for each London Plane tree based
-          upon it's <em> carbon sequestration (grams/yr), spread (m)
-          and height (m) </em>. The model is shown as:
-          <br><em><b> y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + b<sub>3</sub>x<sub>3</sub></b></em>
-          <br> Where:
-          <br> <b>y</b> = average pollution removal per tree
-          <br> <b>b<sub>0</sub></b> is the constant term
-          <br> <b>b<sub>1</sub></b> is the coefficient for the effect of carbon sequestration denoted x<sub>1</sub>
-          <br> <b>b<sub>2</sub></b> is the coefficient for the effect of spread denoted x<sub>2</sub>
-          <br> <b>b<sub>3</sub></b> is the coefficient for the effect of height denoted x<sub>3</sub>
-      </p>
-      <p>
-        With these estimated coefficients, the model results in:
-          <br> y = -510.9830 -3.56 x<sub>1</sub> + 93.1614 x<sub>2</sub>+ 8.7374 x<sub>3</sub>
-          <br> The model explains 89% of the variation in average air pollution removal for a sample size n of 3217 London Plane trees in Camden.
-      </p>
-		</div>
-		<div class = infoCard id="selection">
-			<h2>Model selection</h2>
-      <p>	The initial pool of predictors consisted of a multitude of predictors selected from the Camden API – they were selected based on the researchers’ assessment of
-        variables that could be relevant in modelling pollution removal. The initial pre-selected variables consisted of: height, spread, diameter (centimeters at breast height),
-        physiological condition, <a href="https://www.ltoa.org.uk/resources/cavat" class="link">capital asset value</a>, carbon storage (kilograms), gross carbon sequestration (kilograms per year).
-      </p>
-      <p>
-        They were then filtered twice: first by applying stepwise regression and then by accounting for multicollinearity among the remaining predictors.
-      </p>
-      <p>
-        In the stepwise regression, the p-value of each predictor had to be below 0.6 for the predictor to be kept in the regression. Physiological condition was the only predictor above this threshold and was therefore dropped. In the multicollinearity test, which was assessed by calculating the Variation Inflation Factor of each remaining predictor, the VIF threshold was of 10. Several predictors were multicollinear among each other: a meter, Amenity Value and Carbon Storage were removed for the final regression to remain with x1, x2 and x3 or carbon sequestration, spread and height.
-      </p>
-		</div>
-		<div class = infoCard id="Prediction">
-			<h2>Prediction</h2>
-      <p>
-        The model predicts future carbon sequestration each year for over a period of five years.
-        The future values of carbon sequestration, spread and height with which the model was applied are assigned based on external research on the London Plane tree:
-          <ul>
-          <li> Carbon sequestration increases by 2.5 kilograms per year </li>
-          <li> Spread increases by 0.5 meters per year </li>
-          <li> Height increases by one meter per year </li>
-        </ul>
-        By being linear, the model also assumes the relation between those predictors and the outcome is the same for all trees regardless
-      </p>
+		<div id = "explr2-container" class = "container">
+			<div class = "row justify-content-center">
+				<div class = "col-4">
+					<br><br>
+					<h2><b>Methodology</b></h2>
+					<br>
+				</div>
+
+			</div>
+			<div class = "row">
+				<div class = "find1-text col-4">
+					<h3>Model specification</h3>
+					<p>
+							The predictive tool uses Multiple Linear Regression (MLR) to model
+							the average pollution removal (grams/yr) for each London Plane tree based
+							on its carbon sequestration (grams/yr), spread (m)
+							and height (m). The model is shown as:
+							<br><em><b> y = b<sub>0</sub> + b<sub>1</sub>x<sub>1</sub> + b<sub>2</sub>x<sub>2</sub> + b<sub>3</sub>x<sub>3</sub></b></em>
+							<br> Where:
+							<br> <b>y</b> is the predicted average pollution removal per London PLane tree
+							<br> <b>b<sub>0</sub></b> is the constant term
+							<br> <b>x<sub>1</sub></b> is carbon sequestration with coefficient <b>b<sub>1</sub></b>
+							<br> <b>x<sub>2</sub></b> is tree spread with coefficient <b>b<sub>2</sub></b>
+							<br> <b>x<sub>3</sub></b> is tree height with coefficient <b>b<sub>3</sub></b>
+					</p>
+					<p>
+						With these estimated coefficients, the model results in:
+							<br><b> y = -510.9830 -3.56 x<sub>1</sub> + 93.1614 x<sub>2</sub>+ 8.7374 x<sub>3</sub></b>
+							<br> The model explains 89% of the variation in average air pollution removal for a sample size n of 3217 London Plane trees in Camden.
+					</p>
+				</div>
+
+				<div class = "find1-text col-4">
+					<h3>Model selection</h3>
+					<p>The initial pool of predictors consisted of a multitude of variables based on our assessment of relevant variables in modelling pollution removal. The initial pre-selected variables were: height, spread, Diameter at Breast Height, physiological condition, <a href="https://www.ltoa.org.uk/resources/cavat" class="link">Capital Asset Value</a>, carbon storage and gross carbon sequestration.
+						<br>The variables were then filtered twice: first by applying stepwise regression and then by accounting for multicollinearity among the remaining predictors.
+						In the stepwise regression, the p-value of each predictor had to be below 0.6 for the predictor to be kept in the regression. In the multicollinearity test, the Variation Inflation Factor threshold was of 10.
+						<br>The final remaining variables were therefore carbon sequestration (<b>x<sub>1</sub></b>), spread (<b>x<sub>2</sub></b>) and height (<b>x<sub>3</sub></b>).
+					</p>
+				</div>
+
+				<div class = "find1-text col-4">
+					<h3>Model Outcome</h3>
+					<p>
+						The model predicts future pollution removal each year by the London Plane trees over a period of five years (2020 to 2025).
+						The future values of carbon sequestration(<b>x<sub>1</sub></b>), spread (<b>x<sub>2</sub></b>) and height (<b>x<sub>3</sub></b>) with which the model was applied were assigned based on <a href="https://www.arborday.org/trees/treeguide/TreeDetail.cfm?ItemID=904" class="link">external research on the London Plane tree</a> where we found that:
+						<ul>
+							<li> Carbon sequestration increases by 2.5 kilograms per year </li>
+							<li> Spread increases by 0.5 meters per year </li>
+							<li> Height increases by one meter per year </li>
+						</ul>
+						By being linear, the model also assumes the relation between those predictors and the outcome is the same for all trees.
+					</p>
+				</div>
+
+
+
+			</div>
 		</div>
 	</div>
 
@@ -303,20 +296,18 @@
 				<div class = "find1-text col-lg-7 col-sm-8">
 
 
-					<h1><u class = "text-underline">Perspectives (maybe change to evaluation?)</u></h1>
+					<h2><b>Evaluation</b></h2>
 					<br><br>
-				<!--	<h2>Prediction</h2> -->
 					<p>
 						This is a simple model that provides an initial understanding of the potential that trees bring to Camden in terms of environmental, social and economic sustainability. The model is reliable in raising such awareness as it satisfies four out of five assumptions of linear regression and has high explanatory power. However, the model cannot predict the exact environmental, social and economic value of trees, as:
 						The quality and meaning of the data is questionable as the Borough of Camden has provided little to no metadata on the meaning, reliability and collection method of each variable.
 						The relation between the predictors and the outcome is dependent on the maturity of the trees which is ignored by the model.
-						The relation is also not linear, but other tested relations did not yield satisfactory results.
-						For more details, contact
-						<a href="mailto:sara.moatti.19@ucl.ac.uk" class="link"><u>Sara Moatti</u></a> or <a href="mailto:nicolas.koedjikov.16@ucl.ac.uk" class="link"><u>Nicolas Koedjikov</u></a>.
+						The relation is also not linear, but other tested relations did not yield satisfactory results, so this was the best method among those we tried.
 					</p>
 				</div>
+
 				<div class = "find1-img col-lg-5 col-sm-8">
-					<p>Put image/SVG here ask @harvey for good free websites to find this resources.</p>
+					<img src="img/undraw_color_palette_yamk.svg" width ="100%">
 				</div>
 			</div>
 		</div>
@@ -326,16 +317,11 @@
 		<div class = "container">
 			<div class = "row" style="padding-top:90px">
 				<div class = "about-text col-12">
-					<br><br>
-					<h1><u class = "text-underline">Conclusion</u></h1>
+
+					<h2>Conclusion</h2>
+					<br>
 					<p style= "font-size: 16px;font-weight: 300">
-						This project was drafted by a <a href="./group.html" class="link">group</a>
-						of students in order to communicate the presence and importance of the trees within Camden Council.
-						Our means are twofolds: vizualisation of the location of "public" trees (trees that are within council-owned property)
-						through a multi-layered map and interpretation of council-provided data on the trees through summary statistics and regression analysis.
-						<br/><br/>
-						All information on this website is open to public access. The data was sourced from the
-						<a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" class="link">Camden Council Tree Dataset</a>.
+						This tool allows us to see two main things. Firstly, we observe that certain wards in the North and the North-West of Camden borough will witness a higher increase in pollution removal over the coming 5 years’ time than the rest of the Borough. This will have an effect of reducing the hotspot effect by bringing the northern and southern wards to closer similarities in pollution removal values. Secondly, we observed that according to our model, the highest coefficient is the one related to tree spread. This means that tree spread is highly correlated to the change in pollution removal by the London Plane; the bigger the London Plane tree, the bigger the change in pollution removal by that tree!
 					</p>
 				</div>
 			</div>
@@ -343,6 +329,7 @@
 				<div class = "about-img col-6">
 					<br><br>
 					<img src="img/undraw_empty_street_sfxm.svg" alt="Empty Street svg" width = "100%">
+					<br><br>
 				</div>
 			</div>
 		</div>
@@ -360,8 +347,6 @@
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
 <!-- Google Maps -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
-<!-- Bootstrap 4 js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- gSap TweenMax for animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <!---- 	Local scripts ---->
