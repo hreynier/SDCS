@@ -495,7 +495,7 @@ a.link:hover{
   margin: auto;
   margin-top: 0%;
   margin-bottom: 0%;
-  width:700px;
+  width:100%;
   text-align: center !important;
 }
 .mapBtn {
@@ -602,10 +602,10 @@ a.link:hover{
   height: 45px;
 }
 #data-box {
-  top: 10px;
-  left: 57%;
+  top: 70px;
+  left: 25%;
   height: 45px;
-  line-height: 45px;
+  line-height: 30px;
   display: none;
   padding :2px;
   padding-left: 5px;
@@ -659,8 +659,14 @@ a.link:hover{
   height: 100%;
 }
 
+#explore1-section{
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+
 #explr1-container{
   position: absolute;
+  margin-bottom: 15%;
 }
 .explr1-text {
   text-align: left;
@@ -698,7 +704,10 @@ a.link:hover{
 /* -------  2.5 DATA EXPLORATION SECTION 2 --------*/
 
 /*     ---- HTML ---- */
-
+#explore2-section{
+ background-color: rgba(240, 229, 211,0.3);
+ margin-top: 5%;
+}
 .explr2-block{
   background-color: rgba(133, 108, 94,0.1);
   height: 100vh;
@@ -857,16 +866,16 @@ a.link:hover{
 /*Map*/
 .analysis-map-container{
   position: relative;
-  width: 55%; /*Change to 55%*/
-  max-height: 100%;
-  min-height: 65%;
+  /*width: 55%;*/ /*Change to 55%*/
+  /*max-height: 100%;
+  min-height: 65%;*/
   height: 100%;
   box-sizing: border-box;
   overflow: auto;
   padding-left: 0 !important;
 }
 #predictionMap{
-  height: 100%;
+  height: 800px;
   width: 100%;
 }
 /*Legend + Pop-up Widget*/
@@ -901,6 +910,8 @@ a.link:hover{
   bottom: 0px;
   z-index: 5;
   width: 80%;
+  max-width:600px;
+  justify-content: center;
   right: 10%;
   left: 10%;
   height: 15%;
@@ -1064,6 +1075,11 @@ a.link:hover{
   padding-right: 1% !important;
 }
 
+#method-section{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 #method-section h1{
   text-align: center;
   font-size: 3.5em;
@@ -1082,7 +1098,9 @@ a.link:hover{
 }
 
 
-
+#evaluation-section{
+  margin-top: 20%;
+}
 
 
 

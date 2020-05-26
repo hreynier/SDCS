@@ -75,12 +75,14 @@
 		<!-- Introductory landing text for the prediction analytic tool -->
 		<div class = "container">
 			<div class = "row">
-				<div class = "reg-text col-5" id="text">
+
+				<div id = "text" class = "reg-text col-lg-5 col-sm-8">
+
 					<br><br>
 					<h1><u class = "text-underline">Data Analysis</u></h1>
 					<p>In this section we look further into the data we sourced from Camden Council. We apply some advanced analytics tools in order to get a model reliable enough for prediction. The predicted value is the pollution removal in Camden, specifically by the London Plane type of tree. The end result is a predictive tool for the pollution removal in Camden for the years 2021 to 2025.</p>
 				</div>
-				<div class = "reg-hero col-7">
+				<div class = "reg-hero col-lg-7 col-sm-8">
 					<img src="./img/analysis-hero.svg" alt="regression hero image." width = "100%">
 				</div>
 			</div>
@@ -92,54 +94,61 @@
 
 
 
-
-
-	<!--  NEED TO EDIT LOCATION OF THE NEXT TWO DIVs. E.G. SPLIT SCREEN IN TWO-->
-
 	<!-- THIS CODE NEEDS TO BE COMPLETELY REWRITTEN, WITH DIFFERENT ID'S.
 		THE JAVASCRIPT ALSO NEEDS TO BE REDONE IN ANOTHER FILE OR REDO THE OLD FILE,
 		THIS FILE NEEDS TO BE CLEANED A BIT TOO!! (head section is just c+p'd, missing JS files, unused js files etc...)
 	-->
 
 	<div id = "predTool" class = "map-section">
-		<div class = "analysis-map-container col-7">
-			<div id = "analysis-widget">
-				<div id = "legend-container" class = "nicebox">
-					<div id = "legend">
-						<div id = "data-min">min</div>
-						<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
-						<div id = "data-max">max</div>
+		<div class = "container-fluid">
+
+			<div class = "row">
+			<div class = "analysis-map-container col-lg-12  col-md-12 col-sm-12 col-xs-12">
+				<div id = "analysis-widget">
+					<div id = "legend-container" class = "nicebox">
+						<div id = "legend">
+							<div id = "data-min">min</div>
+							<div class = "colour-legend"><span id = "data-point">&#x25c6;</span></div>
+							<div id = "data-max">max</div>
+						</div>
+					</div>
+					<div id = "data-box2" class = "nicebox">
+						<label id = "data-label" for "data-value"></label>
+						<span id = "data-value"></span>
 					</div>
 				</div>
-				<div id = "data-box2" class = "nicebox">
-					<label id = "data-label" for "data-value"></label>
-					<span id = "data-value"></span>
+
+				<!-- 	MAP 	-->
+				<div id="predictionMap"></div>
+
+				<div class = "range">
+					<div class="slideContainer">
+						<input class="predictTool-Slider" type="range" min="1" max="6" value="1"   onchange="setPredict(this.value)" oninput="setPredict(this.value)"> <!--oninput="setPredict(this.value)"-->
+					</div>
+
+					<ul class="range-labels">
+						<li class="active selected">2020</li>
+						<li>2021</li>
+						<li>2022</li>
+						<li>2023</li>
+						<li>2024</li>
+						<li>2025</li>
+					</ul>
 				</div>
+
+
+
 			</div>
-
-			<!-- 	MAP 	-->
-			<div id="predictionMap"></div>
-
-			<div class = "range">
-				<div class="slideContainer">
-					<input class="predictTool-Slider" type="range" min="1" max="6" value="1"   onchange="setPredict(this.value)" oninput="setPredict(this.value)"> <!--oninput="setPredict(this.value)"-->
-				</div>
-
-				<ul class="range-labels">
-					<li class="active selected">2020</li>
-					<li>2021</li>
-					<li>2022</li>
-					<li>2023</li>
-					<li>2024</li>
-					<li>2025</li>
-				  </ul>
-			</div>
-
-<!--HYPOTHESIS-->
+			
 		</div>
-		<div id = "toolText-Container" class = "col-5">
-			<br><br><br><br>
-			<h2><b>Hypothesis</b></h2>
+		</div>
+	</div>
+    <!--HYPOTHESIS-->
+	<div id = "predToolText" class = "h-80">
+		<div id = "toolText-Container" class = "col-lg-5 col-md-12 col-sm-12 col-xs-12">
+      <br><br><br><br>
+      <h2><b>Hypothesis</b></h2>
+
 
 				<p><a class="link">Does pollution removal by the urban forest in Camden change over time? Does it change homogeneously across wards?</a><br><br>
 					Our initial assumption was that there would be an increase in pollution removal, due to the natural growth of trees and the consequential increase in their capacity to remove pollution (the bigger the tree, the bigger the pollution removal). Therefore, we expected the increase to be relatively similar among wards. However, that was not what we found!</p>
@@ -277,14 +286,14 @@
 
 
 
-	<!-- Here AGAIN copy-pasted second type of main findings block-->
-	<div id = "regFindings-section" class = "h-100">
+	<!-- Evaluation section!-->
+	<div id = "evaluation-section" class = "h-100">
 		<div id = "findingBlock1" class = "explr2-block"></div>
 
 		<div id = "explr2-container" class = "container">
 
 			<div class = "row">
-				<div class = "find1-text col-7">
+				<div class = "find1-text col-lg-7 col-sm-8">
 
 
 					<h2><b>Evaluation</b></h2>
@@ -296,7 +305,8 @@
 						The relation is also not linear, but other tested relations did not yield satisfactory results, so this was the best method among those we tried.
 					</p>
 				</div>
-				<div class = "find1-img col-5">
+
+				<div class = "find1-img col-lg-5 col-sm-8">
 					<img src="img/undraw_color_palette_yamk.svg" width ="100%">
 				</div>
 			</div>
