@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Descriptive Tags -->
-	
+
 	<meta name = "author" 		content = "see humans.txt 😊">
 	<link rel="author" href="humans.txt" />
 	<meta name = "description" 	content = "TreePol is a predictive analytic tool for Green Infrastructure. Developed by a small team of students at UCL to highlight the impact that urban trees can have on the surrounding environment. Please leaf your feedback!!">
@@ -103,10 +103,16 @@
 				<div class = "about-text col-lg-6 col-sm-8 order-first order-sm-12">
 					<br><br>
 					<h1><u class = "text-underline">About</u></h1>
-					<p>
-					The aim of this website is to visualise the impact that the urban forest presently has on pollution removal, and could have in the future. We selected the Borough of Camden, but as this tool is reproducible, the same aim can be applied on any borough providing similar data variables. There is a multitude of websites that visualise the impact of trees in the urban context. <a href="https://maps.london.gov.uk/green-infrastructure/" target="_blank" class="link">Some</a> are complex and require scientific insight, <a href="http://senseable.mit.edu/treepedia" target="_blank" class="link">some</a> aim to establish tools that can be used across cities to assess urban forestry, and <a href="https://www.treetalk.co.uk/" target="_blank" class="link">some</a> are easily accessible to the public. The nature of these websites aims is largely related to the people behind them (government authorities, scientists, urban explorers…). In our case, we are no tree experts, just a <a href="./group.html" class="link">group</a> of tree enthusiasts, and we wanted to share our enthusiasm for trees with people in an accessible form!
-					<br> We mapped out the presence of these trees and the impact this presence has on the pollution removal in Camden. We explored the data that we extracted from <a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" target="_blank" class="link">Camden Council Tree Dataset</a>. Then we analysed this data to build a <a href="./regression.html" target="_blank" class="link">predictive tool</a> that answers our aim to explore future tree contribution towards pollution removal. We hope you enjoy exploring our website as much as we enjoyed building it!
+					<p> The aim of this website it to raise awareness about the trees surrounding us in Camden and their
+						environmental, economic and social value as well as to present their impact on future pollution removal.
+						There is a multitude of websites that visualise the impact of trees in the urban context. <a href="https://maps.london.gov.uk/green-infrastructure/" target="_blank" class="link">Some</a> are complex and require scientific insight, <a href="https://www.treetalk.co.uk/" target="_blank" class="link">others</a> are easily accessible to the public. In
+						TreePol, we are no tree experts, just a <a href="./group.html" class="link">group</a> of tree enthusiasts, and we want to share our enthusiasm for trees with people in an accessible form!
+						<br> Extracted from <a href="https://opendata.camden.gov.uk/Environment/Trees-In-Camden/csqp-kdss" target="_blank" class="link">Camden Council Tree Dataset</a>, the data is mostly presented through maps, that include summary
+						charts and statistics about the trees in Camden, and a
+						<a href="./regression.html" target="_blank" class="link">predictive tool</a> that predicts future pollution removal. We hope you enjoy exploring our website as much as we enjoyed building it!
 					</p>
+
+
 				</div>
 			</div>
 		<div class = "d-flex justify-content-center" style = "padding-bottom:3%">
@@ -155,8 +161,9 @@
 			This layer displays the denisty of pollution removed in the form of carbon absorbed or carbon stored due to trees.
 		</div>
 		<div class = infoBox id="geoInfo">
-			This layer displays the level of similarity in average pollution removal per year among wards, calculated based on the Moran's I.
-			The values indicate the number of standard deviations each ward is removed from the overall average.
+			This layer displays the level of similarity in average pollution removal per year, measured by the Getis Ord statistic.
+			Values above 1.96 are hotspots of air pollution removal while those below -1.96 are coldspots. There is a hotspot of trees that remove
+			a lot of pollution in the three southern wards.
 		</div>
 
 	</div>
@@ -176,38 +183,13 @@
 				<div class = "explr1-text col-md-4 order-first order-md-12">
 					<h1><u class = "text-underline">Data Exploration</u></h1>
 					<br>
-					<p>	The most common type of tree in the Camden Council is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/london-plane/" target="_blank" class="link">London Plane tree </a>. It is the capital’s most common tree. It’s been widely planted since the 18th century; 3 centuries and counting! The second most common type of trees in Camden is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/common-lime/" target="_blank" class="link">Common Lime </a>. An interesting fact about this tree is that both male and female trees produce white-yellow flowers. It’s also a native tree to the UK and very common in urban areas and parks. The third most common type is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/norway-maple/" target="_blank" class="link">Norway Maple</a>. Birds and small mammals love feasting on the leaves of this tree that’s been around for 4 centuries now. It’s widely planted in parks and on urban streets because this tree is very resilient to the harsh environmental conditions of cities such as compact soil, pollution, shade and because its trunk is tall, remaining clear from circulation.
+					<p>	The most common type of tree in the Camden Council is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/london-plane/" target="_blank" class="link">London Plane tree</a>. It is the capital’s most common tree. It’s been widely planted since the 18th century; three centuries and counting! The second most common type of trees in Camden is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/common-lime/" target="_blank" class="link">Common Lime</a>. An interesting fact about this tree is that both male and female trees produce white-yellow flowers. It’s also a native tree to the UK and very common in urban areas and parks. The third most common type is the <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/norway-maple/" target="_blank" class="link">Norway Maple</a>. Birds and small mammals love feasting on the leaves of this tree that’s been around for four centuries now. It’s widely planted in parks and on urban streets because this tree is very resilient to the harsh environmental conditions of cities such as compact soil, pollution, shade and because its trunk is tall, remaining clear from circulation.
 					</p>
 				</div>
 			</div>
 		</div>
 
 	</div>
-
-
-	<!-- 5. Data Exploration - Azza's Radial Chart Section -->
-	<div id = "explore2-section" class = "h-100">
-		<div id = "explr2-block"></div>
-
-		<div id = "explr2-container" class = "container">
-
-			<div class = "row">
-				<div class = "explr2-text col-md-5">
-
-					<br><br><br><br>
-					
-					<p>	Capital Amenity Value for Trees or <a href="https://doi.org/10.1080/03071375.2018.1454077" target="_blank" class="link"> Capital Asset Value for Amenity Trees (CAVAT) </a> is a tool that enables authorities to quantify the value of amenity trees. Amenity trees are part of the urban forest system, which are trees within public domain and that authorities are therefore responsible for. CAVAT is a tool that is used by authorities in assets management to know the replacement value needed to compensate for a single tree or for a population of trees.<br>
-							In the case of Camden Council, we focused on the CAVAT for the most common trees as they have the largest aggregated CAVAT values per ward. This might be related to how common they are in each ward, but also to the fact that they are the largest (in overall dimensions of height, spread and Diameter at Breast Height).
-					</p>
-
-				</div>
-				<div class = "explr2-chart col-md-6 col-xs-12" id = "radial-hc">
-
-				</div>
-			</div>
-		</div>
-	</div>
-
 
 	<!-- 6. Data Exploration - Bar Chart -->
 	<div id = "explore3-section" class = "h-100">
@@ -219,13 +201,51 @@
 			</div>
 			<div class = "row">
 				<p>
-				In this chart we inspect the amount of pollution removed by trees in each ward. This chart allows us to visually compare these quantities across wards. We separated the 3 most common types of trees (the London Plane, the Common Lime and the Noway Maple) from the rest. What we see in most wards is that the pollution removed by these top trees equals the pollution removed by other tree types. In some wards such as St Pancras and Somers Town and King’s Cross, the pollution removed by the top 3 exceeds that removed by other types. In other wards such as West Hampstead, Kilburn and Highgate it is the opposite case. This is easily explained by the presence of significantly large parks in these wards such as Hampstead heath, Regent’s park and others that have a wide array of tree species that outnumber and outdo the roadside trees elsewhere. We also note the significant impact of the London Plane on the pollution removal in most wards, namely Bloomsbury and Holborn and Covent Garden. We further explore the environmental impact of this cardinal species in our next section. 
-				</p>
+				At the ward level, the tree that removes the most air pollution is the London Plane. In general,
+			  the pollution removed by the three most common trees equals to that of all other tree types combined.
+				However, in some wards such as St Pancras and Somers Town, the pollution removed by the top three exceeds that removed
+				by other types while in other wards such as West Hampstead or Kilburn it is the opposite.
+				In the latter, this is easily explained by the presence of significantly large parks such as Hampstead Heath and Regent's Park where other trees
+				not counted in the data remove more pollution.
+				<p/>
 			</div>
 
 		</div>
 
 	</div>
+
+	<!-- 5. Data Exploration - Azza's Radial Chart Section -->
+	<div id = "explore2-section" class = "h-100">
+		<div id = "explr2-block"></div>
+
+		<div id = "explr2-container" class = "container">
+
+			<div class = "row">
+				<div class = "explr2-text col-md-5">
+
+					<br><br><br><br>
+
+					<p>	Directly linked to air pollution removal is <a href="https://doi.org/10.1080/03071375.2018.1454077" target="_blank" class="link"> Capital Asset Value for Amenity Trees (CAVAT)</a>,
+						which is a tool developed by local authorities, to capture the monetary impact a tree has in terms of pollution removal and social wellbeing.
+					</p>
+
+					<p>
+						As the London Plane is the most common tree and removes the most pollution, it is also the one which has in general the highest CAVAT.
+						It is only in Highgate that other trees have higher amenity value.
+					</p>
+					<p>
+						The wards where trees save the most in monetary terms are Highgate (over £30M), Holborn and Covent Garden (£26M) and equally Saint Pancras and Frognal and Fitzjohns (£22M); the former three being
+						the wards where trees remove the most air pollution; as expected, there is a relation between air pollution removal and CAVAT.
+					</p>
+
+				</div>
+				<div class = "explr2-chart col-md-6 col-xs-12" id = "radial-hc">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<!-- 7. Prompt for Further Analysis page -->
 
@@ -237,7 +257,7 @@
 				<h1>Let's explore the . . .</h1>
 			</div>
 			<div class = "row justify-content-center align-items-end">
-				<h1><a href="./regression.html"><u class = "text-underline">predictive analytical tool</u></a></h1>
+				<h1><a href="./regression.html"><u class = "text-underline">Predictive analytics tool</u></a></h1>
 			</div>
 			<div class = "row justify-content-end align-items-center">
 				<div class = "col-md-6 col-xs-8">
