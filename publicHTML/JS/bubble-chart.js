@@ -1,3 +1,10 @@
+// --------- High Charts --------- //
+// --------- Bubble Chart --------- //
+// -- AUTHOR: Azza Hajjar + Harvey Reynier --//
+// ------- DESCRIPTION ------- //
+//  Script to create the bubble chart shown in the findings section of the analysis page.
+
+
 Highcharts.chart('bubble-container', {
     chart: {
       type: 'packedbubble',

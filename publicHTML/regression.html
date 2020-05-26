@@ -17,6 +17,8 @@
 </head>
 
 <body>
+
+
 	<!------  0. LOADING ANIMATION  ------>
 	<div class="regLoad1"></div>
 	<div class="regLoad2"></div>
@@ -37,8 +39,8 @@
 
 
 
-	<!-------  1. Header. This is the first thing that the user sees when loading the predictive analysis tool. ------->
-	<!-------  It contains the navbar, title, brief description of the tool, with links to the methodology (section 3), and an image. ------->
+	<!-------  1. Header/Landing Page. ------->
+
 	<header id = "regression-header" class = "h-100">
 		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
 			<a class="navbar-brand py-0" href="./index.html">
@@ -91,25 +93,21 @@
 	</header>
 
 
-	<!--HYPOTHESIS-->
-<div id = "predToolText" class = "h-80">
-	<div id = "toolText-Container" class = "col-lg-5 col-md-12 col-sm-12 col-xs-12">
+	<!-----  2. HYPOTHESIS  ----->
+	<div id = "predToolText" class = "h-80">
+		<div id = "toolText-Container" class = "col-lg-5 col-md-12 col-sm-12 col-xs-12">
 
-		<h1 style="text-align:center; padding:30px;"><u class = "text-underline" >Hypothesis</u></h1>
+			<h1 style="text-align:center; padding:30px;"><u class = "text-underline" >Hypothesis</u></h1>
 
 
-			<p><a class="link">Does pollution removal by the urban forest in Camden change over time? Does it change homogeneously across wards?</a><br><br>
-				Our initial assumption was that there would be an increase in pollution removal, due to the natural growth of trees and the consequential increase in their capacity to remove pollution (the bigger the tree, the bigger the pollution removal). Therefore, we expected the increase to be relatively similar among wards. However, that was not what we found!</p>
+				<p><a class="link">Does pollution removal by the urban forest in Camden change over time? Does it change homogeneously across wards?</a><br><br>
+					Our initial assumption was that there would be an increase in pollution removal, due to the natural growth of trees and the consequential increase in their capacity to remove pollution (the bigger the tree, the bigger the pollution removal). Therefore, we expected the increase to be relatively similar among wards. However, that was not what we found!</p>
 
+		</div>
 	</div>
-</div>
 
 
-	<!-- THIS CODE NEEDS TO BE COMPLETELY REWRITTEN, WITH DIFFERENT ID'S.
-		THE JAVASCRIPT ALSO NEEDS TO BE REDONE IN ANOTHER FILE OR REDO THE OLD FILE,
-		THIS FILE NEEDS TO BE CLEANED A BIT TOO!! (head section is just c+p'd, missing JS files, unused js files etc...)
-	-->
-
+	<!----  3. PREDICTIVE ANALYTIC TOOL SECTION   ----->
 	<div id = "predTool" class = "map-section">
 		<div class = "container-fluid">
 
@@ -146,18 +144,14 @@
 						<li>2025</li>
 					</ul>
 				</div>
-
-
-
 			</div>
-
 		</div>
 		</div>
 	</div>
 
 
 
-<!--FINDINGS-->
+	<!-----  4. FINDINGS SECTION  ----->
 	<div id = "regFindings-section" class = "h-100">
 		<div id = "findingBlock1" class = "explr2-block"></div>
 		<div id = "explr2-container" class = "container">
@@ -181,7 +175,7 @@
 
 
 
-	<!-- Here copy-pasted first type of main fidings block-->
+	<!-----  5. METHODOLOGY  ----->
 	<div id = "method-section" class = "h-80x">
 		<h1 style="text-align:center; padding:30px;"><u class = "text-underline" >Methodology</u></h1>
 		<div class="map-control-widget">
@@ -243,7 +237,7 @@
 
 
 
-	<!-- Evaluation section!-->
+	<!-----  6. Evaluation Section ----->
 	<div id = "evaluation-section" class = "h-100">
 		<div id = "findingBlock1" class = "explr2-block"></div>
 
@@ -270,6 +264,8 @@
 		</div>
 	</div>
 
+
+	<!-----  7. CONCLUSION   ----->
 	<div id="conclusion-section" class = "h-100" >
 		<div class = "container">
 			<div class = "row" style="padding-top:90px">
