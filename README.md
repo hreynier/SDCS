@@ -16,12 +16,18 @@ Clone this repo (and throw in a star too ;>),
 and navigate to the public_HTML folder that has been downloaded to your local repository.
 **Step 2.**
 In Terminal, Powershell, or any other command-line framework, run 
-    npm install
+```shell
+$ npm install
+$ bower install
+```
 To install the necessary javascript libraries for the front-end components.
 
 **Step 3.**
 Navigate to the */API* Folder, and run:
-    npm install 
+```shell
+$ npm install
+$ bower install
+```
 To also install the necessary libraries for the back-end components.
 
 **Step 4.**
@@ -29,13 +35,38 @@ Host the files found within the API folder (you may need to change some server d
 
 **Step 5.**
 You can now choose to either host the front-end or run it locally to test any changes you want to make.
+## Contributing
 
-## Authors
+> To get started...
+
+### Step 1
+
+- **Option 1**
+    - 🍴 Fork this repo!
+
+- **Option 2**
+    - 👯 Clone this repo to your local machine using `https://github.com/HarveyReynier/SDCS.git`
+
+### Step 2
+
+- **HACK AWAY!** 🔨🔨🔨
+
+### Step 3
+
+- 🔃 Create a new pull request using <a href="https://github.com/HarveyReynier/SDCS/compare/" target="_blank">`https://github.com/HarveyReynier/SDCS/compare/`</a>.
+
+---
+
+## Team
 * **Harvey Reynier**    - Fullstack + Design
 * **Ahmad Merii**       - Frontend + Design
 * **Sara Moatti**       - Analysis + Backend
 * **Nicolas Koedjikov** - Analysis + Narrative
 * **Azza Hajjar**       - Narrative, Frontend + Design!
+
+## Contact
+
+Message @HarveyReynier on twitter or github for more information!
 
 ## How to use Git and GitHub
 I followed these nifty tutorials to understand how Git and Github works!
