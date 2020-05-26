@@ -121,14 +121,13 @@ $(document).ready(function() {
 			},
 			title: {
 			text: 'Capital Amenity Value (£mill) across top three species per ward',
-			margin: -20,
-			y: 60,
+			margin: 0,
 			floating: false
 			},
 			responsive: {
 				rules:	[{
 					condition:{
-						minwidth: 500
+						minwidth: 600
 					}
 				}]
 			},
