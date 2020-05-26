@@ -456,9 +456,7 @@ a.link:hover{
 .about-text p {
   font-size: 1em;
   font-weight: 400;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  word-spacing: 4px;
+  line-height: 1.5;
   margin-bottom: 5px;
 }
 .about-img{
