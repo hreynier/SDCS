@@ -161,61 +161,23 @@
 	<div id = "regFindings-section" class = "h-100">
 		<div id = "findingBlock1" class = "explr2-block"></div>
 		<div id = "explr2-container" class = "container">
-				<div id = "toolText-Container" class = "find1-text col-7">
+			<div class = "row">
+				<div id = "toolText-Container" class = "find1-text col-lg-7 col-xs-8">
 
 					<h1 style=" padding:30px;"><u class = "text-underline" >Main Findings</u></h1>
 					<p><a class="link">The London Plane tree pollution removal in Camden is predicted to increase significantly by an average of 7.7% per year.</a>
 						<br>By 2025, it will have increased by 45%, compared to 2020, ranging from 15% in King’s Cross, the lowest increase, to 70% in West Hampstead, the highest increase.
 						<br><br>Overall, it is in the North and the North-West of the borough that there will be the highest increase in the pollution removed by London Planes. This could make the hotspots of air pollution removal disappear, as both North and South would have high air pollution removal values, therefore becoming more similar.</p>
 				</div>
-				<div class = "find1-img col-5" id="bubble-hc">
-<!-- insert bubble highchart here-->
+				<div class = "find1-img col-lg-5 col-xs-12" id="bb-container">
+					<figure class="bb-figure">
+						<div id="bubble-container"></div>
+  					</figure>
 				</div>
+			</div>
 			<!--/div-->
 		</div>
 	</div>
-
-<!--
-	<div id = "regFindings2-section" class = "h-100">
-
-
-		<div id = "explr2-container" class = "container">
-
-			<div class = "row">
-
-				<div class = "find1-chart col-5">
-
-				</div>
-
-				<div class = "find2-text col-7">
-
-					<h1><u class = "text-underline">Main Findings Cont...</u></h1>
-					<br><br>
-					<p>	PUT CHARTS HERE! ! ! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lectus lectus, porttitor eu commodo non, auctor id mauris.
-						Quisque facilisis nunc at turpis lobortis lobortis. Praesent malesuada lobortis nulla, at tristique elit volutpat ut.
-						Phasellus euismod iaculis varius. Sed eleifend dolor vitae lectus tincidunt molestie nec sed eros. Curabitur non congue turpis.
-						Donec elementum efficitur fermentum. Vivamus pretium velit vel enim congue gravida. Duis mattis consectetur felis eu elementum. In non rutrum tortor, et ultricies lectus.
-					</p>
-
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-<!--
-	<div id = "reg-plot">
-		<p> This will include a plot <p>
-	</div>
-	<div class = "chartjs-wrapper"> in CSS file: .chartjs-wrapper
-	.hc-container
- 	Several .highcharts-data-table -->
-	<!--
-		<canvas id = "treePie" ></canvas>
-	</div> -->
-	<!-- High Charts-->
-	<!--
-	<div id="hc-container" style="min-width: 310px; max-width: 70%; height: 1000px; margin: 0 auto ; padding-top: 20px" >
-	</div> -->
 
 
 
@@ -227,16 +189,6 @@
 			<button class = "mapBtn2" onclick="toggleCard('selection')">Selection</button>
 			<button class = "mapBtn2" onclick="toggleCard('Prediction')">Prediction</button>
 		</div>
-
-		<!--<div id = "explr2-container" class = "container">
-			<div class = "row justify-content-center">
-				<div class = "col-4">
-					<br><br>
-					<h2><b>Methodology</b></h2>
-					<br>
-				</div>
-
-			</div>-->
 			<div class = "row">
 				<div class = "infoCard" id="specification">
 					<h3>Model specification</h3>
@@ -354,8 +306,17 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyCK_2YHUeL00WeSl7OSZCKATaHIH7cxKG4"></script>
 <!-- Bootstrap 4 js -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<!-- Highcharts -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- Highcharts-accessibility -->
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<!-- Highcharts-more -->
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
 <!-- gSap TweenMax for animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+
 <!---- 	Local scripts ---->
 
 <!-- Toolkit: small functions -->
@@ -365,8 +326,7 @@
 <script type="text/javascript" src = "JS/gMapPredictionTool.js"></script>
 <script type="text/javascript" src = "JS/gmapStyle.js"></script>
 
-<!-- high-chart.js script -->
-<!--<script type="text/javascript" src = "JS/highChartScript.js"></script>-->
-<!--<script type="text/javascript" src = "JS/regcharts.js"></script>-->
+<!-- Bubble-chart script. -->
+<script type="text/javascript" src = "JS/bubble-chart.js"></script>
 </body>
 </html>

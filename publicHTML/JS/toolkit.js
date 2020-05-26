@@ -175,7 +175,7 @@ $(document).ready(function(){
     $("#tool-dwn").on('click', function () {
         $("html").scrollTop(0);
         $("html, body").animate({
-            scrollTop: $("#predTool").offset().top-49
+            scrollTop: $("#predToolText").offset().top-49
         }, 1000);
     })
 
