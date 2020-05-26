@@ -220,10 +220,15 @@
 
 
 	<!-- Here copy-pasted first type of main fidings block-->
-	<div id = "method-section" class = "h-100">
+	<div id = "method-section" class = "h-100x">
+		<h1 style="text-align:center; padding:30px;"><u class = "text-underline" >Methodology</u></h1>
+		<div class="map-control-widget">
+			<button class = "mapBtn2" onclick="toggleCard('specification')">Specification</button>
+			<button class = "mapBtn2" onclick="toggleCard('selection')">Selection</button>
+			<button class = "mapBtn2" onclick="toggleCard('Prediction')">Prediction</button>
+		</div>
 
-
-		<div id = "explr2-container" class = "container">
+		<!--<div id = "explr2-container" class = "container">
 			<div class = "row justify-content-center">
 				<div class = "col-4">
 					<br><br>
@@ -231,9 +236,9 @@
 					<br>
 				</div>
 
-			</div>
+			</div>-->
 			<div class = "row">
-				<div class = "find1-text col-4">
+				<div class = "infoCard" id="specification">
 					<h3>Model specification</h3>
 					<p>
 							The predictive tool uses Multiple Linear Regression (MLR) to model
@@ -255,7 +260,7 @@
 					</p>
 				</div>
 
-				<div class = "find1-text col-4">
+				<div class = 'infoCard' id="selection">
 					<h3>Model selection</h3>
 					<p>The initial pool of predictors consisted of a multitude of variables based on our assessment of relevant variables in modelling pollution removal. The initial pre-selected variables were: height, spread, Diameter at Breast Height, physiological condition, <a href="https://www.ltoa.org.uk/resources/cavat" class="link">Capital Asset Value</a>, carbon storage and gross carbon sequestration.
 						<br>The variables were then filtered twice: first by applying stepwise regression and then by accounting for multicollinearity among the remaining predictors.
@@ -264,7 +269,7 @@
 					</p>
 				</div>
 
-				<div class = "find1-text col-4">
+				<div class = 'infoCard' id="Prediction">
 					<h3>Model Outcome</h3>
 					<p>
 						The model predicts future pollution removal each year by the London Plane trees over a period of five years (2020 to 2025).
