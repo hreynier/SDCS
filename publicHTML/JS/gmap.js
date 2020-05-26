@@ -54,7 +54,7 @@ $(document).ready(function() {
         //	Init new google map data layer.
         dataMap = new google.maps.Data();
         //  Load Camden boundary geoJSON from database.
-        dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8703/data/boundary', {idPropertyName : 'name'});
+        dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8721/data/boundary', {idPropertyName : 'name'});
 
         //	Init heatmap layer.
         heatmap = new google.maps.visualization.HeatmapLayer({
@@ -79,8 +79,8 @@ $(document).ready(function() {
         console.log("Getting Data: " + lat + ", " + lng);
 
 
-        //  URL = API Endpoint that gets the data. Check "http://dev.spatialdatacapture.org:8703/" for more info.
-        var url = "http://dev.spatialdatacapture.org:8703/data/" + lat + "/" + lng + "/" + radius;
+        //  URL = API Endpoint that gets the data. Check "http://dev.spatialdatacapture.org:8721/" for more info.
+        var url = "http://dev.spatialdatacapture.org:8721/data/" + lat + "/" + lng + "/" + radius;
         console.log("API Endpoint :" + url);
 
         //  jQuery gets data through API Endpoint
@@ -91,8 +91,8 @@ $(document).ready(function() {
 
             //Loops through each row, extracts coordinates, and generates marker on map.
             $.each(data, function (key, value) {
-                latitude = value["Lat"];
-                longitude = value["Lon"];
+                latitude = value["latitude"];
+                longitude = value["longitude"];
 
                 //console.log("lat: " + latitude + ", lon: " + longitude); //   Uncomment for testing purposes.
 
@@ -118,13 +118,13 @@ $(document).ready(function() {
                         map.setZoom(16);
 
                         //  get statistics data from API Endpoint, and display on click.
-                        $.getJSON("http://dev.spatialdatacapture.org:8703/data/treeDescription/" + this.customInfo, function (data) {
-                            var dateInspected = new XDate((data[0].Date)).toString("MMM d, yyyy HH:mm:ss");
-                            var dateUploaded = new XDate((data[0].Uploaded)).toString("MMM d, yyyy HH:mm:ss");
-                            var content = "<b> Tree ID: </b>" + value.id + "<br/> <br/><b> Common Name:</b>" + data[0].Com_Name +
-                                " <br/> <br/><b>Height (m): </b>" + data[0].Height_M + " <br/> <br/><b>Spread (m): </b>" + data[0].Spread_M +
-                                "<br/> <br/><b> Diameter (cm): </b>" + data[0].Diameter_CM + " <br/> <br/><b>Maturity: </b>" + data[0].Maturity +
-                                "<br/> <br/><b> Health: </b>" + data[0].Condition + "<br/> <br><b> Location: </b>" + value.coords.y + ", " + value.coords.x +
+                        $.getJSON("http://dev.spatialdatacapture.org:8721/data/treeDescription/" + this.customInfo, function (data) {
+                            var dateInspected = new XDate((data[0].inspection_date)).toString("MMM d, yyyy HH:mm:ss");
+                            var dateUploaded = new XDate((data[0].last_uploaded)).toString("MMM d, yyyy HH:mm:ss");
+                            var content = "<b> Tree ID: </b>" + value.id + "<br/> <br/><b> Common Name:</b>" + data[0].common_name +
+                                " <br/> <br/><b>Height (m): </b>" + data[0].height_in_metres + " <br/> <br/><b>Spread (m): </b>" + data[0].spread_in_metres +
+                                "<br/> <br/><b> Diameter (cm): </b>" + data[0].diameter_in_centimetres_at_breast_height + " <br/> <br/><b>Maturity: </b>" + data[0].maturity +
+                                "<br/> <br/><b> Health: </b>" + data[0].physiological_condition + "<br/> <br><b> Location: </b>" + value.coords.y + ", " + value.coords.x +
                                 "<br/> <br><b> Date Inspected: </b>" + dateInspected + "<br/> <br><b> Date Uploaded: </b>" + dateUploaded;
 
                             infowindow.setContent(content)
@@ -148,14 +148,14 @@ $(document).ready(function() {
         //  SUGGESTION: ADD USER INPUT FEATURE (DROPDOWN MENU)
 
         //Store input variable
-        var wgt = "Pollution_Year_grams";
+        var wgt = "pollution_removal_per_year_in_grams";
         console.log("Getting weighted location data: " + wgt);
 
         //  Clear data array.
         heatArray = [];
 
         //    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8703/" for more.
-        var url = "http://dev.spatialdatacapture.org:8703/data/sust/" + wgt;
+        var url = "http://dev.spatialdatacapture.org:8721/data/sust/" + wgt;
         console.log("API Endpoint: " + url);
 
         //    jQuery to grab data through endpoint
@@ -167,8 +167,8 @@ $(document).ready(function() {
 
             //  Loop through json, extract point data and weight value.
             $.each(data, function (key, value) {
-                latitude = value["Lat"];
-                longitude = value["Lon"];
+                latitude = value["latitude"];
+                longitude = value["longitude"];
                 weight = value[wgt];
                 //console.log("lat:" + latitude + ", lon: " + longitude + ", " + wgt + ": " + weight); //	Uncomment for testing purposes.
 
@@ -207,7 +207,7 @@ $(document).ready(function() {
 //	Gets data for the ward clustering data layer.
 jQuery.clusterData = function clusterData(measure){
     //	URL = API Endpoint to get JSON data for wards on data layer.
-    var url = "http://dev.spatialdatacapture.org:8703/data/clusters";
+    var url = "http://dev.spatialdatacapture.org:8721/data/clusters";
     console.log("API Endpoint: " + url);
 
     //	jQuery to grab data through endpoint.

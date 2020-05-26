@@ -76,7 +76,7 @@ let hc2Other	=	[];
 $(document).ready(function() {
 	
 
-	let url1 		=	"http://dev.spatialdatacapture.org:8703/data/highcharts/Amenity_Value";
+	let url1 		=	"http://dev.spatialdatacapture.org:8721/data/highcharts/capital_asset_value_for_amenity_trees";
 
 	//	Get first JSON.
 	$.getJSON(url1, function(data){
@@ -89,13 +89,13 @@ $(document).ready(function() {
 
         //	Loop through JSON, assign to variables, push to array.
         $.each(data, function (key, value){
-			if(value["Com_Name"] == "London plane"){
+			if(value["common_name"] == "London plane"){
 				plane = parseInt(value["Val"]);
 				hc1Plane.push(plane);
-			}	else if (value["Com_Name"] == "Lime - Common"){
+			}	else if (value["common_name"] == "Lime - Common"){
 				lime = parseInt(value["Val"]);
 				hc1Lime.push(lime);
-			}	else if (value["Com_Name"] == "Maple - Norway"){
+			}	else if (value["common_name"] == "Maple - Norway"){
 				maple = parseInt(value["Val"]);
 				hc1Maple.push(maple);
 			}	else	{
@@ -225,7 +225,7 @@ $(document).ready(function() {
 
 	})
 
-	let url2 		=	"http://dev.spatialdatacapture.org:8703/data/highcharts/Pollution_Year_grams";
+	let url2 		=	"http://dev.spatialdatacapture.org:8721/data/highcharts/pollution_removal_per_year_in_grams";
 
 	//	Get first JSON.
 	$.getJSON(url2, function(data){
@@ -238,15 +238,15 @@ $(document).ready(function() {
 
         //	Loop through JSON, assign to variables, push to array.
         $.each(data, function (key, value){
-			if(value["Com_Name"] == "London plane"){
-				console.log(value["Com_Name"]);
+			if(value["common_name"] == "London plane"){
+				console.log(value["common_name"]);
 				plane = parseInt(value["Val"]);
 				console.log(plane);
 				hc2Plane.push(plane);
-			}	else if (value["Com_Name"] == "Lime - Common"){
+			}	else if (value["common_name"] == "Lime - Common"){
 				lime = parseInt(value["Val"]);
 				hc2Lime.push(lime);
-			}	else if (value["Com_Name"] == "Maple - Norway"){
+			}	else if (value["common_name"] == "Maple - Norway"){
 				maple = parseInt(value["Val"]);
 				hc2Maple.push(maple);
 			}	else	{

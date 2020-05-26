@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 
     //		API Endpoint.
-    var url 	= "http://dev.spatialdatacapture.org:8703/data/tree-types";
+    var url 	= "http://dev.spatialdatacapture.org:8721/data/tree-types";
 
     //		jQuery get data through API.
     $.getJSON(url, function(data){
@@ -59,7 +59,7 @@ $(document).ready(function() {
         //	Loop through JSON, assign to variables, push to array.
         $.each(data, function (key, value){
             ttCount 	= parseInt(value["count"]);
-            ttName 	= value["Com_Name"];
+            ttName 	= value["common_name"];
 
             pieDataAr.push(ttCount);
             pieLabelAr.push(ttName);

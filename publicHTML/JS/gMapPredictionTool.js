@@ -78,7 +78,7 @@ $(document).ready(function() {
         dataMap = new google.maps.Data();
 
         //  Load Camden boundary geoJSON from database.
-        dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8703/data/boundary', {idPropertyName : 'name'});
+        dataMap.loadGeoJson('http://dev.spatialdatacapture.org:8721/data/boundary', {idPropertyName : 'name'});
 
 
         //	Init heatmap layer.
@@ -110,7 +110,7 @@ $(document).ready(function() {
 //	Gets data for the ward clustering data layer.
 jQuery.predictData = function predictData(){
     //	URL = API Endpoint to get JSON data for wards on data layer.
-    var url = "http://dev.spatialdatacapture.org:8703/data/predict-ward";
+    var url = "http://dev.spatialdatacapture.org:8721/data/predict-ward";
     console.log("API Endpoint: " + url);
 
     //	jQuery to grab data through endpoint.
@@ -130,7 +130,7 @@ jQuery.predictData = function predictData(){
         $.each(data, function (key, value){
             //      Stores name of ward and clustering coefficient value that
             //      has been assigned to that ward.
-            ward_name 	= value["Ward_Name"];
+            ward_name 	= value["ward_name"];
             pol0 		= parseFloat(value["Actual_Pollution_Year_grams"]);
             pol1 		= parseFloat(value["change1"]);
             pol2 		= parseFloat(value["change2"]);

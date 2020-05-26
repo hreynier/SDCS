@@ -12,7 +12,7 @@
 
 var moment = require('moment');
 
-var portNumber = 8703;
+var portNumber = 8721;
 
 var mysql = require('mysql');
 
@@ -31,9 +31,9 @@ const $ = require( "jquery" )( window );
 // MySQL Connection Variables
 var connection = mysql.createConnection({
     host     : 'dev.spatialdatacapture.org',
-    user     : 'ucfnhre',
-    password : 'cujereveze',
-    database : 'ucfnhre'
+    user     : 'ucfnmoa',
+    password : 'qenewoqiki',
+    database : 'ucfnmoa'
 });
 
 connection.connect(function(err){
@@ -102,22 +102,22 @@ app.get('/', function(req, res) {
 })
 
 //  API EndPoint to get spatial data for all trees in camden. Latitude/Longitude : 51.5390/0.1426 Radius : 30.
-app.get('/data/:lat/:lon/:radius', function (req, res) {
+app.get('/data/:latitude/:longitude/:radius', function (req, res) {
 
     // Allows data to be downloaded from the server with security concerns
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
     // If all the variables are provided connect to the database
-    if(req.params.lat != "" && req.params.lon != "" && req.params.radius != ""){
+    if(req.params.lat != "" && req.params.longitude!= "" && req.params.radius != ""){
              
               // Parse the values from the URL into numbers for the query
-              var Lat = parseFloat(req.params.lat);
-              var Lon = parseFloat(req.params.lon);
+              var latitude = parseFloat(req.params.latitude);
+              var longitude = parseFloat(req.params.longitude);
               var radius = parseFloat(req.params.radius);
 
 
               // SQL Statement to run
-              var sql = "SELECT * FROM tree_locations WHERE DISTANCE(coords, POINT("+Lon+","+Lat+") ) <= " + radius;
+              var sql = "SELECT * FROM tree_locations WHERE DISTANCE(coords, POINT("+longitude+","+latitude+") ) <= " + radius;
               
               // Log it on the screen for debugging
               console.log(sql);
@@ -162,15 +162,15 @@ app.get('/data/treeDescription/:id', function (req, res) {
 });
 
 //  API Endpoint to get all the trees of one species/common name.
-app.get('/data/tree/:commonname', function (req, res){
+app.get('/data/tree/:common_name', function (req, res){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
-    if(req.params.commonname != ""){
+    if(req.params.common_name != ""){
         //Parse the variables from url, making sure to precent SQL injection.
-        var name = mysql_real_escape_string(req.params.commonname);
+        var name = mysql_real_escape_string(req.params.common_name);
 
         //SQL statement
-        var sql = "SELECT * FROM tree_data WHERE name_common like '%"+name+"%'";
+        var sql = "SELECT * FROM tree_data WHERE common_name like '%"+name+"%'";
         //Debuggin
         console.log(sql);
 
@@ -204,7 +204,7 @@ app.get('/data/sust/:weight', function (req, res) {
 
 
               // SQL Statement to run
-              var sql = "SELECT l.id, l.Lat, l.Lon, s."+weight+" FROM tree_locations l INNER JOIN sust_data s ON l.id = s.id;"
+              var sql = "SELECT l.id, l.latitude, l.longitude, s."+weight+" FROM tree_locations l INNER JOIN sust_data s ON l.id = s.id;"
               
               // Log it on the screen for debugging
               console.log(sql);
@@ -253,7 +253,7 @@ app.get('/data/clusters/', function (req, res){
     res.header("Acces-Control-Allow-Headers", "X-Requested-WithD");
 
     //  SQL statement.
-    var sql = "SELECT ward_name, Amenity_Gi, Pollution_Gi FROM clusters ORDER BY ward_name;"
+    var sql = "SELECT ward_name, Amenity_GI, Pollution_GI FROM clusters ORDER BY ward_name;"
     //  Log it.
     console.log("SQL: " + sql);
 
@@ -284,7 +284,7 @@ app.get('/data/tree-types', function (req, res) {
     })
 
     //  SQL Statement - Create temporary table that gets the top 10 most common trees and bottom X (n-10) common trees.
-    var sql = "CREATE TEMPORARY TABLE temp_bot SELECT Com_Name, count(Com_Name) AS count FROM tree_data GROUP BY Com_Name ORDER BY count limit 285;"
+    var sql = "CREATE TEMPORARY TABLE temp_bot SELECT common_name, count(common_name) AS count FROM tree_data GROUP BY common_name ORDER BY count limit 285;"
 
     //  Log.
     console.log("Creating temporary table...");
@@ -298,7 +298,7 @@ app.get('/data/tree-types', function (req, res) {
 
   
     //  Top 10.
-    var sql = "CREATE TEMPORARY TABLE temp_top SELECT Com_Name, count(Com_Name) AS count FROM tree_data GROUP BY Com_Name Order BY count DESC limit 10;"
+    var sql = "CREATE TEMPORARY TABLE temp_top SELECT common_name, count(common_name) AS count FROM tree_data GROUP BY common_name Order BY count DESC limit 10;"
 
     //  Log
     console.log("Creating temporary table...");
@@ -310,7 +310,7 @@ app.get('/data/tree-types', function (req, res) {
     })
 
     //  Calc sum of bottom 285 trees.
-    var sql = "INSERT INTO temp_top (Com_Name, count) VALUES ('Other', (SELECT SUM(count) FROM temp_bot));"
+    var sql = "INSERT INTO temp_top (common_name, count) VALUES ('Other', (SELECT SUM(count) FROM temp_bot));"
 
     // Log.
     console.log("Merging tables...");
@@ -349,7 +349,7 @@ app.get('/data/predict', function (req, res) {
     res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
 
     //  SQL
-    var sql = "SELECT * FROM prediction_Camden;"
+    var sql = "SELECT * FROM predictions;"
 
     console.log("Getting Data: " + sql);
 
@@ -376,7 +376,7 @@ app.get('/data/predict-ward', function (req, res){
     res.header("Acces-Control-Allow-Headers", "X-Requested-WithD");
 
     //  SQL statement.
-    var sql = "SELECT Ward_Name, Actual_Pollution_Year_grams, Pollution_Removal_in_1_year, Pollution_Removal_in_2_years, Pollution_Removal_in_3_year, Pollution_Removal_in_4_years,Pollution_Removal_in_5_years, change1, change2, change3, change4, change5 FROM predictions ORDER BY ward_name;"
+    var sql = "SELECT ward_name, Actual_Pollution_Year_grams, Pollution_Removal_in_1_year, Pollution_Removal_in_2_years, Pollution_Removal_in_3_year, Pollution_Removal_in_4_years,Pollution_Removal_in_5_years, change1, change2, change3, change4, change5 FROM predictions ORDER BY ward_name;"
     //  Log it.
     console.log("SQL: " + sql);
 
@@ -416,10 +416,10 @@ app.get('/data/highcharts/:measure', function(req, res){
         })
 
         //  If input is capital amenity value, provide user with the aggregated CAV across top three trees per ward.
-        if(variable == 'Amenity_Value'){
+        if(variable == 'capital_asset_value_for_amenity_trees'){
 
             //  SQL Query to get Sum of CAV for top three tree types across wards.    CAV is divided by 1,000,000 to give value in £mill
-            var sql = "CREATE TEMPORARY TABLE temp_top SELECT Ward_Name, Com_Name, sum("+variable+"/1000000) as Val FROM tree_data WHERE Com_Name IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+            var sql = "CREATE TEMPORARY TABLE temp_top SELECT ward_name, common_name, sum("+variable+"/1000000) as Val FROM tree_data WHERE common_name IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY common_name, ward_name ORDER BY ward_name;"
 
               //  Log it
             console.log("Creating temporary table for top three trees: " + variable);
@@ -432,7 +432,7 @@ app.get('/data/highcharts/:measure', function(req, res){
             })
 
 
-            var sql = "CREATE TEMPORARY TABLE temp_bot SELECT Ward_Name, Com_Name, sum("+variable+"/1000000) as Val FROM tree_data WHERE Com_Name NOT  IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+            var sql = "CREATE TEMPORARY TABLE temp_bot SELECT ward_name, common_name, sum("+variable+"/1000000) as Val FROM tree_data WHERE common_name NOT  IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY common_name, ward_name ORDER BY ward_name;"
             
             //  Log it
             console.log("Creating temporary table for other trees: " + variable);
@@ -445,7 +445,7 @@ app.get('/data/highcharts/:measure', function(req, res){
             })
 
             //  Summing the CAV for the other trees.
-            var sql = "CREATE TEMPORARY TABLE temp_bot2 SELECT Ward_Name, SUM(Val) as Val FROM temp_bot GROUP BY Ward_Name;"
+            var sql = "CREATE TEMPORARY TABLE temp_bot2 SELECT ward_name, SUM(Val) as Val FROM temp_bot GROUP BY ward_name;"
             //  Log it
             console.log("Summing 'other' tree values...");
             console.log(sql);
@@ -457,7 +457,7 @@ app.get('/data/highcharts/:measure', function(req, res){
             })
 
             //  Alter new temp table to add new column and fill with 'other'.
-            var sql = "ALTER TABLE temp_bot2 ADD Com_Name varchar(255);"
+            var sql = "ALTER TABLE temp_bot2 ADD common_name varchar(255);"
 
             console.log("Adding new col");
             console.log(sql);
@@ -469,7 +469,7 @@ app.get('/data/highcharts/:measure', function(req, res){
             })
 
             
-            var sql = "UPDATE temp_bot2 SET Com_Name = 'Other';"
+            var sql = "UPDATE temp_bot2 SET common_name = 'Other';"
 
             console.log("Filling...");
             console.log(sql);
@@ -481,7 +481,7 @@ app.get('/data/highcharts/:measure', function(req, res){
             })
 
             //  Insert 'other' tree data into first temporary table and send to user.
-            var sql = "INSERT INTO temp_top (Com_Name, Ward_Name, Val) SELECT Com_Name, Ward_Name, Val FROM temp_bot2;"
+            var sql = "INSERT INTO temp_top (common_name, ward_name, Val) SELECT common_name, ward_name, Val FROM temp_bot2;"
 
             //  Log.
 
@@ -509,10 +509,10 @@ app.get('/data/highcharts/:measure', function(req, res){
                     res.send("");
                 }       
             })
-        }   else if(variable == 'Pollution_Year_grams'){     //  If input is capital amenity value, provide user with the aggregated pollution removal (kg/yr) across top three trees per ward.
+        }   else if(variable == 'pollution_removal_per_year_in_grams'){     //  If input is capital amenity value, provide user with the aggregated pollution removal (kg/yr) across top three trees per ward.
 
                 //  SQL Query to get Sum of CAV for top three tree types across wards.   pollution removal is divided by 1,000 to give value in kg/yr
-                var sql = "CREATE TEMPORARY TABLE temp_top SELECT Ward_Name, Com_Name, sum("+variable+"/1000) as Val FROM clean_data WHERE Com_Name IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+                var sql = "CREATE TEMPORARY TABLE temp_top SELECT ward_name, common_name, sum("+variable+"/1000) as Val FROM camden_tree WHERE common_name IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY common_name, ward_name ORDER BY ward_name;"
 
                 //  Log it
                 console.log("Creating temporary table for top three trees: " + variable);
@@ -525,7 +525,7 @@ app.get('/data/highcharts/:measure', function(req, res){
                 })
 
 
-                var sql = "CREATE TEMPORARY TABLE temp_bot SELECT Ward_Name, Com_Name, sum("+variable+"/1000) as Val FROM clean_data WHERE Com_Name NOT  IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY Com_Name, Ward_Name ORDER BY Ward_Name;"
+                var sql = "CREATE TEMPORARY TABLE temp_bot SELECT ward_name, common_name, sum("+variable+"/1000) as Val FROM camden_tree WHERE common_name NOT  IN ('London plane', 'Lime - Common', 'Maple - Norway') GROUP BY common_name, ward_name ORDER BY ward_name;"
                 
                 //  Log it
                 console.log("Creating temporary table for other trees: " + variable);
@@ -538,7 +538,7 @@ app.get('/data/highcharts/:measure', function(req, res){
                 })
 
                 //  Summing the CAV for the other trees.
-                var sql = "CREATE TEMPORARY TABLE temp_bot2 SELECT Ward_Name, SUM(Val) as Val FROM temp_bot GROUP BY Ward_Name;"
+                var sql = "CREATE TEMPORARY TABLE temp_bot2 SELECT ward_name, SUM(Val) as Val FROM temp_bot GROUP BY ward_name;"
                 //  Log it
                 console.log("Summing 'other' tree values...");
                 console.log(sql);
@@ -550,7 +550,7 @@ app.get('/data/highcharts/:measure', function(req, res){
                 })
 
                 //  Alter new temp table to add new column and fill with 'other'.
-                var sql = "ALTER TABLE temp_bot2 ADD Com_Name varchar(255);"
+                var sql = "ALTER TABLE temp_bot2 ADD common_name varchar(255);"
 
                 console.log("Adding new col");
                 console.log(sql);
@@ -562,7 +562,7 @@ app.get('/data/highcharts/:measure', function(req, res){
                 })
 
                 
-                var sql = "UPDATE temp_bot2 SET Com_Name = 'Other';"
+                var sql = "UPDATE temp_bot2 SET common_name = 'Other';"
 
                 console.log("Filling...");
                 console.log(sql);
@@ -574,7 +574,7 @@ app.get('/data/highcharts/:measure', function(req, res){
                 })
 
                 //  Insert 'other' tree data into first temporary table and send to user.
-                var sql = "INSERT INTO temp_top (Com_Name, Ward_Name, Val) SELECT Com_Name, Ward_Name, Val FROM temp_bot2;"
+                var sql = "INSERT INTO temp_top (common_name, ward_name, Val) SELECT common_name, ward_name, Val FROM temp_bot2;"
 
                 //  Log.
 
