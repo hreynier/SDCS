@@ -39,50 +39,7 @@ var connection = mysql.createConnection({
 connection.connect(function(err){
     if (err) console.log(err);
     console.log("Connected to MySQL Database");
-    //Not sure if needed as now importing manually.
-    /*var sql = `CREATE TABLE IF NOT EXISTS camden_tree(
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        number_of_trees INT,
-        sequence INT,
-        site_name VARCHAR(255),
-        contract_area VARCHAR(255),
-        scientific_name VARCHAR(255),
-        common_name VARCHAR(255),
-        inspection_date DATETIME,
-        inspection_due_date VARCHAR(255),
-        height_in_metres INT,
-        spread_in_metres INT,
-        diameter_in_centimetres_at_breast_height INT,
-        maturity VARCHAR(255),
-        physiological_condition VARCHAR(255),
-        tree_set_to_be_removed VARCHAR(255),
-        removal_reason VARCHAR(255),
-        newly_planted VARCHAR(255),
-        outstanding_job_count VARCHAR(255),
-        outstanding_job_code VARCHAR(255),
-        outstanding_job_description VARCHAR(255),
-        capital_asset_value_for_amnity_trees INT,
-        carbon_storage_in_kilograms INT,
-        gross_carbon_sequestration_per_year_in_kilograms INT,
-        pollution_removal_per_year_in_grams INT,
-        ward_code VARCHAR(255),
-        ward_name VARCHAR(255),
-        easting VARCHAR(255),
-        northing VARCHAR(255),
-        longitude VARCHAR(255),
-        latitude VARCHAR(255),
-        location VARCHAR(255),
-        identifier VARCHAR(255),
-        spatial_accuracy VARCHAR(255),
-        last_uploaded DATETIME,
-        organisation_uri VARCHAR(255),
-        computed_region_hxwp_gyfc VARCHAR(255),
-        computed_region_6i9a_26nj VARCHAR(255)
-    )`;
-    connection.query(sql, function(err, result) {
-        if (err) console.log(err);
-        console.log("Table Created.")
-    })*/
+
 });
 
 //  Setup the Express Server
@@ -108,7 +65,7 @@ app.get('/data/:latitude/:longitude/:radius', function (req, res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-WithD");
     // If all the variables are provided connect to the database
-    if(req.params.lat != "" && req.params.longitude!= "" && req.params.radius != ""){
+    if(req.params.latitude != "" && req.params.longitude!= "" && req.params.radius != ""){
              
               // Parse the values from the URL into numbers for the query
               var latitude = parseFloat(req.params.latitude);
@@ -187,7 +144,6 @@ app.get('/data/tree/:common_name', function (req, res){
         res.send("");
     }
 });
-
 //  API EndPoint to get spatial & sustainability (carbon, pollution etc) data for all trees in camden.
 app.get('/data/sust/:weight', function (req, res) {
 

@@ -103,6 +103,26 @@ function toggleBox(bro) {
     }
 };
 
+
+//  --- TOGGLES WHETHER methodology BOXES ARE SHOWN/HIDDEN --- //
+function toggleCard(allen) {
+    console.log("toggleCard function init");
+    var x = document.getElementById(allen);
+
+        document.getElementById('specification').style.display = "none";
+        document.getElementById('selection').style.display = "none";
+        document.getElementById('Prediction').style.display = "none";
+        console.log("Why is 6 afraid of 7")
+    ;
+
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+};
+
+
 // ---- jQuery Section ---- //
 //  On DOM page load -> init.
 $(document).ready(function(){
@@ -155,32 +175,54 @@ $(document).ready(function(){
     $("#tool-dwn").on('click', function () {
         $("html").scrollTop(0);
         $("html, body").animate({
-            scrollTop: $("#predTool").offset().top-49
+            scrollTop: $("#predToolText").offset().top-49
         }, 1000);
     })
 
 });
 
 
-var sheet = document.createElement('style'),  
+/* activate scrollspy menu for scrolling on nav bar links*/
+$('body').scrollspy({
+    target: '.navbar',
+    offset: 49
+});
+
+/* smooth scrolling sections - Adapted from Bootstrap 4 guide */
+$('a[href*=\\#]:not([href=\\#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+        $('html,body').animate({
+        scrollTop: target.offset().top - 49
+        }, 1000);
+        return false;
+    }
+    }
+});
+
+
+//  Hacky range slider code!! 
+var sheet = document.createElement('style'),
   $rangeInput = $('.slideContainer input'),
   prefs = ['webkit-slider-runnable-track', 'moz-range-track', 'ms-track']; //chrome, firefox, ie -> they really need to standardise..
 
 document.body.appendChild(sheet);
 
-var getTrackStyle = function (el) {  
+var getTrackStyle = function (el) {
   var curVal = el.value,
       val = (curVal - 1) * 20,//% Between each point. 20 as there are 5 gaps -> 100/5 = 20%.
       style = '';
-  
+
   // Set active label
   $('.range-labels li').removeClass('active selected');
-  
+
   var curLabel = $('.range-labels').find('li:nth-child(' + curVal + ')');
-  
+
   curLabel.addClass('active selected');
   curLabel.prevAll().addClass('selected');
-  
+
   // Change background gradient
   for (var i = 0; i < prefs.length; i++) {
     style += '.slideContainer {background: linear-gradient(to right, #70BDB3 0%, #70BDB3 ' + val + '%, transparent ' + val + '%, transparent 100%)}';
@@ -201,6 +243,6 @@ $('.range-labels li').on('click', function () {
   var index = $(this).index();
 
   $rangeInput.val(index + 1).trigger('input');
-  
-  
+
+
 });

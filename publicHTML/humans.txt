@@ -1,0 +1,44 @@
+TreePol is built by a small team of students from an interdisciplinary background spanning
+design, architecture, and civil engineering. 
+
+/*TEAM*/
+
+Harvey Reynier
+Fullstack Dev + Design
+@HarveyReynier 
+London
+
+Ahmad Merii
+Frontend Dev + Design
+London
+
+Azza Hajjar
+Narrative + Design
+London
+
+Nicolas Koedjikov
+Analysis + Narrative
+London/Sofia
+
+Sara Moatti
+Analysis + Backend
+London
+
+/*THANKS TO*/
+Steven Gray @ UCL,  CASA for teaching us so well!
+@Frogo
+London
+
+
+/* SITE */
+
+                            
+Last update: 2020/05/26 
+
+                            
+Standards: HTML5, CSS3, AJAX, SVG
+
+                            
+Components: Bootstrap 4, jQuery, Highcharts, Chart.js...
+
+                            

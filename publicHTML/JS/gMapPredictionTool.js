@@ -227,13 +227,16 @@ jQuery.predictData = function predictData(){
     console.log("Success: Clustering Data received.");
 }
 
-function updateLegend(layerMin, layerMax){
-    //	Updates legend with the min/max data.
-
+function updateLegend(layerMin, layerMax, layer){
+    //	Updates legend with the min/max data, depending on the layer it displays % for change.
+    let fill = '%';
+    if(layer == 'polNow'){
+        fill = '';
+    }
     document.getElementById('data-min').textContent =
-        (layerMin.toLocaleString() + "%");
+        (layerMin.toLocaleString() + fill);
     document.getElementById('data-max').textContent =
-        (layerMax.toLocaleString() + "%");
+        (layerMax.toLocaleString() + fill);
 }
 
 
@@ -288,7 +291,7 @@ function styleFeature(feature) {
             break;    
     }
 
-    updateLegend(min, max);
+    updateLegend(min, max, label);
 
     //	Delta represents ratio of where the data value sits between min and max.
     var delta = (feature.getProperty(label) - min) / (max - min);
@@ -333,12 +336,14 @@ jQuery.mouseInWard = function mouseInWard(e) {
     let label;
     let min;
     let max;
+    let fill = '%';
 
     switch(layerNo){
         case 'pol_0':
             label = 'polNow';
             min   = Min0;
             max   = Max0;
+            fill  = '';
             break;
         case 'pol_1':
             label = 'pol1';
@@ -383,7 +388,7 @@ jQuery.mouseInWard = function mouseInWard(e) {
     document.getElementById('data-label').textContent 	=
         e.feature.getProperty('name');
     document.getElementById('data-value').textContent 	=
-        (e.feature.getProperty(label).toLocaleString() + "%");
+        (e.feature.getProperty(label).toLocaleString() + fill);
 
     //	Update legend and moves data point along it.
     document.getElementById('data-box2').style.display 	= 'block';

@@ -93,7 +93,7 @@ $(document).ready(function() {
             $.each(data, function (key, value) {
                 latitude = value["latitude"];
                 longitude = value["longitude"];
-
+                
                 //console.log("lat: " + latitude + ", lon: " + longitude); //   Uncomment for testing purposes.
 
                 //  Generate new google map coord object + store.
@@ -154,7 +154,7 @@ $(document).ready(function() {
         //  Clear data array.
         heatArray = [];
 
-        //    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8703/" for more.
+        //    URL = API ENDPOINT to get spatial weighted data. Check "http://dev.spatialdatacapture.org:8721/" for more.
         var url = "http://dev.spatialdatacapture.org:8721/data/sust/" + wgt;
         console.log("API Endpoint: " + url);
 
@@ -372,7 +372,7 @@ function toggleData() {
     console.log("Grabbing Polygons...")
     if (dCount == 0){
 
-        $.clusterData('Amenity_Gi');
+        $.clusterData('capital_asset_value_for_amenity_trees');
         //dataMap.setMap(map);
         //console.log(dataMap.getFeatureById('Belsize'));
         dataMap.setStyle(styleFeature);

@@ -7,14 +7,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Descriptive Tags -->
-	<title>SDCSA - Camden Tree Analysis</title>
+	<title>TreePol - Team</title>
 	<meta name = "author" 		content = "see humans.txt 😊">
-	<meta name = "description" 	content = "SDCSA module final project: Camden Tree Analysis Web App.">
+	<meta name = "description" 	content = "Meet the team behind TreePol!">
+	<link rel="author" href="humans.txt" />
 	<!-- Fonts, Stylesheets, Bootstrap -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,700|Taviraj" rel="stylesheet">
 	<link rel="stylesheet" href="./CSS/styles.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<title>Treeconomic Output</title>
 </head>
 
 <body>
@@ -23,9 +23,9 @@
 
 		<!--	NAV BAR		-->
 		<nav class="navbar navbar-expand-md navbar-light fixed-top" style = "background-color: #F0E5D3;">
-			<a class="navbar-brand py-0" href="#">
+			<a class="navbar-brand py-0" href="./index.html">
 				<span class="w-100 d-lg-none d-block"></span>
-				<h1><b>Treecon<img id = "brand-logo" src = "./img/logo.svg"></b></h1>
+				<h1><b>TreePol<img id = "brand-logo" src = "./img/logo.svg"></b></h1>
 			</a>
 			<!--allows the links to shrink into a menu on small screens -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -38,10 +38,10 @@
 						<a class="nav-link py-0 m-1" href="./index.html">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link py-0 m-1" href="./about.html">About</a>
+						<a class="nav-link py-0 m-1" href="./regression.html">Analysis</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link py-0 m-1" href="./group.html">Group</a>
+						<a class="nav-link py-0 m-1" href="./group.html">Team</a>
 					</li>
 				</ul>
 
@@ -51,19 +51,26 @@
 
     <!--- 2. GROUP SECTION  ------>
 
-			<div class = "container">
+			<div id = "teamText" class = "container">
 				<div class = "row" style="padding-top:30px">
-					<div class = "about-text col-6">
+					<div class = "about-text col-12">
 						<br><br>
-						<h1><u class = "text-underline">Group</u></h1>
+						<h1 style="word-spacing: 1em;">Meet the <u class = "text-underline">Team!</u></h1>
+						
 					</div>
+				</div>
+				<div class = "row" style = "padding-top:15px">
+					<div class = "about-text col-12">
+						<p><b>Meet the team behind TreePol!<br>We are enthusiastic about <u class = "text-underline">Green Infrastructure </u>and it's positive role within urban environments. Scroll to meet the team behind this project.</p></b>
+					</div>
+				</div>
 			</div>
 
 		<div id="group1" class = "h-100" >
 			<div class = "container">
 				<div class = "row" style="padding-top:90px">
 					<div class = "group-img col-4">
-						<img src="img/harvey.jpg" alt="Harvey doing a peace sign" width = "100%">
+						<img src="img/harvey.jpg" alt="Harvey on a business call." width = "100%">
 					</div>
 					<div class = "group-text col-6">
 						<p style= "font-size: 16px;font-weight: 300">
@@ -166,6 +173,15 @@
         	</div>
         </div>
 </p>
+<!--JAVASCRIPT-->
+
+<!--Libraries (NEED TO CHANGE TO LOCAL NPM FOR REPRODUCIBILITY)-->
+<!-- jQuery -->
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js?ver=1.10.2'></script>
+<!-- Bootstrap 4 js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Toolkit: small functions -->
+<script type = 'text/javascript' src = "JS/toolkit.js"></script>
 
 </body>
 </html>

@@ -1,15 +1,72 @@
-# SDCS - Camden Tree Map Predictive Analytic Tool (name is WIP :P)
-Put description of the tool/project here.
+
+# TreePol - The Predictive Analytics Tool for Green Infrastructure. 
+<img src = "https://miro.medium.com/max/1600/1*z4VTylIuLKBVjEbQ4aASaQ.gif" title = "Undraw_tree_gif_Placeholder" Alt = "Header img placeholder.">
+
+> Treepol is a predictive analytics tool, aiming to highlight the invisible impacts of Green Infrastructure!
+
+>This appplication has been developed by a small team of students at UCL for the SDCSA module at CASA.
+
+Please *leaf* your feedback!!
 
 ## Getting Started
-Instructions for how to use the project, website link, how to download the code etc...
+**Before you start, make sure you have node.js and npm installed globally on your computer.**
 
-## Authors
-* **Harvey Reynier** 
-* **Put names here**
-* **and here**
-* **and here**
-* **..and here**
+**Step 1.**
+Clone this repo (and throw in a star too ;>),
+and navigate to the public_HTML folder that has been downloaded to your local repository.
+**Step 2.**
+In Terminal, Powershell, or any other command-line framework, run 
+```shell
+$ npm install
+$ bower install
+```
+To install the necessary javascript libraries for the front-end components.
+
+**Step 3.**
+Navigate to the */API* Folder, and run:
+```shell
+$ npm install
+$ bower install
+```
+To also install the necessary libraries for the back-end components.
+
+**Step 4.**
+Host the files found within the API folder (you may need to change some server details).
+
+**Step 5.**
+You can now choose to either host the front-end or run it locally to test any changes you want to make.
+## Contributing
+
+> To get started...
+
+### Step 1
+
+- **Option 1**
+    - 🍴 Fork this repo!
+
+- **Option 2**
+    - 👯 Clone this repo to your local machine using `https://github.com/HarveyReynier/SDCS.git`
+
+### Step 2
+
+- **HACK AWAY!** 🔨🔨🔨
+
+### Step 3
+
+- 🔃 Create a new pull request using <a href="https://github.com/HarveyReynier/SDCS/compare/" target="_blank">`https://github.com/HarveyReynier/SDCS/compare/`</a>.
+
+---
+
+## Team
+* **Harvey Reynier**    - Fullstack + Design
+* **Ahmad Merii**       - Frontend + Design
+* **Sara Moatti**       - Analysis + Backend
+* **Nicolas Koedjikov** - Analysis + Narrative
+* **Azza Hajjar**       - Narrative, Frontend + Design!
+
+## Contact
+
+Message @HarveyReynier on twitter or github for more information!
 
 ## How to use Git and GitHub
 I followed these nifty tutorials to understand how Git and Github works!

@@ -2,7 +2,7 @@
 body {
   background-color: #F5F5F5 !important; /* Overide bootstrap.*/
   font-family: 'Lato', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8em;
   height: 100%;
   /*overflow: -moz-scrollbars-none;
@@ -39,9 +39,21 @@ h2 {
 
 p{
   font-family: 'Lato';
-  font-size: 1.1em;
+  font-size: 1.05em;
 }
+a.link{
+  color:#A8CDA6;
+  font-weight: 600;
+  font-size: 1.05em;
+  text-decoration: dotted;
+  text-decoration-color: #A8CDA6;
 
+}
+a.link:hover{
+  color:#3E3E3E;
+  font-weight: 600;
+  text-decoration: none;
+}
 #brand-logo{
   width: 0.65em;
 }
@@ -315,6 +327,10 @@ p{
   padding-top: 5px !important;
   padding-bottom: 0 !important;
 }
+
+.navbar-toggler{
+  justify-self: right;
+}
 .nav-link{
   font-family: 'Lato', sans-serif;
   font-weight: 700;
@@ -327,12 +343,28 @@ p{
   font-size: 30px;
 }
 
+.navbar li>a:hover,.navbar li>a:focus,.navbar li.active {
+  background-color: #A8CDA6;
+}
+
 /* --------  2.2 LANDING PAGE STYLES  -------- */
 
 .h-100{
   min-height: 100vh;
   max-height: 100vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.h-100x{
+  min-height: 100vh;
+  max-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.h-80x{
+  min-height: 30vh;
+  max-height: 80vh;
   align-items: center;
   justify-content: center;
 }
@@ -403,6 +435,10 @@ p{
   opacity: 0.8;
 }
 /* -------   2.3 ABOUT STYLES -------- */
+#about{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .about-text {
   text-align: left;
   /*max-width: 50%;*/
@@ -418,11 +454,9 @@ p{
 }
 
 .about-text p {
-  font-size: 1.5em;
-  font-weight: bold;
-  letter-spacing: 2px;
-  line-height: 1.6;
-  word-spacing: 4px;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.5;
   margin-bottom: 5px;
 }
 .about-img{
@@ -430,17 +464,7 @@ p{
   padding-left: 0px !important;
 }
 
-a.link{
-  color:#84957F;
-  font-weight: 600;
-  font-size: 1.05em;
 
-}
-a.link:hover{
-  color:#3E3E3E;
-  font-weight: 600;
-  text-decoration: none;
-}
 
 
 
@@ -475,12 +499,12 @@ a.link:hover{
   margin: auto;
   margin-top: 0%;
   margin-bottom: 0%;
-  width:700px;
+  width:100%;
   text-align: center !important;
 }
 .mapBtn {
-  background-color: #8cb58a;
-  border: 1px solid #8cb58a;
+  background-color: #c5e6c3;
+  border: 1px solid #c5e6c3;
   border-radius: 12px;
   font-size: 18px;
   font-family: 'Lato', verdana  , sans-serif;
@@ -491,13 +515,30 @@ a.link:hover{
 }
 
 .mapBtn:hover {
-  background-color: #93A58D;
+  background-color: #b2d6b0;
   color: #3E3E3E;
 
 }
 .mapBtn:active {
     background-color: #8cb58a;
     color: #3E3E3E;
+}
+
+.mapBtn2 {
+  background-color: #c5e6c3;
+  border: 1px solid #c5e6c3;
+  border-radius: 12px;
+  font-size: 18px;
+  font-family: 'Lato', verdana  , sans-serif;
+  font-weight: 505;
+  color: #3E3E3E;
+  margin:10px;
+  padding: 8px;
+}
+
+.mapBtn2:hover {
+  background-color: #b2d6b0;
+  color: #3E3E3E;
 }
 
 .infoBox {
@@ -515,6 +556,19 @@ a.link:hover{
   background-color: #CB997E;
 }
 
+.infoCard {
+  width: 100%;
+  padding: 20px 0;
+  padding-left: 15%;
+  padding-right:15%;
+  text-align: center;
+  margin-top: 20px;
+  display : none;
+  font-size: 16px;
+  font-family: 'Lato', optima  , sans-serif;
+  color: #3E3E3E;
+  background-color: #e6edec;
+}
 .map-block{
   top: 80%;
   width: 100%;
@@ -552,10 +606,10 @@ a.link:hover{
   height: 45px;
 }
 #data-box {
-  top: 10px;
-  left: 57%;
+  top: 70px;
+  left: 25%;
   height: 45px;
-  line-height: 45px;
+  line-height: 30px;
   display: none;
   padding :2px;
   padding-left: 5px;
@@ -609,8 +663,14 @@ a.link:hover{
   height: 100%;
 }
 
+#explore1-section{
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+
 #explr1-container{
   position: absolute;
+  margin-bottom: 15%;
 }
 .explr1-text {
   text-align: left;
@@ -648,7 +708,10 @@ a.link:hover{
 /* -------  2.5 DATA EXPLORATION SECTION 2 --------*/
 
 /*     ---- HTML ---- */
-
+#explore2-section{
+ background-color: rgba(240, 229, 211,0.3);
+ margin-top: 5%;
+}
 .explr2-block{
   background-color: rgba(133, 108, 94,0.1);
   height: 100vh;
@@ -733,8 +796,8 @@ a.link:hover{
 
 #toTop-ctr{
   position: relative;
-  /*padding-top: 40%;*/
-  margin-bottom: 0%;
+  padding-top: 80%;
+
 }
 
 #toTop{
@@ -751,6 +814,16 @@ a.link:hover{
   font-size: 2.5em;
   font-weight: 700;
   margin-bottom: 15px;
+}
+
+#end-ctr h1 u{
+  font-size: 0.8em;
+  margin-bottom: 20px;
+}
+#end-ctr a{
+  color:#3E3E3E;
+  font-weight: 600;
+  font-size: 0.9em;
 }
 
 /* --------- 3. REGRESSION.HTML --------- */
@@ -784,7 +857,7 @@ a.link:hover{
   align-items: flex-start;
 }
 #predTool h1{
- 
+
   font-size: 3em;
   font-weight: 700;
   margin: 100px auto 10px auto;
@@ -797,16 +870,16 @@ a.link:hover{
 /*Map*/
 .analysis-map-container{
   position: relative;
-  width: 55%; /*Change to 55%*/
-  max-height: 100%;
-  min-height: 65%;
+  /*width: 55%;*/ /*Change to 55%*/
+  /*max-height: 100%;
+  min-height: 65%;*/
   height: 100%;
   box-sizing: border-box;
   overflow: auto;
   padding-left: 0 !important;
 }
 #predictionMap{
-  height: 100%;
+  height: 800px;
   width: 100%;
 }
 /*Legend + Pop-up Widget*/
@@ -841,6 +914,8 @@ a.link:hover{
   bottom: 0px;
   z-index: 5;
   width: 80%;
+  max-width:600px;
+  justify-content: center;
   right: 10%;
   left: 10%;
   height: 15%;
@@ -958,9 +1033,18 @@ a.link:hover{
 
 /* ---------   3.3 Regression - Findings STYLES --------- */
 
-/*#regFinding-section{
+/* ---------  highchart bubble chart   --------------  */
+.bb-figure {
+  width: 100%;
+  min-width: 300px;
+  margin: 1em auto;
+  font-family: 'Lato', sans-serif;
+  border-collapse: collapse;
+  border: 1px solid #EBEBEB;
+  text-align: center;
+	
+}
 
-}*/
 
 #findingBlock1{
   background-color: rgba(168, 205, 166,0.1);
@@ -1004,6 +1088,11 @@ a.link:hover{
   padding-right: 1% !important;
 }
 
+#method-section{
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 #method-section h1{
   text-align: center;
   font-size: 3.5em;
@@ -1018,16 +1107,26 @@ a.link:hover{
   height: 80vh;
   padding: 0;
   padding-bottom: 10%;
-  
+
+}
+
+
+#evaluation-section{
+  margin-top: 20%;
 }
 
 
 
 
-
-
-
 /* ---------   4. GROUP STYLES --------- */
+#teamText h1 {
+  font-size: 4.3em;
+}
+
+#teamText p{
+  font-size: 1.3em;
+}
+
 .group-text {
   text-align: left;
   /*max-width: 50%;*/
@@ -1056,11 +1155,7 @@ a.link:hover{
   padding-left: 0px !important;
 }
 
-a.link{
-  color:#84957F;
-  font-weight: 300;
-  font-size: 1.05em;
-}
+
 
 a.footerText{
   color:#3E3E3E;

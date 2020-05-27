@@ -60,7 +60,7 @@ $(document).ready(function() {
         $.each(data, function (key, value){
             ttCount 	= parseInt(value["count"]);
             ttName 	= value["common_name"];
-
+            
             pieDataAr.push(ttCount);
             pieLabelAr.push(ttName);
         })
