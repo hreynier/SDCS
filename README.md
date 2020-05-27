@@ -1,6 +1,6 @@
 
 # TreePol - The Predictive Analytics Tool for Green Infrastructure. 
-<img src = "https://miro.medium.com/max/1600/1*z4VTylIuLKBVjEbQ4aASaQ.gif" title = "Undraw_tree_gif_Placeholder" Alt = "Header img placeholder.">
+<img src = "https://i.imgur.com/wHqLBtx.gifv" title = "treePol" Alt = "treePol">
 
 > Treepol is a predictive analytics tool, aiming to highlight the invisible impacts of Green Infrastructure!
 
