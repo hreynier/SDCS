@@ -20,11 +20,16 @@ h6 {
 }
 
 h1 {
-font-size: 20px;
+font-size: 3em;
 font-family: 'Taviraj', verdana  , sans-serif;
 color: #3e3e3e;
 font-weight:800 !important;
 
+}
+
+.container-fluid{
+	background-color: #F0E5D3;
+	
 }
 
 h2 {

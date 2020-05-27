@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Camden Tree Map API Information</title>
+	<title>Camden TreePol API Documentation</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,700|Taviraj" rel="stylesheet">
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="style.css" type="text/css">
@@ -8,9 +8,13 @@
 <body>
 	<script src="./jquery.min.js"></script>
 	<div id="container">
-		<h1>
-			Treecon API
-		</h1>
+		
+		<div class = "container-fluid">
+			<h1>
+				TreePol API
+			</h1>
+		</div>
+		
 		
 		<h2>
 		Data Endpoints
@@ -39,7 +43,7 @@
 				<ul>
 					<!--<li><em>Carbon_Sequest_YR</em>: Returns Carbon Sequestration in kg per yr for each tree.</li>
 					<li><em>Carbon_StorageKG</em>: Returns Carbon Storage in kg per tree.</li>-->
-					<li><em>Pollution_Year_grams</em>: Returns Pollition absorbed per year in grams per tree.</li>
+					<li><em>Pollution_Year_grams</em>: Returns Pollution absorbed per year in grams per tree.</li>
 				</ul>
 			
 		</p>
@@ -71,6 +75,20 @@
 			<b>Returns the results aggregated per ward of the predictive analytic tool, to predict the amount of pollution removed in the future.</b>
 		</p>
 
+		<p>
+			/data/highcharts/:measure - <a href = "http://dev.spatialdatacapture.org:8703/data/highcharts/Amenity_Value" target = "_BLANK">Example where measure is set to 'Amenity_Value'</a></br>
+			<b>Returns the data to be used in both highcharts graphs. This endpoint aggregates the average value (pollution removal kg/yr or amneity value £mill) across the top three most commone tree species per ward in Camden.</b>
+			The selected measure values are:
+			<ul>
+				<li>
+					<em>Pollution_Year_grams</em>: Returns the average value of pollution removal (kg/yr) across the top three most common tree species, aggregated through each ward.
+				</li>
+				<li>
+					<em>Amenity_Value</em>: Returns the average value of the Capital Amenity Value (£Mill) across the top three most common tree species, aggregated through each ward.
+				</li>
+			</ul>
+		</p>
+		
 	</div>
 </body>
 </html>
