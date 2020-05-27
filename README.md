@@ -4,7 +4,7 @@
 
 > Treepol is a predictive analytics tool, aiming to highlight the invisible impacts of Green Infrastructure!
 
->This appplication has been developed by a small team of students at UCL for the SDCSA module at CASA.
+This application has been developed by a *small team of students at **UCL*** for the SDCSA module at CASA.
 
 Please *leaf* your feedback!!
 
